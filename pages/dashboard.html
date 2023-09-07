@@ -1,0 +1,120 @@
+<html>
+
+<head>
+    <title>Ubuntu Portrait Preview | Dashboard</title>
+    <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-3.14.0.min.css" />
+
+    <style>
+        #command_output {
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="navigation" class="p-navigation">
+        <div class="p-navigation__row">
+            <div class="p-navigation__banner">
+                <div class="p-navigation__tagged-logo">
+                    <a class="p-navigation__link" href="#">
+                        <div class="p-navigation__logo-tag">
+                            <img class="p-navigation__logo-icon"
+                                src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="">
+                        </div>
+                        <span class="p-navigation__logo-title">Ubuntu Portrait Preview</span>
+                    </a>
+                </div>
+                <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+                <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+            </div>
+            <nav class="p-navigation__nav u-image-position">
+                <ul class="p-navigation__items"></ul>
+
+                <ul class="p-navigation__items u-image-position--right">
+                    <li class="p-navigation__item">
+                        <a class="p-navigation__link" id="user_identity"></a>
+                    </li>
+                    <li class="p-navigation__item">
+                        <a class="p-navigation__link" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="row">
+        <div class="col-12">
+            <p class="p-heading--1">Explorer</p>
+            <p>Explore the file system by using one of the allowed commands:</p>
+            <ul>
+                <li><a href="https://linux.die.net/man/1/ls"><code>ls</code> for listing files</a>;</li>
+                <li><a href="https://linux.die.net/man/1/find"><code>find</code> for finding files</a>;</li>
+                <li><a href="https://linux.die.net/man/1/cat"><code>cat</code> for printing the content of a file</a>;
+                    and</li>
+                <li><a href="https://linux.die.net/man/1/xxd"><code>xxd</code> for hexadecimally printing the content of
+                        a file</a>.</li>
+            </ul>
+            <form id="execute_command_form">
+                <label for="command">Command</label>
+                <input type="text" id="command" name="command" placeholder="ls">
+                <button type="submit">Execute</button>
+                <br />
+                <label for="command_output">Output</label>
+                <textarea id="command_output" name="command_output" rows="5" readonly></textarea>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <p class="p-heading--1">Uploader</p>
+            <p>Select an archive and store its files in a new directory from your home.</p>
+            <form>
+                <label for="folder">Name of the destination folder</label>
+                <input type="text" id="folder" name="folder" placeholder="configs">
+                <label for="archive"><code>.zip</code> archive</label>
+                <input type="file" id="archive" name="archive">
+                <button type="submit" name="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function check_cookie_name(name) {
+            var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'))
+            if (match) {
+                return match[2]
+            }
+            else {
+                return null
+            }
+        }
+
+        const uid = check_cookie_name("uid")
+        fetch('/username?uid=' + uid)
+            .then(data => {
+                return data.text()
+            })
+            .then(username => {
+                document.getElementById("user_identity").innerHTML = `${username} (${uid})`
+            })
+
+        const command_form = document.getElementById('execute_command_form')
+        command_form.addEventListener('submit', event => {
+            event.preventDefault();
+            var command = document.getElementById("command").value;
+
+            fetch('/command?command=' + command)
+                .then(data => {
+                    return data.text()
+                })
+                .then(output => {
+                    document.getElementById("command_output").value = output
+                })
+        });
+    </script>
+
+</body>
+
+</html>

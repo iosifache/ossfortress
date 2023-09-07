@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <title>Ubuntu Portrait Preview | Recovery Mode</title>
+    <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-3.14.0.min.css" />
+</head>
+
+<body>
+
+    <header id="navigation" class="p-navigation">
+        <div class="p-navigation__row">
+            <div class="p-navigation__banner">
+                <div class="p-navigation__tagged-logo">
+                    <a class="p-navigation__link" href="#">
+                        <div class="p-navigation__logo-tag">
+                            <img class="p-navigation__logo-icon"
+                                src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg" alt="">
+                        </div>
+                        <span class="p-navigation__logo-title">Ubuntu Portrait Preview</span>
+                    </a>
+                </div>
+                <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+                <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="row">
+        <div class="col-12">
+            <p class="p-heading--1" id="recovery">Recovery mode</p>
+            <p>In case you lost all credentials for regular account, please use the <b>recovery token</b>. It is a
+                SHA-256 hash that you can simply compute online, with an online tool, by hashing the <b>secret server
+                    recovery passphrase</b> concatenated with the username of a user present on the server (with login
+                capabilities). For example, the recovery token for a (non-existent) user named <code>r</code> will be
+                <code>c01f788145d75353d7d8fa211f18f2dc9e54cf1ed0cf7a150caad5fecb4ecc5d</code>.
+            </p>
+            <form>
+                <label for="recovery_username">Username</label>
+                <input type="text" id="recovery_username" name="recovery_username" placeholder="ubuntu">
+                <label for="recovery_token">Recovery token</label>
+                <input type="password" id="recovery_token" name="recovery_token"
+                    placeholder="****************************************************************">
+                <label for="recovery_command">Command</label>
+                <input type="text" id="recovery_command" name="recovery_command" placeholder="ls">
+                <button type="recovery_submit" name="recovery_submit">Execute</button>
+                <br />
+                <label for="recovery_output">Output</label>
+                <textarea id="textarea" name="recovery_output" rows="5" readonly></textarea>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
