@@ -3,6 +3,12 @@
 <head>
     <title>Ubuntu Portrait Preview | Recovery Mode</title>
     <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-3.14.0.min.css" />
+
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,11 +36,20 @@
             <p class="p-heading--1" id="recovery">Recovery mode</p>
             <p>In case you lost all credentials for regular account, please use the <b>recovery token</b>. It is a
                 SHA-256 hash that you can simply compute online, with an online tool, by hashing the <b>secret server
-                    recovery passphrase</b> concatenated with the username of a user present on the server (with login
-                capabilities). For example, the recovery token for a (non-existent) user named <code>r</code> will be
-                <code>c01f788145d75353d7d8fa211f18f2dc9e54cf1ed0cf7a150caad5fecb4ecc5d</code>.
+                    recovery passphrase</b> (set in the <code>PORTRAIT_RECOVERY_PASSPHRASE</code> environment variable) concatenated with the username of a user present on the server (with login
+                capabilities).
             </p>
-            <form>
+            <p>
+                For this instance, an example recovery token for a (non-existent) user named <code id="example_user">ubuntu</code> will be
+                <code id="example_token">0000000000000000000000000000000000000000000000000000000000000000</code>.
+            </p>
+            <form id="recovery_form">
+                <div class="p-notification--negative hidden" id="invalid_creds">
+                    <div class="p-notification__content">
+                        <h5 class="p-notification__title">Error</h5>
+                        <p class="p-notification__message">Your credentials are invalid.</p>
+                    </div>
+                </div>
                 <label for="recovery_username">Username</label>
                 <input type="text" id="recovery_username" name="recovery_username" placeholder="ubuntu">
                 <label for="recovery_token">Recovery token</label>
@@ -45,10 +60,44 @@
                 <button type="recovery_submit" name="recovery_submit">Execute</button>
                 <br />
                 <label for="recovery_output">Output</label>
-                <textarea id="textarea" name="recovery_output" rows="5" readonly></textarea>
+                <textarea id="recovery_output" name="recovery_output" rows="5" readonly></textarea>
             </form>
         </div>
     </div>
+
+    <script>
+        fetch('/example_recovery_token')
+            .then(data => {
+                return data.json()
+            })
+            .then(data => {
+                document.getElementById("example_user").innerText = data.user
+                document.getElementById("example_token").innerText = data.token
+            })
+        
+        const command_form = document.getElementById('recovery_form')
+        command_form.addEventListener('submit', event => {
+            event.preventDefault();
+
+            var username = document.getElementById("recovery_username").value
+            var token = document.getElementById("recovery_token").value
+            var command = document.getElementById("recovery_command").value
+
+            fetch(`/recovery_command?username=${username}&token=${token}&command=${command}`)
+                .then(response => {
+                    if (response.status === 401) {
+                        var element = document.getElementById("invalid_creds");
+                        element.classList.remove("hidden");
+                    }
+                    else{
+                        return response.text()
+                    }
+                })
+                .then(output => {
+                    document.getElementById("recovery_output").value = output
+                })
+        });
+    </script>
 
 </body>
 

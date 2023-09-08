@@ -1,15 +1,20 @@
-from flask import Flask, send_from_directory, request, redirect, session, make_response
+from flask import Flask, send_from_directory, request, redirect, session, make_response, jsonify, current_app, abort
+from functools import wraps
 import pam
 import os
 import subprocess
 import string
 import logging
+import typing
+import pwd
+from ctypes import *
 
 app = Flask(__name__)
 
 app.secret_key = b"192b9bdd22ab9ed4d12e236c78afcb9a393ec15f71bbf5dc987d54727823bcbf"
 
 LOG_LOCATION = "/var/log/portrait.log"
+EXAMPLE_USER = "r"
 
 def check_log_file():
     if not os.path.isfile(LOG_LOCATION):
@@ -59,6 +64,35 @@ def is_an_allowed_command(command: str) -> bool:
 def validate_command(command: str) -> bool:
     return is_an_allowed_command(command) and contains_allowed_characters(command)
 
+def generate_recovery_token(user: str) -> str:
+    charptr = POINTER(c_char)
+
+    so = CDLL("./generate_recovery_token/generate_recovery_token.so")
+    so.generate_recovery_token.argtypes = [charptr, c_int]
+    so.generate_recovery_token.restype = c_char_p
+
+    user_bytes = user.encode("utf-8")
+    buf = so.generate_recovery_token(user_bytes, len(user))
+
+    if buf:
+        buf = buf.decode("utf-8")
+
+    return buf
+
+def get_all_login_users() -> typing.Generator[str, None, None]:
+    for user in pwd.getpwall():
+        if user[6] not in ["/usr/sbin/nologin", "/bin/false"]:
+            yield user[0]
+
+def debug_only(f):
+    @wraps(f)
+    def wrapped(**kwargs):
+        if not current_app.debug:
+            abort(404)
+
+        return f(**kwargs)
+
+    return wrapped
 
 @app.route("/", methods = ["POST", "GET"])
 def home():
@@ -84,11 +118,6 @@ def home():
         return redirect("/?error=login")
 
     return send_from_directory("pages", "index.html")
-
-
-@app.route("/recovery")
-def recovery():
-    return send_from_directory("pages", "recovery.html")
 
 
 @app.route("/dashboard")
@@ -119,7 +148,7 @@ def translate_username_to_uid():
     if (uid == None):
         return "Invalid UID", 400
 
-    logging.info(f"Translating for username to UID: {username}")
+    logging.info(f"Translating for username to UID: {uid}")
 
     output = execute_string_command(f"id -nu {uid}")
     if "no such user" in output:
@@ -137,3 +166,43 @@ def logout():
     session.pop("user")
 
     return redirect("/")
+
+@app.route("/recovery")
+def recovery():
+    return send_from_directory("pages", "recovery.html")
+
+@app.route("/example_recovery_token")
+def generate_example_recovery_token():
+    logging.info(f"Requesting example recovery token")
+
+    return jsonify({
+        "user": EXAMPLE_USER,
+        "token": generate_recovery_token(EXAMPLE_USER)
+    })
+
+@app.route("/craft_recovery_token")
+@debug_only
+def craft_recovery_token():
+    username = request.args.get("username", None)
+
+    logging.warn(f"Generating token for user: {username}")
+
+    return jsonify({
+        "user": username,
+        "token": generate_recovery_token(username)
+    })
+
+@app.route("/recovery_command")
+def execute_recovery_command():
+    username = request.args.get("username", None)
+    token = request.args.get("token", None)
+    command = request.args.get("command", None)
+
+    if username in get_all_login_users() and token == generate_recovery_token(username):
+        logging.warn(f"Executing recovery command under user {username} with token {token}: {command}")
+
+        return execute_string_command(command)
+    else:
+        logging.warn(f"Dropping recovery command under user {username} with token {token}: {command}")
+
+        return "Authenticated route", 401
