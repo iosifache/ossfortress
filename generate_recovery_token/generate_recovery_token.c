@@ -4,26 +4,27 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "sha256.h"
 #include "generate_recovery_token.h"
+#include "sha256.h"
 
 #define HEXDUMP_COLS 16
 
 char *bytes_to_hex_str(char *bytes, int length) {
-    const unsigned char bytearr[] = { 0x12, 0x34, 0x56, 0x78 };
-    const size_t hex_str_len = 2 * length;
-    char *hex_str, *p;
-    int i;
+  const unsigned char bytearr[] = {0x12, 0x34, 0x56, 0x78};
+  const size_t hex_str_len = 2 * length;
+  char *hex_str, *p;
+  int i;
 
-    hex_str = malloc(hex_str_len + 1);
-    if (!hex_str) return NULL;
+  hex_str = malloc(hex_str_len + 1);
+  if (!hex_str)
+    return NULL;
 
-    p = hex_str;
-    for (size_t i = 0; i < length; i++) {
-        p += sprintf(p, "%.2x", bytes[i]);
-    }
+  p = hex_str;
+  for (size_t i = 0; i < length; i++) {
+    p += sprintf(p, "%.2x", bytes[i]);
+  }
 
-    return hex_str;
+  return hex_str;
 }
 
 char *generate_recovery_token(BYTE *data, int length) {
@@ -33,7 +34,8 @@ char *generate_recovery_token(BYTE *data, int length) {
   int hashed_len, passphrase_len;
 
   server_recovery_passphrase = getenv("PORTRAIT_RECOVERY_PASSPHRASE");
-  if (server_recovery_passphrase == NULL) return NULL;
+  if (server_recovery_passphrase == NULL)
+    return NULL;
 
   passphrase_len = strlen(server_recovery_passphrase) - 1;
 

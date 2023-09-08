@@ -10,7 +10,7 @@
             color: #fff;
         }
 
-        .hidden{
+        .hidden {
             display: none;
         }
     </style>
@@ -91,7 +91,7 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
 
-        if (urlParams.get("error") === "login"){
+        if (urlParams.get("error") === "login") {
             var element = document.getElementById("invalid_creds");
             element.classList.remove("hidden");
         }
