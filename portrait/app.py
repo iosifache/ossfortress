@@ -22,6 +22,7 @@ from portrait.os_ops import (
     get_uid,
 )
 from portrait.recovery import generate_recovery_token
+from portrait.uploader import extract_archive_in_user_home
 
 app = Flask(__name__)
 
@@ -129,6 +130,32 @@ def translate_username_to_uid():
     return output
 
 
+@app.route("/upload", methods=["POST"])
+def upload():
+    if "user" not in session:
+        return "Authenticated route", 401
+
+    if "archive" not in request.files:
+        return "No archive", 400
+
+    username = session["user"]
+    dest = request.args.get("dest", None)
+
+    extracted = extract_archive_in_user_home(
+        request.files["archive"], username, dest
+    )
+    if extracted:
+        logging.info(f"Uploading archive to ~/{dest} for user: {username}")
+
+        return ""
+    else:
+        logging.warn(
+            f"Failing to upload archive to ~/{dest} for user: {username}"
+        )
+
+        return "Issues when unarchiving the file", 400
+
+
 @app.route("/logout")
 def logout():
     if "user" not in session:
@@ -163,7 +190,7 @@ def generate_example_recovery_token():
 def craft_recovery_token():
     username = request.args.get("username", None)
 
-    logging.warn(f"Generating token for user: {username}")
+    logging.info(f"Generating token for user: {username}")
 
     return jsonify(
         {
@@ -184,7 +211,7 @@ def execute_recovery_command():
         token == generate_recovery_token(username, length)
         and username in get_all_login_users()
     ):
-        logging.warn(
+        logging.info(
             f"Executing recovery command under user {username} with token"
             f" {token}: {command}"
         )

@@ -26,6 +26,10 @@ def get_gid(username: str) -> int:
     return int(output)
 
 
+def get_home_dir(username: str) -> str:
+    return pwd.getpwnam(username).pw_dir
+
+
 def delegate(uid: int, gid: int) -> None:
     def set_ids():
         os.setgid(uid)
