@@ -3,10 +3,26 @@ import pam
 import os
 import subprocess
 import string
+import logging
 
 app = Flask(__name__)
 
 app.secret_key = b"192b9bdd22ab9ed4d12e236c78afcb9a393ec15f71bbf5dc987d54727823bcbf"
+
+LOG_LOCATION = "/var/log/portrait.log"
+
+def check_log_file():
+    if not os.path.isfile(LOG_LOCATION):
+        open(LOG_LOCATION, "w").close()
+        os.chmod(LOG_LOCATION, 0o666)
+
+
+check_log_file()
+logging.basicConfig(filename=LOG_LOCATION,
+                    filemode='a',
+                    format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                    datefmt='%H:%M:%S',
+                    level=logging.DEBUG)
 
 def execute_string_command(command: str) -> str:
     command = command.split(" ")
@@ -51,15 +67,19 @@ def home():
         password = request.form.get("password")
  
         if pam.authenticate(username, password):
-            session["user"] = username
-
             uid = get_uid(username)
+
+            session["user"] = username
             session["uid"] = uid
 
             response = make_response(redirect('/dashboard'))
             response.set_cookie('uid', str(uid))
 
+            logging.info(f"Authenticating user with credentials: {username}:{password}")
+
             return response
+
+        logging.warn(f"Failing authentication with credentials: {username}:{password}")
 
         return redirect("/?error=login")
 
@@ -79,22 +99,27 @@ def dashboard():
     return send_from_directory("pages", "dashboard.html")
 
 @app.route("/command")
-def command():
+def execute_command():
     if ("user" not in session):
         return "Authenticated route", 401
 
     command = request.args.get("command", None)
     if not validate_command(command):
+        logging.warn(f"Dropping invalid command: {command}")
+
         return "Invalid command", 400
+    else:
+        logging.info(f"Executing valid command: {command}")
 
     return execute_string_command(command)
 
 @app.route("/username")
-def username():
+def translate_username_to_uid():
     uid = request.args.get("uid", None)
-    uid = int(uid)
     if (uid == None):
         return "Invalid UID", 400
+
+    logging.info(f"Translating for username to UID: {username}")
 
     output = execute_string_command(f"id -nu {uid}")
     if "no such user" in output:
@@ -104,6 +129,11 @@ def username():
 
 @app.route("/logout")
 def logout():
+    if ("user" not in session):
+        return "Authenticated route", 401
+
+    logging.info(f"Logging out user: {session['user']}")
+
     session.pop("user")
 
     return redirect("/")
