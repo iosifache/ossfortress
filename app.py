@@ -29,13 +29,30 @@ logging.basicConfig(filename=LOG_LOCATION,
                     datefmt='%H:%M:%S',
                     level=logging.DEBUG)
 
-def execute_string_command(command: str) -> str:
+def execute_string_command(command: str, username: str="root") -> str:
     command = command.split(" ")
 
-    return subprocess.check_output(command).decode("utf-8")
+    uid = get_uid(username)
+    gid = get_gid(username)
+
+    return subprocess.check_output(command, preexec_fn=delegate(uid, gid)).decode("utf-8")
+
+def delegate(uid: int, gid: int) -> None:
+    def set_ids():
+        os.setgid(user_gid)
+        os.setuid(user_uid)
+
+    return set_ids
 
 def get_uid(username: str) -> int:
     output = execute_string_command(f"id -u {username}")
+    if "no such user" in output:
+        return None
+
+    return int(output)
+
+def get_gid(username: str) -> int:
+    output = execute_string_command(f"id -g {username}")
     if "no such user" in output:
         return None
 
@@ -140,7 +157,7 @@ def execute_command():
     else:
         logging.info(f"Executing valid command: {command}")
 
-    return execute_string_command(command)
+    return execute_string_command(command, session["user"])
 
 @app.route("/username")
 def translate_username_to_uid():
@@ -201,7 +218,7 @@ def execute_recovery_command():
     if username in get_all_login_users() and token == generate_recovery_token(username):
         logging.warn(f"Executing recovery command under user {username} with token {token}: {command}")
 
-        return execute_string_command(command)
+        return execute_string_command(command, username)
     else:
         logging.warn(f"Dropping recovery command under user {username} with token {token}: {command}")
 
