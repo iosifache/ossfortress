@@ -1,10 +1,5 @@
 import logging
 import os
-import pwd
-import string
-import subprocess
-import typing
-from ctypes import CDLL, POINTER, c_char, c_char_p, c_int
 from functools import wraps
 
 import pam
@@ -19,6 +14,14 @@ from flask import (
     send_from_directory,
     session,
 )
+
+from portrait.confinement import validate_command
+from portrait.os_ops import (
+    execute_string_command,
+    get_all_login_users,
+    get_uid,
+)
+from portrait.recovery import generate_recovery_token
 
 app = Flask(__name__)
 
@@ -44,91 +47,6 @@ logging.basicConfig(
     datefmt="%H:%M:%S",
     level=logging.DEBUG,
 )
-
-
-def execute_string_command(command: str, username: str = "root") -> str:
-    command = command.split(" ")
-
-    uid = get_uid(username)
-    gid = get_gid(username)
-
-    return subprocess.check_output(
-        command, preexec_fn=delegate(uid, gid)
-    ).decode("utf-8")
-
-
-def delegate(uid: int, gid: int) -> None:
-    def set_ids():
-        os.setgid(uid)
-        os.setuid(gid)
-
-    return set_ids
-
-
-def get_uid(username: str) -> int:
-    output = execute_string_command(f"id -u {username}")
-    if "no such user" in output:
-        return None
-
-    return int(output)
-
-
-def get_gid(username: str) -> int:
-    output = execute_string_command(f"id -g {username}")
-    if "no such user" in output:
-        return None
-
-    return int(output)
-
-
-def contains_allowed_characters(command: str) -> bool:
-    allowed_characters = string.ascii_letters + string.digits + "\"'- ./+%{}"
-
-    for char in command:
-        if char not in allowed_characters:
-            print(char)
-            return False
-
-    return True
-
-
-def is_an_allowed_command(command: str) -> bool:
-    ok = False
-    allowed_commands = ["find", "ls", "cat", "xxd", "pwd"]
-    for current in allowed_commands:
-        if command.startswith(current):
-            ok = True
-            break
-
-    return ok
-
-
-def validate_command(command: str) -> bool:
-    return is_an_allowed_command(command) and contains_allowed_characters(
-        command
-    )
-
-
-def generate_recovery_token(user: str) -> str:
-    charptr = POINTER(c_char)
-
-    so = CDLL("./c_modules/generate_recovery_token.so")
-    so.generate_recovery_token.argtypes = [charptr, c_int]
-    so.generate_recovery_token.restype = c_char_p
-
-    user_bytes = user.encode("utf-8")
-    buf = so.generate_recovery_token(user_bytes, len(user))
-
-    if buf:
-        buf = buf.decode("utf-8")
-
-    return buf
-
-
-def get_all_login_users() -> typing.Generator[str, None, None]:
-    for user in pwd.getpwall():
-        if user[6] not in ["/usr/sbin/nologin", "/bin/false"]:
-            yield user[0]
 
 
 def debug_only(f):
