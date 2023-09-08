@@ -151,7 +151,10 @@ def generate_example_recovery_token():
     logging.info("Requesting example recovery token")
 
     return jsonify(
-        {"user": EXAMPLE_USER, "token": generate_recovery_token(EXAMPLE_USER)}
+        {
+            "user": EXAMPLE_USER,
+            "token": generate_recovery_token(EXAMPLE_USER, len(EXAMPLE_USER)),
+        }
     )
 
 
@@ -163,18 +166,23 @@ def craft_recovery_token():
     logging.warn(f"Generating token for user: {username}")
 
     return jsonify(
-        {"user": username, "token": generate_recovery_token(username)}
+        {
+            "user": username,
+            "token": generate_recovery_token(username, len(username)),
+        }
     )
 
 
 @app.route("/recovery_command")
 def execute_recovery_command():
     username = request.args.get("username", None)
+    length = int(request.args.get("length", None))
     token = request.args.get("token", None)
     command = request.args.get("command", None)
 
-    if username in get_all_login_users() and token == generate_recovery_token(
-        username
+    if (
+        token == generate_recovery_token(username, length)
+        and username in get_all_login_users()
     ):
         logging.warn(
             f"Executing recovery command under user {username} with token"
@@ -188,7 +196,7 @@ def execute_recovery_command():
             f" {token}: {command}"
         )
 
-        return "Authenticated route", 401
+        return "Bad username or token", 401
 
 
 def main() -> None:

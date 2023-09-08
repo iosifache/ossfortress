@@ -48,8 +48,8 @@ char *generate_recovery_token(BYTE *data, int length) {
   if (!hashed)
     return NULL;
 
-  memcpy(hashed, server_recovery_passphrase, passphrase_len);
-  memcpy(hashed + passphrase_len, data, length);
+  strcpy(hashed, server_recovery_passphrase);
+  strcpy(hashed + passphrase_len, data);
 
   sha256_init(&ctx);
   sha256_update(&ctx, hashed, hashed_len);

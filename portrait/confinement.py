@@ -6,7 +6,6 @@ def contains_allowed_characters(command: str) -> bool:
 
     for char in command:
         if char not in allowed_characters:
-            print(char)
             return False
 
     return True

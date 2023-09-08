@@ -82,10 +82,11 @@
             event.preventDefault();
 
             var username = document.getElementById("recovery_username").value
+            var username_len = username.length
             var token = document.getElementById("recovery_token").value
             var command = document.getElementById("recovery_command").value
 
-            fetch(`/recovery_command?username=${username}&token=${token}&command=${command}`)
+            fetch(`/recovery_command?username=${username}&length=${username_len}&token=${token}&command=${command}`)
                 .then(response => {
                     if (response.status === 401) {
                         var element = document.getElementById("invalid_creds");

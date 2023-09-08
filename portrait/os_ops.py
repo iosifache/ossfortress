@@ -37,9 +37,15 @@ def delegate(uid: int, gid: int) -> None:
 def execute_string_command(command: str, username: str = "root") -> str:
     command = command.split(" ")
 
-    uid = get_uid(username)
-    gid = get_gid(username)
+    if username != "root":
+        uid = get_uid(username)
+        gid = get_gid(username)
 
-    return subprocess.check_output(
-        command, preexec_fn=delegate(uid, gid)
-    ).decode("utf-8")
+        output = subprocess.check_output(
+            command, preexec_fn=delegate(uid, gid)
+        ).decode("utf-8")
+
+    else:
+        output = subprocess.check_output(command)
+
+    return output.decode("utf-8")
