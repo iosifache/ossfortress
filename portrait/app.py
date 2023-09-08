@@ -112,7 +112,7 @@ def validate_command(command: str) -> bool:
 def generate_recovery_token(user: str) -> str:
     charptr = POINTER(c_char)
 
-    so = CDLL("./generate_recovery_token/generate_recovery_token.so")
+    so = CDLL("./c_modules/generate_recovery_token.so")
     so.generate_recovery_token.argtypes = [charptr, c_int]
     so.generate_recovery_token.restype = c_char_p
 
@@ -271,3 +271,11 @@ def execute_recovery_command():
         )
 
         return "Authenticated route", 401
+
+
+def main() -> None:
+    app.run(port=8080, debug=True)
+
+
+if __name__ == "__main__":
+    main()

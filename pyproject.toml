@@ -9,11 +9,16 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 Flask = "^2.3.3"
+python-pam = "^2.0.2"
+six = "^1.16.0"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.1.0"
 black = "^23.7.0"
 isort = "^5.12.0"
+
+[tool.poetry.scripts]
+portrait = 'portrait.app:main'
 
 [tool.black]
 line-length = 79

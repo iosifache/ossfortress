@@ -315,6 +315,28 @@ files = [
 ]
 
 [[package]]
+name = "python-pam"
+version = "2.0.2"
+description = "Python PAM module using ctypes, py3"
+optional = false
+python-versions = "*"
+files = [
+    {file = "python-pam-2.0.2.tar.gz", hash = "sha256:97235235ba9b82dbae8068d1099508455949b275f77273ca22fdbd8b1fb5d950"},
+    {file = "python_pam-2.0.2-py3-none-any.whl", hash = "sha256:4ac51dd8953ac59aa45505882b565eef6a22e0423dcf25d63369902080416c20"},
+]
+
+[[package]]
+name = "six"
+version = "1.16.0"
+description = "Python 2 and 3 compatibility utilities"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+files = [
+    {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
+    {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
+]
+
+[[package]]
 name = "tomli"
 version = "2.0.1"
 description = "A lil' TOML parser"
@@ -345,4 +367,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "3388a9ff078f2704aa36a5882a7534a1f7112151fbb26aec57bc4d196170cb7a"
+content-hash = "0be8ac460b9d11baab937c0575359f653b6a5e3840a874eed7b31fe049c68920"
