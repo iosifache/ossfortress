@@ -2,6 +2,7 @@ import logging
 import os
 from functools import wraps
 
+
 import pam
 from flask import (
     Flask,
@@ -12,6 +13,7 @@ from flask import (
     redirect,
     request,
     send_from_directory,
+    send_file,
     session,
 )
 
@@ -23,6 +25,7 @@ from portrait.os_ops import (
 )
 from portrait.recovery import generate_recovery_token
 from portrait.uploader import extract_archive_in_user_home
+from portrait.image_ops import convert_format, convert_format_to_class
 
 app = Flask(__name__)
 
@@ -89,6 +92,32 @@ def home():
         return redirect("/?error=login")
 
     return send_from_directory("pages", "index.html")
+
+
+@app.route("/utilities")
+def utilities():
+    return send_from_directory("pages", "utilities.html")
+
+
+@app.route("/convert_image", methods=["POST"])
+def convert_image():
+    if "image" not in request.files:
+        return "No archive", 400
+
+    format = request.args.get("format", None)
+    format = convert_format_to_class(format)
+
+    if format is None:
+        return "Invalid format", 400
+
+    logging.info(
+        f"Converting a file to the {format.name} format:"
+        f" {request.files['image']}"
+    )
+
+    output_file = convert_format(request.files["image"], format)
+
+    return send_file(output_file)
 
 
 @app.route("/dashboard")

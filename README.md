@@ -17,3 +17,4 @@
 7. `find` for escaping the sandbox and injecting command as `$USER`, in `is_an_allowed_command` from `portrait/confinement.py`
 8. IDOR by controlling the `uid` from the `translate_username_to_uid` route in `portrait/app.py`, which leads to user enumeration
 9. Path traversal in `extract_archive_in_user_home` from `portrait/uploader.py`
+10. Heap-based buffer overflow in Pillow, a Python dependency used in `portrait/image_ops.py`
