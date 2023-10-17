@@ -25,6 +25,15 @@
 - **Attack vector**: Authenticated HTTP call to `/command`
 - **Impact**: Arbistrary command exectution as `$USER`
 
+### Enabled Flask debugging
+
+- **CWEs**
+  - CWE-489: Active Debug Code
+- **Affected component**: Python HTTP server
+- **Vulnerable code**: `portrait/app.py`
+- **Attack vector**: HTTP calls
+- **Impact**: Information disclosure, and, eventually, code execution
+
 ### Heap out-of-bound write when generating recovery tokens
 
 - **CWEs**
