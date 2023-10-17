@@ -2,14 +2,20 @@
     "editor.rulers": [
         80
     ],
-    "python.linting.flake8Path": ".venv/bin/flake8",
-    "python.formatting.blackPath": ".venv/bin/black",
-    "python.linting.flake8Enabled": true,
+    "black-formatter.path": [
+        ".venv/bin/black"
+    ],
+    "flake8.path": [
+        ".venv/bin/flake8"
+    ],
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
-    "isort.path": ".venv/bin/isort",
+    "isort.path": [
+        ".venv/bin/isort"
+    ],
+    "isort.check": true,
     "files.exclude": {
         ".git": true,
         ".venv": true,
