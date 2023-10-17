@@ -8,13 +8,93 @@
 
 ## Known vulnerabilities
 
-1. Heap out-of-bound write in the `buf` buffer from the `generate_recovery_token` function from `portrait/c_modules/generate_recovery_token.c`
-2. Zip splipping in `extract_archive` from `portrait/uploader.py`
-3. Default (and exposed) secrets in `app.secret_key` from `portrait/app.py`
-4. Logging credentials and tokens in the routes from `portrait/app.py`
-5. Incorrect permissions for logging files in `check_log_file` from `portrait/app.py`
-6. Hash length extension attack in the `generate_recovery_token` function from `portrait/c_modules/generate_recovery_token.c`, which leads to command injection as root
-7. `find` for escaping the sandbox and injecting command as `$USER`, in `is_an_allowed_command` from `portrait/confinement.py`
-8. IDOR by controlling the `uid` from the `translate_username_to_uid` route in `portrait/app.py`, which leads to user enumeration
-9. Path traversal in `extract_archive_in_user_home` from `portrait/uploader.py`
-10. Heap-based buffer overflow in Pillow, a Python dependency used in `portrait/image_ops.py`
+### SHA256 hash length extension attack
+
+- **CWEs**
+  - CWE-1240: Use of a Cryptographic Primitive with a Risky Implementation
+- **Affected component**: C shared library
+- **Vulnerable code**: `generate_recovery_token()` in `portrait/c_modules/generate_recovery_token.c`
+- **Attack vector**: Unauthenticated HTTP call to `/recovery_command`
+- **Impact**: `root` account compromise and privilege escalation
+
+### Command sandbox escape via `find`
+
+- **CWEs**
+  - CWE-78: Improper Neutralization of Special Elements used in an OS Command
+- **Affected component**: Python HTTP server
+- **Vulnerable code**: `is_an_allowed_command()` from `portrait/confinement.py`
+- **Attack vector**: Authenticated HTTP call to `/command`
+- **Impact**: Arbistrary command exectution as `$USER`
+
+### Heap out-of-bound write when generating recovery tokens
+
+- **CWEs**
+  - CWE 787: Out-of-bounds Write
+- **Affected component**: C shared library
+- **Vulnerable code**: `buf[]` from `generate_recovery_token()` in `portrait/c_modules/generate_recovery_token.c`
+- **Attack vector**: Unauthenticated HTTP call to `/recovery_command`
+- **Impact**: Memory write and, eventually, code execution
+
+### Heap out-of-bound write when converting image formats with Pillow
+
+- **CWEs**
+  - CWE 787: Out-of-bounds Write
+- **Affected component**: Python HTTP server
+- **Vulnerable code**: `convert_format` in `portrait/image_ops.py`
+- **Attack vector**: Unauthenticated HTTP call to `/convert_image`
+- **Impact**: Memory write and, eventually, code execution
+
+### Zip slipping when extracting user-submitted archives
+
+- **CWEs**
+  - CWE-23: Relative Path Traversal
+- **Affected component**: Python HTTP server
+- **Vulnerable code**: `extract_archive()` in `portrait/uploader.py`
+- **Attack vector**: Authenticated HTTP call to `/upload`
+- **Impact**: Arbitrary file write
+
+### Arbitrary file write when extracting user-submitted archives
+
+- **CWEs**
+  - CWE-23: Relative Path Traversal
+- **Affected component**: Python HTTP server
+- **Vulnerable code**: `extract_archive_in_user_home()` in `portrait/uploader.py`
+- **Attack vector**: Authenticated HTTP call to `/upload`
+- **Impact**: Arbitrary file write
+
+### IDOR when translating usernames to UIDs
+
+- **CWEs**
+  - CWE-641: Improper Restriction of Names for Files and Other Resources
+  - CWE-280: Improper Handling of Insufficient Permissions or Privileges 
+- **Affected component**: Python HTTP server
+- **Vulnerable code**: `translate_username_to_uid()` in `portrait/app.py`
+- **Attack vector**: Authenticated HTTP call to `/username`
+- **Impact**: User enumeration
+
+### Credentials and tokens logging
+
+- **CWEs**
+  - CWE-215: Insertion of Sensitive Information Into Debugging Code
+- **Affected component**: Python HTTP server
+- **Vulnerable code**: Multiple routes from `portrait/app.py`
+- **Attack vector**: Access to the filesystem of the web server
+- **Impact**: Accounts' compromise and, eventually, privilege escalation
+
+### Insecure permissions for created logging file
+
+- **CWEs**
+  - CWE-279: Incorrect Execution-Assigned Permissions
+- **Affected component**: Python HTTP server
+- **Vulnerable code**: `check_log_file()` in `portrait/app.py`
+- **Attack vector**: Access to the filesystem of the web server
+- **Impact**: Accounts' compromise and, eventually, privilege escalation
+
+### Default (and exposed) Flask secrets
+
+- **CWEs**
+  - CWE-318: Cleartext Storage of Sensitive Information in Executable
+- **Affected component**: Python HTTP server
+- **Vulnerable code**: `app.secret_key` from `portrait/app.py`
+- **Attack vector**: Codebase access
+- **Impact**: Exposure of the Flask secret used by all Portrait instances
