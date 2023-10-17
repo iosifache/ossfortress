@@ -2,9 +2,8 @@
 
 ## Setup
 
-1. Set up an environment variable having the name `PORTRAIT_RECOVERY_PASSPHRASE` and the content a secret key that will be used in the password recovery mechanism.
-2. Enter the `portrait/c_modules` folder and run `make`.
-3. Run the application with `poetry run portrait`.
+1. Build the Docker image: `docker build --tag portrait .`
+2. Create a new container based on the image: `docker run --name portrait --env "PORTRAIT_RECOVERY_PASSPHRASE=<secret_key>" --publish 8080:8080 portrait`
 
 ## Known vulnerabilities
 
