@@ -6,6 +6,10 @@
     <a href="https://github.com/iosifache/oss_fortress/packages">
       <img src="https://img.shields.io/badge/Docker_images-GHCR-blue?logo=docker" height="17" alt="Docker image: GHCR"/>
     </a>
+    &nbsp; &nbsp;
+    <a href="https://oss-fortress.io">
+      <img src="https://img.shields.io/badge/Documentation-available-green?logo=docusaurus" height="17" alt="Documentation: available"/>
+    </a>
 </p>
 
 <!-- Keep this content syced with wiki/docs/index.md. -->
