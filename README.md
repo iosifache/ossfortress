@@ -1,180 +1,40 @@
 <p align="center">
-    <img src="others/logo.png" height="256" alt="Ubuntu Portrait logo"/>
+    <img src="others/logo.png" height="256" alt="The Open Source Fortress logo"/>
 </p>
-<h2 align="center">Vulnerable application for testing open source scanners</h2>
+<h2 align="center">The Open Source Fortress</h2>
 <p align="center" float="left">
     <a href="https://github.com/iosifache/oss_fortress/packages">
       <img src="https://img.shields.io/badge/Docker_images-GHCR-blue?logo=docker" height="17" alt="Docker image: GHCR"/>
     </a>
 </p>
 
-## Description
+## Context
 
-Ubuntu Portrait is a **vulnerable application** designed to be used for training purposes with open source tools or manual code review. All vulnerabilities are listed in [a section below](#known-vulnerabilities).
+Regardless of where it is hosted, a codebase could end up in the hands of malicious actors. Aside from the open source scenario, attackers may utilize sophisticated techniques to access and download it. Okta's 2022 breach, in which the source code of the identity and access management platform was obtained from GitHub, is an example.
 
-The application was created for the workshop "*The Open Source Fortress: Finding Vulnerabilities in Your Codebase Using Open Source Tools*," which debuted at [Ubuntu Summit 2023](https://events.canonical.com/event/31/contributions/219). Before that, it was tested in an internal CTF competition organised by the [Ubuntu Security Team](https://wiki.ubuntu.com/SecurityTeam).
+With this in mind, developers are advised to take a defensive posture, namely to uncover as many flaws in their code as possible before releasing it to the public.
 
-Previous works, such as [Juice Shop](https://owasp.org/www-project-juice-shop), [WebGoat](https://github.com/WebGoat/WebGoat) and [WrongSecrets](https://owasp.org/www-project-juice-shop), inspired this project.
+## The Open Source Fortress
 
-## Ubuntu Portrait
+The workshop, named The Open Source Fortress, provides both theoretical and practical information about **detecting vulnerabilities in codebases**. It explains how each technique works, what open source tools are available, and then provides real examples.
 
-In a parallel universe where this program was intended to be provided to users, it would have been deployed on-premise, on each host that wanted to be accessible and (partially) managed via a web interface.
+The examples imply the discovery of vulnerabilities in a custom, purposefully vulnerable codebase named **Ubuntu Portrait**. It is written in C and Python.
 
-The following C4 diagram shows the application's general architecture:
+The **included techniques** are:
+- Code querying;
+- Secret scanning;
+- Dependency scanning;
+- Symbolic execution; and
+- Fuzzing.
 
-```mermaid
-C4Component
-    Component(frontend, "Web UI", "HTML, CSS, Vanilla JavaScript, Vanilla", "Enables the user to interact from the browser with the Ubuntu Portrait services.")
-    
-    Container_Boundary(backend, "Backend") {
-        Component(api, "Web API", "Python 3, Flask", "Responds to API requests.")
-        Component(c_module, "Recovery token module", "C-based shared object", "Generates recovery tokens.")
-    }
+The workshop debuted at [Ubuntu Summit 2023](https://events.canonical.com/event/31/contributions/219). Before that, it was tested in an internal CTF competition organised by the [Ubuntu Security Team](https://wiki.ubuntu.com/SecurityTeam).
 
-    Component(pam, "Linux Authenticator", "Linux Pluggable Authentication Modules", "Checks the credentials of a user.")
+## Wiki
 
-    Rel(frontend, api, "API requests", "HTTP")
-    UpdateRelStyle(frontend, api, $offsetY="-60", $offsetX="-20")
-
-    Rel(api, c_module, "Generation requests", "Function calling")
-    UpdateRelStyle(api, c_module, $offsetY="50", $offsetX="-40")
-
-    Rel(api, pam, "Authentication requests", "Function calling")
-    UpdateRelStyle(api, pam, $offsetY="-50", $offsetX="-40")
-```
-
-## Setup
-
-### Using GitHub Container Registry
-
-1. Pull the image: `docker pull ghcr.io/iosifache/oss_fortress_portrait:main`
-2. Create a new container based on the image: `docker run --name portrait --env "PORTRAIT_RECOVERY_PASSPHRASE=<secret_key>" --publish 8080:8080 ghcr.io/iosifache/oss_fortress_portrait`
-
-### Building from source
-
-1. Build the Docker image: `docker build --tag portrait .`
-2. Create a new container based on the image: `docker run --name portrait --env "PORTRAIT_RECOVERY_PASSPHRASE=<secret_key>" --publish 8080:8080 portrait`
-
-## Known vulnerabilities
-
-### SHA256 hash length extension attack
-
-- **CWEs**
-  - CWE-1240: Use of a Cryptographic Primitive with a Risky Implementation
-- **Affected component**: Recovery token module
-- **Vulnerable code**: `generate_recovery_token()` in `portrait/c_modules/generate_recovery_token.c`
-- **Attack vector**: Unauthenticated HTTP call to `/recovery_command`
-- **Impact**: `root` account compromise and privilege escalation
-
-### Command sandbox escape via `find`
-
-- **CWEs**
-  - CWE-78: Improper Neutralization of Special Elements used in an OS Command
-- **Affected component**: Web API
-- **Vulnerable code**: `is_an_allowed_command()` from `portrait/confinement.py`
-- **Attack vector**: Authenticated HTTP call to `/command`
-- **Impact**: Arbistrary command exectution as `$USER`
-
-### Enabled Flask debugging
-
-- **CWEs**
-  - CWE-489: Active Debug Code
-- **Affected component**: Web API
-- **Vulnerable code**: `portrait/app.py`
-- **Attack vector**: HTTP calls
-- **Impact**: Information disclosure, and, eventually, code execution
-
-### Heap out-of-bound write when generating recovery tokens
-
-- **CWEs**
-  - CWE 787: Out-of-bounds Write
-- **Affected component**: Recovery token module
-- **Vulnerable code**: `buf[]` from `generate_recovery_token()` in `portrait/c_modules/generate_recovery_token.c`
-- **Attack vector**: Unauthenticated HTTP call to `/recovery_command`
-- **Impact**: Memory write and, eventually, code execution
-
-### Heap out-of-bound write when converting image formats with Pillow
-
-- **CWEs**
-  - CWE 787: Out-of-bounds Write
-- **Affected component**: Web API
-- **Vulnerable code**: `convert_format` in `portrait/image_ops.py`
-- **Attack vector**: Unauthenticated HTTP call to `/convert_image`
-- **Impact**: Memory write and, eventually, code execution
-
-### Zip slipping when extracting user-submitted archives
-
-- **CWEs**
-  - CWE-23: Relative Path Traversal
-- **Affected component**: Web API
-- **Vulnerable code**: `extract_archive()` in `portrait/uploader.py`
-- **Attack vector**: Authenticated HTTP call to `/upload`
-- **Impact**: Arbitrary file write
-
-### Arbitrary file write when extracting user-submitted archives
-
-- **CWEs**
-  - CWE-23: Relative Path Traversal
-- **Affected component**: Web API
-- **Vulnerable code**: `extract_archive_in_user_home()` in `portrait/uploader.py`
-- **Attack vector**: Authenticated HTTP call to `/upload`
-- **Impact**: Arbitrary file write
-
-### IDOR when translating usernames to UIDs
-
-- **CWEs**
-  - CWE-641: Improper Restriction of Names for Files and Other Resources
-  - CWE-280: Improper Handling of Insufficient Permissions or Privileges 
-- **Affected component**: Web API
-- **Vulnerable code**: `translate_username_to_uid()` in `portrait/app.py`
-- **Attack vector**: Authenticated HTTP call to `/username`
-- **Impact**: User enumeration
-
-### Credentials and tokens logging
-
-- **CWEs**
-  - CWE-215: Insertion of Sensitive Information Into Debugging Code
-- **Affected component**: Web API
-- **Vulnerable code**: Multiple routes from `portrait/app.py`
-- **Attack vector**: Access to the filesystem of the web server
-- **Impact**: Accounts' compromise and, eventually, privilege escalation
-
-### Insecure permissions for created logging file
-
-- **CWEs**
-  - CWE-279: Incorrect Execution-Assigned Permissions
-- **Affected component**: Web API
-- **Vulnerable code**: `check_log_file()` in `portrait/app.py`
-- **Attack vector**: Access to the filesystem of the web server
-- **Impact**: Accounts' compromise and, eventually, privilege escalation
-
-### Default (and exposed) Flask secrets
-
-- **CWEs**
-  - CWE-318: Cleartext Storage of Sensitive Information in Executable
-- **Affected component**: Web API
-- **Vulnerable code**: `app.secret_key` from `portrait/app.py`
-- **Attack vector**: Codebase access
-- **Impact**: Exposure of the Flask secret used by all Portrait instances
-
-### Default (and exposed) Flask secrets
-
-- **CWEs**
-  - CWE-318: Cleartext Storage of Sensitive Information in Executable
-- **Affected component**: Web API
-- **Vulnerable code**: `app.secret_key` from `portrait/app.py`
-- **Attack vector**: Codebase access
-- **Impact**: Exposure of the Flask secret used by all Portrait instances
-
-### Lack of HTTPS
-
-- **CWEs**
-  - CWE-319: Cleartext Transmission of Sensitive Information
-- **Affected component**: Web API, Web UI
-- **Vulnerable code**: `app.secret_key` from `portrait/app.py`
-- **Attack vector**: adversary-in-the-middle attack 
-- **Impact**: Exposed credentials, commands, and other sensitive information transferred between the web UI and web API
+Please visit the [wiki](https://oss-fortress.io) if you want to complete the workshop on your own and learn more about the provided vulnerable application.
 
 ## Acknowledgements
+
+Previous works, such as [Juice Shop](https://owasp.org/www-project-juice-shop), [WebGoat](https://github.com/WebGoat/WebGoat) and [WrongSecrets](https://owasp.org/www-project-juice-shop), inspired this workshop.
 
 This project's logo was created with [Adobe Firefly](https://firefly.adobe.com).

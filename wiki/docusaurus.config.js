@@ -32,6 +32,11 @@ const config = {
     locales: ['en'],
   },
 
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
+
   presets: [
     [
       'classic',
@@ -73,7 +78,12 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      mermaid: {
+        theme: { light: 'neutral', dark: 'forest' },
+      },
     }),
+
+
 };
 
 module.exports = config;
