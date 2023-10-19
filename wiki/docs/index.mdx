@@ -1,14 +1,27 @@
+---
+label: The Open Source Fortress
+sidebar_position: 1
+---
+
+# The Open Source Fortress
+
+<!--
+    Keep this content syced with README.md. Do the following modifications:
+    - Remove the title immediately after the logo;
+    - Replace the title of the "The Open Source Fortress" section with "The workshop"; and
+    - Remove the "Wiki" section.
+-->
+
+import Logo from '/img/logo.png';
+
 <p align="center">
-    <img src="others/logo.png" height="256" alt="The Open Source Fortress logo"/>
+    <img src={Logo} class="logo" alt="The Open Source Fortress logo" style={{width: 256}}/>
 </p>
-<h2 align="center">The Open Source Fortress</h2>
 <p align="center" float="left">
     <a href="https://github.com/iosifache/oss_fortress/packages">
       <img src="https://img.shields.io/badge/Docker_images-GHCR-blue?logo=docker" height="17" alt="Docker image: GHCR"/>
     </a>
 </p>
-
-<!-- Keep this content syced with wiki/docs/index.md. -->
 
 ## Context
 
@@ -16,7 +29,7 @@ Regardless of where it is hosted, a codebase could end up in the hands of malici
 
 With this in mind, developers are advised to take a defensive posture, namely to uncover as many flaws in their code as possible before releasing it to the public.
 
-## The Open Source Fortress
+## The workshop
 
 The workshop, named The Open Source Fortress, provides both theoretical and practical information about **detecting vulnerabilities in codebases**. It explains how each technique works, what open source tools are available, and then provides real examples.
 
@@ -30,10 +43,6 @@ The **included techniques** are:
 - Fuzzing.
 
 The workshop debuted at [Ubuntu Summit 2023](https://events.canonical.com/event/31/contributions/219). Before that, it was tested in an internal CTF competition organised by the [Ubuntu Security Team](https://wiki.ubuntu.com/SecurityTeam).
-
-## Wiki
-
-Please visit the [wiki](https://oss-fortress.io) if you want to complete the workshop on your own and learn more about the provided vulnerable application.
 
 ## Acknowledgements
 
