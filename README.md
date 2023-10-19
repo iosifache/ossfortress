@@ -3,8 +3,8 @@
 </p>
 <h2 align="center">Vulnerable application for testing open source scanners</h2>
 <p align="center" float="left">
-    <a href="https://github.com/iosifache/oss_fortress/pkgs/container/portrait">
-      <img src="https://img.shields.io/badge/Docker_image-GHCR-blue?logo=docker" height="17" alt="Docker image: GHCR"/>
+    <a href="https://github.com/iosifache/oss_fortress/packages">
+      <img src="https://img.shields.io/badge/Docker_images-GHCR-blue?logo=docker" height="17" alt="Docker image: GHCR"/>
     </a>
 </p>
 
@@ -47,8 +47,8 @@ C4Component
 
 ### Using GitHub Container Registry
 
-1. Pull the image: `docker pull ghcr.io/iosifache/portrait:main`
-2. Create a new container based on the image: `docker run --name portrait --env "PORTRAIT_RECOVERY_PASSPHRASE=<secret_key>" --publish 8080:8080 ghcr.io/iosifache/portrait`
+1. Pull the image: `docker pull ghcr.io/iosifache/oss_fortress_portrait:main`
+2. Create a new container based on the image: `docker run --name portrait --env "PORTRAIT_RECOVERY_PASSPHRASE=<secret_key>" --publish 8080:8080 ghcr.io/iosifache/oss_fortress_portrait`
 
 ### Building from source
 
