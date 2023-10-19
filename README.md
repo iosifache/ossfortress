@@ -22,7 +22,6 @@ In a parallel universe where this program was intended to be provided to users, 
 
 The following C4 diagram shows the application's general architecture:
 
-
 ```mermaid
 C4Component
     Component(frontend, "Web UI", "HTML, CSS, Vanilla JavaScript, Vanilla", "Enables the user to interact from the browser with the Ubuntu Portrait services.")
@@ -45,6 +44,13 @@ C4Component
 ```
 
 ## Setup
+
+### Using GitHub Container Registry
+
+1. Pull the image: `docker pull ghcr.io/iosifache/oss_fortress:main`
+2. Create a new container based on the image: `docker run --name portrait --env "PORTRAIT_RECOVERY_PASSPHRASE=<secret_key>" --publish 8080:8080 ghcr.io/iosifache/oss_fortress`
+
+### Building from source
 
 1. Build the Docker image: `docker build --tag portrait .`
 2. Create a new container based on the image: `docker run --name portrait --env "PORTRAIT_RECOVERY_PASSPHRASE=<secret_key>" --publish 8080:8080 portrait`
