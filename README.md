@@ -16,6 +16,33 @@ The application was created for the workshop "*The Open Source Fortress: Finding
 
 Previous works, such as [Juice Shop](https://owasp.org/www-project-juice-shop), [WebGoat](https://github.com/WebGoat/WebGoat) and [WrongSecrets](https://owasp.org/www-project-juice-shop), inspired this project.
 
+## Ubuntu Portrait
+
+In a parallel universe where this program was intended to be provided to users, it would have been deployed on-premise, on each host that wanted to be accessible and (partially) managed via a web interface.
+
+The following C4 diagram shows the application's general architecture:
+
+
+```mermaid
+C4Component
+    Component(frontend, "Web UI", "HTML, CSS, Vanilla JavaScript, Vanilla", "Enables the user to interact from the browser with the Ubuntu Portrait services.")
+    
+    Container_Boundary(backend, "Backend") {
+        Component(api, "Web API", "Python 3, Flask", "Responds to API requests.")
+        Component(c_module, "Recovery token module", "Shared object built from C", "Generates recovery tokens.")
+    }
+
+    Component(pam, "Linux Authenticator", "Linux Pluggable Authentication Modules", "Checks the credentials of a user.")
+
+    Rel(frontend, api, "API requests", "HTTP")
+    UpdateRelStyle(frontend, api, $offsetY="-60", $offsetX="-20")
+
+    Rel(api, c_module, "Generation requests", "Function calling")
+    UpdateRelStyle(api, c_module, $offsetY="50", $offsetX="-40")
+
+    Rel(api, pam, "Authentication requests", "Function calling")
+    UpdateRelStyle(api, pam, $offsetY="-50", $offsetX="-40")
+```
 
 ## Setup
 
