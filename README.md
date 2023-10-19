@@ -2,6 +2,11 @@
     <img src="others/logo.png" height="256" alt="Ubuntu Portrait logo"/>
 </p>
 <h2 align="center">Application with vulnerabilities discoverable with open source tools</h2>
+<p align="center" float="left">
+    <a href="https://github.com/iosifache/oss_fortress/pkgs/container/oss_fortress">
+      <img src="https://img.shields.io/badge/Docker_image-GHCR-blue?logo=docker" height="17" alt="Docker image: GHCR"/>
+    </a>
+</p>
 
 ## Description
 
