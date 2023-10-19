@@ -166,6 +166,15 @@ C4Component
 - **Attack vector**: Codebase access
 - **Impact**: Exposure of the Flask secret used by all Portrait instances
 
+### Lack of HTTPS
+
+- **CWEs**
+  - CWE-319: Cleartext Transmission of Sensitive Information
+- **Affected component**: Web API, Web UI
+- **Vulnerable code**: `app.secret_key` from `portrait/app.py`
+- **Attack vector**: adversary-in-the-middle attack 
+- **Impact**: Exposed credentials, commands, and other sensitive information transferred between the web UI and web API
+
 ## Acknowledgements
 
 This project's logo was created with [Adobe Firefly](https://firefly.adobe.com).
