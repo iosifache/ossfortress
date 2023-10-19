@@ -5,7 +5,13 @@ name: Create and publish a Docker image to GHCR
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
+    paths:
+      - portrait
+      - Dockerfile
+      - pyproject.toml
+      - .github/workflows/ghcr-publish.yml
 
 env:
   REGISTRY: ghcr.io
