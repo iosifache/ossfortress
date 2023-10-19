@@ -1,4 +1,16 @@
-# Ubuntu Portrait
+<p align="center">
+    <img src="others/logo.png" height="256" alt="Ubuntu Portrait logo"/>
+</p>
+<h2 align="center">Application with vulnerabilities discoverable with open source tools</h2>
+
+## Description
+
+Ubuntu Portrait is a **vulnerable application** designed to be used for training purposes with open source tools or manual code review. All vulnerabilities are listed in [a section below](#known-vulnerabilities).
+
+The application was created for the workshop "*The Open Source Fortress: Finding Vulnerabilities in Your Codebase Using Open Source Tools*," which debuted at [Ubuntu Summit 2023](https://events.canonical.com/event/31/contributions/219). Before that, it was tested in an internal CTF competition organised by the [Ubuntu Security Team](https://wiki.ubuntu.com/SecurityTeam).
+
+Previous works, such as [Juice Shop](https://owasp.org/www-project-juice-shop), [WebGoat](https://github.com/WebGoat/WebGoat) and [WrongSecrets](https://owasp.org/www-project-juice-shop), inspired this project.
+
 
 ## Setup
 
@@ -106,3 +118,7 @@
 - **Vulnerable code**: `app.secret_key` from `portrait/app.py`
 - **Attack vector**: Codebase access
 - **Impact**: Exposure of the Flask secret used by all Portrait instances
+
+## Acknowledgements
+
+This project's logo was created with [Adobe Firefly](https://firefly.adobe.com).
