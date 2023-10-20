@@ -20,6 +20,8 @@
         ".git": true,
         ".venv": true,
         "poetry.lock": true,
-        "__pycache__": true
+        "__pycache__": true,
+        "wiki/.docusaurus": true,
+        "wiki/node_modules": true
     },
 }
