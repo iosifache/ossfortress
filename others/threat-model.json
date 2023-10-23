@@ -1,0 +1,906 @@
+{
+  "version": "2.0.10",
+  "summary": {
+    "title": "Ubuntu Portrait",
+    "owner": "George-Andrei Iosif",
+    "description": "A lightweight piece of software that enables the control of an Ubuntu server from browser",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "STRIDE diagram",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.0.10",
+        "cells": [
+          {
+            "position": {
+              "x": 103.75,
+              "y": 70
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Web UI"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "id": "3292ec10-e58e-4c28-aa3d-0877b92c06d0",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Web UI",
+              "description": "Enables the user to interact from the browser with the Ubuntu Portrait services.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "providesAuthentication": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isBidirectional": false,
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "position": {
+              "x": 130,
+              "y": 440
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Web API"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 2,
+            "id": "a1c86893-87b9-47f5-9100-e6273e1d2e40",
+            "data": {
+              "type": "tm.Process",
+              "name": "Web API",
+              "description": "Responds to API requests.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "privilegeLevel": "",
+              "hasOpenThreats": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 640,
+              "y": 440
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Recovery token module"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 3,
+            "id": "2511ee46-5443-485f-8f83-8fc30351b8cb",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Recovery token module",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "privilegeLevel": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "isTrustBoundary": true,
+              "isBidirectional": false,
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "position": {
+              "x": 640,
+              "y": 70
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Linux authenticator"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 4,
+            "id": "74b03142-9104-4a72-aa11-d36c45efbbd1",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Linux authenticator",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "privilegeLevel": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "isBidirectional": false,
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Command-based filesystem explorer",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "37d3af8b-ead7-4ac3-a61d-dd52aed412fd",
+                  "title": "Access to system files or files of other users",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "An attacker can use the commands to access files which are owned by the system or other users.",
+                  "mitigation": "TBD after threat analysis",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": ""
+                },
+                {
+                  "id": "980ff353-8d6a-4e73-964c-6f6b2030ba96",
+                  "title": "Arbitrary command execution",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker can bypass the allow list and execute any command.",
+                  "mitigation": "TBD after threat analysis",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                },
+                {
+                  "id": "ca8e9c64-cda3-4de9-a398-8231482cfd36",
+                  "title": "DoS with resource intensive commands",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "An attacker can execute commands which consume huge amounts of resources, leading to a denial of service.",
+                  "mitigation": "TBD after threat analysis",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "ab3714ab-d2fd-4f82-aacb-a79657fb3f8c",
+            "labels": [
+              "Command-based filesystem explorer"
+            ],
+            "source": {
+              "cell": "3292ec10-e58e-4c28-aa3d-0877b92c06d0"
+            },
+            "target": {
+              "cell": "a1c86893-87b9-47f5-9100-e6273e1d2e40"
+            },
+            "vertices": [
+              {
+                "x": 130,
+                "y": 320
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Archive upload",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "392eab34-39ff-454e-bd6a-2c9a6a3cb560",
+                  "title": "Unrestricted storage location",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker can upload its archives to an arbitrary location.",
+                  "mitigation": "TBD after threat analysis",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": ""
+                },
+                {
+                  "id": "e7da94a4-d4e2-4bf7-b557-b3eb83177e02",
+                  "title": "Unrestricted file type upload",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker can upload any file type, leading to undefined behaviour.",
+                  "mitigation": "TBD after threat analysis",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": ""
+                },
+                {
+                  "id": "3609d751-38d4-44f9-98ba-939b8041c112",
+                  "title": "DoS with large archives or bombs",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "An attacker can upload multiple large images or a bomb, which are heavily processed by the server or occupy a huge amount of space, leading to a denial of service.",
+                  "mitigation": "TBD after threat analysis",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "36cd547f-681d-4ea8-a953-8b625748ab1e",
+            "labels": [
+              "Archive upload"
+            ],
+            "source": {
+              "cell": "3292ec10-e58e-4c28-aa3d-0877b92c06d0"
+            },
+            "target": {
+              "cell": "a1c86893-87b9-47f5-9100-e6273e1d2e40"
+            },
+            "vertices": [
+              {
+                "x": 300,
+                "y": 360
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Token generation",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "449d4dec-7fac-45b4-844e-c7909a244213",
+            "labels": [
+              "Token generation"
+            ],
+            "source": {
+              "cell": "a1c86893-87b9-47f5-9100-e6273e1d2e40"
+            },
+            "target": {
+              "cell": "2511ee46-5443-485f-8f83-8fc30351b8cb"
+            },
+            "vertices": [
+              {
+                "x": 360,
+                "y": 550
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Image format conversion",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "921576bc-97ec-434a-8fda-926292d1a428",
+                  "title": "DoS with large images",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "An attacker can upload multiple large images, which are heavily processed by the server to obtain the converted image, leading to a denial of service.",
+                  "mitigation": "TBD after threat analysis",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": ""
+                },
+                {
+                  "id": "c53a76d7-6a0f-4b97-9f60-fdb06655bedc",
+                  "title": "Unrestricted storage location",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker can upload its image to an arbitrary location.",
+                  "mitigation": "TBD after threat analysis",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": ""
+                },
+                {
+                  "id": "1acb663b-3bd7-460a-82b1-7a7bb3950520",
+                  "title": "Unrestricted file type upload",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker can upload any file type, leading to undefined behaviour.",
+                  "mitigation": "TBD after threat analysis",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "bbf7534e-4df3-4ab9-bbdf-88522755bbf5",
+            "labels": [
+              "Image format conversion"
+            ],
+            "source": {
+              "x": 110,
+              "y": 130
+            },
+            "target": {
+              "x": 130,
+              "y": 470
+            },
+            "vertices": [
+              {
+                "x": -330,
+                "y": 360
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Recovery mode",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "d3d81fe4-67b5-4d68-bfc5-7075c21f1cf1",
+                  "title": "Token forging",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker can forge a valid recovery token.",
+                  "mitigation": "TBD after threat analysis",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                },
+                {
+                  "id": "b3e12d37-8663-44ec-99b7-bd9ee0575452",
+                  "title": "Valid token exfiltration",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "An attacker can extract a valid token of another user.",
+                  "mitigation": "TBD after threat analysis",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": ""
+                },
+                {
+                  "id": "da440922-dc8a-4209-a18b-8dca62bfb47a",
+                  "title": "User enumeration via error codes",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker can identify the valid usernames by serving the error codes returned by the website when failing to log in.",
+                  "mitigation": "TBD after threat analysis",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "c6e6b193-ce7e-4b43-b61c-b1e39a5848fd",
+            "labels": [
+              "Recovery mode"
+            ],
+            "source": {
+              "cell": "3292ec10-e58e-4c28-aa3d-0877b92c06d0"
+            },
+            "target": {
+              "cell": "a1c86893-87b9-47f5-9100-e6273e1d2e40"
+            },
+            "vertices": [
+              {
+                "x": 400,
+                "y": 380
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Credentials checking",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "b3f1ec02-4581-48a9-bd42-ffb6a327756f",
+            "labels": [
+              "Credentials checking"
+            ],
+            "source": {
+              "cell": "a1c86893-87b9-47f5-9100-e6273e1d2e40"
+            },
+            "target": {
+              "cell": "74b03142-9104-4a72-aa11-d36c45efbbd1"
+            },
+            "vertices": [
+              {
+                "x": 400,
+                "y": 510
+              },
+              {
+                "x": 640,
+                "y": 340
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": false,
+              "threats": []
+            },
+            "id": "a3200921-3ce2-4544-bde8-f38b01d3cd92",
+            "source": {
+              "cell": "8e1d3ba0-99bc-4052-9b84-e710d278c230"
+            },
+            "target": {
+              "cell": "a1c86893-87b9-47f5-9100-e6273e1d2e40"
+            },
+            "vertices": [
+              {
+                "x": 430,
+                "y": 473
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "7e67b333-e110-4134-9be0-cea39e029089",
+                  "title": "Brute-forcing",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker can brute-force the credentials of the server.",
+                  "mitigation": "TBD after threat analysis",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": ""
+                },
+                {
+                  "id": "03f80935-951c-4d9f-9770-5513b869385d",
+                  "title": "User enumeration via error codes",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "An attacker can identify the valid usernames by serving the error codes returned by the website when failing to log in.",
+                  "mitigation": "TBD after threat analysis",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": ""
+                },
+                {
+                  "id": "aeaecc4a-2ac5-4a22-943a-a34c04ad5e8f",
+                  "title": "Timing attacks",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "An attacker is able to observe timing differences when validating credentials. ",
+                  "mitigation": "TBD after threat analysis",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 25,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "7b460d8f-9147-41a3-b0ff-68ea64ca2146",
+            "labels": [
+              "Login"
+            ],
+            "source": {
+              "cell": "3292ec10-e58e-4c28-aa3d-0877b92c06d0"
+            },
+            "target": {
+              "cell": "a1c86893-87b9-47f5-9100-e6273e1d2e40"
+            },
+            "vertices": [
+              {
+                "x": -30,
+                "y": 350
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "User information retrieval",
+              "description": "",
+              "outOfScope": false,
+              "isBidirectional": false,
+              "reasonOutOfScope": "",
+              "protocol": "",
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "673cce15-27ae-4b0e-9454-030a64fe930e",
+                  "title": "Unauthorized access to other information",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "An attacker can access information about other users on the system.",
+                  "mitigation": "TBD after threat analysis",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 26,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "f85c4fb2-9e2b-4ba9-82dc-15830003defb",
+            "labels": [
+              "User information retrieval"
+            ],
+            "source": {
+              "cell": "3292ec10-e58e-4c28-aa3d-0877b92c06d0"
+            },
+            "target": {
+              "cell": "a1c86893-87b9-47f5-9100-e6273e1d2e40"
+            },
+            "vertices": [
+              {
+                "x": -150,
+                "y": 370
+              }
+            ]
+          },
+          {
+            "shape": "trust-broundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Trust boundary",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "49a40628-0ea6-4e6d-b8c4-8f77aa60fe19",
+            "labels": [
+              "Trust boundary"
+            ],
+            "source": {
+              "x": -40,
+              "y": 70
+            },
+            "target": {
+              "x": 360,
+              "y": 60
+            },
+            "vertices": [
+              {
+                "x": 160,
+                "y": 190
+              }
+            ]
+          },
+          {
+            "position": {
+              "x": 430,
+              "y": 70
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Linux filesystem"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 11,
+            "id": "8e1d3ba0-99bc-4052-9b84-e710d278c230",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Linux filesystem",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "isALog": false,
+              "storesCredentials": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "hasOpenThreats": false,
+              "threats": [],
+              "isBidirectional": false,
+              "protocol": "",
+              "isPublicNetwork": false
+            }
+          }
+        ]
+      }
+    ],
+    "diagramTop": 1,
+    "reviewer": "",
+    "threatTop": 26
+  }
+}
