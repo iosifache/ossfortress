@@ -11,6 +11,12 @@ At this point, you may read the ID (which is the title of the subsections) and d
 
 ## All vulnerabilities
 
+:::note
+
+The list of vulnerabilities is not exhaustive. Please see the [contribution guide](https://github.com/iosifache/oss_fortress/blob/main/CONTRIBUTING.md) to propose including new vulnerabilities of Ubuntu Potrait.
+
+:::
+
 ### `UBUSEC-HASH-LEN`
 
 - **Description**: SHA256 hash length extension attack
@@ -61,9 +67,9 @@ At this point, you may read the ID (which is the title of the subsections) and d
 - **Attack vector**: Unauthenticated HTTP call to `/convert_image`
 - **Impact**: Memory write and, eventually, code execution
 
-### `UBUSEC-ZIP-SLIP`
+### `UBUSEC-TAR-SLIP`
 
-- **Description**: Zip slipping when extracting user-submitted archives
+- **Description**: Tar slipping when extracting user-submitted archives
 - **CWEs**
   - CWE-23: Relative Path Traversal
 - **Affected component**: Web API

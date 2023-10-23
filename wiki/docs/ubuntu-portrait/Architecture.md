@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-slug: portrait-architecture
+slug: architecture
 ---
 
 The following C4 diagram shows the application's general architecture:
