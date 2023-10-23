@@ -4,6 +4,25 @@ services:
     image: ghcr.io/iosifache/oss_fortress_portrait:main
     container_name: portrait
     ports:
-        - "8080:8080"
+      - "8000:8080"
     environment:
-        - PORTRAIT_RECOVERY_PASSPHRASE=secret
+      - PORTRAIT_RECOVERY_PASSPHRASE=secret
+  owasp_threat_dragon:
+    image: owasp/threat-dragon
+    container_name: dragon
+    ports:
+      - "8001:8080"
+    environment:
+      - GITHUB_CLIENT_ID=01234567890123456789
+      - GITHUB_CLIENT_SECRET=0123456789abcdef0123456789abcdef0123456
+      - GITHUB_SCOPE=public_repo
+      - GITHUB_ENTERPRISE_HOSTNAME=optional_if_using_enterprise
+      - GITHUB_ENTERPRISE_PORT=optional_if_enterprise_and_non_standard
+      - GITHUB_ENTERPRISE_PROTOCOL=optional_if_enterprise_and_non_standard
+      - NODE_ENV=production
+      - SERVER_API_PROTOCOL=http
+      - ENCRYPTION_KEYS="[{\"isPrimary\": true, \"id\": 0, \"value\": \"11223344556677889900aabbccddeeff\"}]"
+      - ENCRYPTION_JWT_SIGNING_KEY=asdfasdfasdf
+      - ENCRYPTION_JWT_REFRESH_SIGNING_KEY=fljasdlfkjadf
+    depends_on:
+        - portrait
