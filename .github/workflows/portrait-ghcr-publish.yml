@@ -9,7 +9,7 @@ on:
       - main
     paths:
       - portrait
-      - Dockerfile
+      - Dockerfile.portrait
       - pyproject.toml
       - .github/workflows/portrait-ghcr-publish.yml
 

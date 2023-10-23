@@ -12,7 +12,7 @@ slug: setup
 
 ### Building from source
 
-1. Build the Docker image: `docker build --tag portrait .`
+1. Build the Docker image: `docker build --tag portrait --file Dockerfile.portrait .`
 2. Create a new container based on the image: `docker run --name portrait --env "PORTRAIT_RECOVERY_PASSPHRASE=<secret_key>" --publish 8080:8080 portrait`
 
 ## Analysis infrastructure
