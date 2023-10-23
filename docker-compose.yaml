@@ -1,0 +1,9 @@
+version: "2.4"
+services:
+  portrait:
+    image: ghcr.io/iosifache/oss_fortress_portrait:main
+    container_name: portrait
+    ports:
+        - "8080:8080"
+    environment:
+        - PORTRAIT_RECOVERY_PASSPHRASE=secret
