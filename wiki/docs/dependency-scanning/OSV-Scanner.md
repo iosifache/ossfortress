@@ -12,7 +12,7 @@ The OSV-Scanner configuration is available [here](https://google.github.io/osv-s
 ## Scanning for vulnerabilities
 
 1. Based on your knowledge about Ubuntu Portrait, find out all files listing the dependencies of the application.
-2. For each of them, create an OSV-Scanner to scan it and to output the results in the SARIF format.
+2. For each of them, create an OSV-Scanner command to scan it and to output the results in a SARIF file, `/analysis/<listing_id>.sarif`.
 
 # Validating the reported warnings
 

@@ -1,0 +1,15 @@
+title = "Gitleaks configuration for Ubuntu Portrait"
+
+[extend]
+useDefault = true
+
+[[rules]]
+description = "hardcoded Flask key"
+file = '''^(.*?)\.py$'''
+regex = '''^[^\W0-9]\w*\.secret_key = '''
+tags = ["secret", "hardcoded", "python"]
+
+[[rules.Entropies]]
+Min = "3"
+Max = "7"
+Group = "1"
