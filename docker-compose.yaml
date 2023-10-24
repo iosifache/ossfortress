@@ -7,11 +7,24 @@ services:
       - "8000:8080"
     environment:
       - PORTRAIT_RECOVERY_PASSPHRASE=secret
-  owasp_threat_dragon:
-    image: owasp/threat-dragon
-    container_name: dragon
+  code:
+    image: codercom/code-server:latest
+    container_name: code
+    volumes:
+      - "$PWD/analysis:/home/coder/analysis"
     ports:
-      - "8001:8080"
+      - "8081:8080"
+    environment:
+      - DOCKER_USER=$USER
+    depends_on:
+      - portrait
+  owasp_threat_dragon:
+    image: owasp/threat-dragon:latest
+    container_name: dragon
+    volumes:
+      - "$PWD/analysis:/analysis"
+    ports:
+      - "8002:8080"
     environment:
       - GITHUB_CLIENT_ID=01234567890123456789
       - GITHUB_CLIENT_SECRET=0123456789abcdef0123456789abcdef0123456
@@ -25,4 +38,4 @@ services:
       - ENCRYPTION_JWT_SIGNING_KEY=asdfasdfasdf
       - ENCRYPTION_JWT_REFRESH_SIGNING_KEY=fljasdlfkjadf
     depends_on:
-        - portrait
+      - portrait
