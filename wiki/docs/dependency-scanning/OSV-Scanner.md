@@ -3,6 +3,12 @@ sidebar_position: 1
 slug: exercise
 ---
 
+:::info
+
+The OSV-Scanner configuration is available [here](https://google.github.io/osv-scanner/).
+
+:::
+
 ## Scanning for vulnerabilities
 
 1. Based on your knowledge about Ubuntu Portrait, find out all files listing the dependencies of the application.
