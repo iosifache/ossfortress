@@ -134,6 +134,6 @@ The list of vulnerabilities is not exhaustive. Please see the [contribution guid
 - **CWEs**
   - CWE-319: Cleartext Transmission of Sensitive Information
 - **Affected component**: Web API, Web UI
-- **Vulnerable code**: `app.secret_key` from `portrait/app.py`
+- **Vulnerable code**: `app` from `portrait/app.py`
 - **Attack vector**: adversary-in-the-middle attack 
 - **Impact**: Exposed credentials, commands, and other sensitive information transferred between the web UI and web API

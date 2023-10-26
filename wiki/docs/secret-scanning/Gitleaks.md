@@ -19,10 +19,7 @@ The Gitleaks documentation is available [here](https://github.com/gitleaks/gitle
 
 1. Create a Gitleaks command to check the repository for leaked secrets and dump the warnings in a SARIF file, `/analysis/gitleaks.sarif`.
 2. Find a way to redact the secrets in the Gitleaks output.
-
-### Validating the warnings
-
-1. For each warning produced by Gitleaks, check if it is valid by using `git`.`
+3. For each warning produced by Gitleaks, check if it is valid by using `git`.
 
 ### Defining custom formats for secrets
 

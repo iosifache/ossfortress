@@ -23,6 +23,7 @@ The Bandit documentation is available [here](https://bandit.readthedocs.io/en/la
 1. Scan all files in the `portrait` folder, generating a SARIF file as output.
 2. Using `bandit-config-generator`, generate the default configuration for Bandit.
 3. Remove `portrait/c_modules` from the folders to be scanned.
+4. Validate each warning produced by Bandit by manually inspecting the code.
 
 ### Creating a baseline
 
