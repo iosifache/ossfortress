@@ -1,11 +1,11 @@
 ---
 sidebar_position: 1
-slug: exercise
+slug: osv-scanner
 ---
 
 :::info
 
-The OSV-Scanner configuration is available [here](https://google.github.io/osv-scanner/).
+The OSV-Scanner documentation is available [here](https://google.github.io/osv-scanner/).
 
 :::
 

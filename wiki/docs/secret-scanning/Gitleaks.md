@@ -1,11 +1,11 @@
 ---
 sidebar_position: 1
-slug: exercise
+slug: gitleaks
 ---
 
 :::info
 
-The Gitleaks configuration is available [here](https://github.com/gitleaks/gitleaks#readme).
+The Gitleaks documentation is available [here](https://github.com/gitleaks/gitleaks#readme).
 
 :::
 

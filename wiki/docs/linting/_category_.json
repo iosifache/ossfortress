@@ -1,6 +1,6 @@
 {
-    "label": "Code querying",
-    "position": 7,
+    "label": "Linting",
+    "position": 6,
     "collapsible": true,
     "collapsed": true
 }
