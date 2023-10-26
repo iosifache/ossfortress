@@ -10,17 +10,16 @@
 #define HEXDUMP_COLS 16
 
 char *bytes_to_hex_str(char *bytes, int length) {
-  const unsigned char bytearr[] = {0x12, 0x34, 0x56, 0x78};
   const size_t hex_str_len = 2 * length;
+  size_t i;
   char *hex_str, *p;
-  int i;
 
   hex_str = malloc(hex_str_len + 1);
   if (!hex_str)
     return NULL;
 
   p = hex_str;
-  for (size_t i = 0; i < length; i++) {
+  for (i = 0; i < length; i++) {
     p += sprintf(p, "%.2x", bytes[i]);
   }
 
@@ -45,8 +44,11 @@ char *generate_recovery_token(BYTE *data, int length) {
 
   hashed_len = length + passphrase_len;
   hashed = (BYTE *)malloc(hashed_len * sizeof(BYTE));
-  if (!hashed)
+  if (!hashed){
+    free(buf);
+
     return NULL;
+  }
 
   strcpy(hashed, server_recovery_passphrase);
   strcpy(hashed + passphrase_len, data);
