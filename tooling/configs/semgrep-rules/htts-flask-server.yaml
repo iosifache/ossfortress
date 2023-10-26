@@ -1,0 +1,30 @@
+rules:
+  - id: htts-flask-server
+    patterns:
+      - pattern: |
+          $FLASK_APP = Flask(...)
+
+          ...
+
+          $FLASK_APP.run(...)
+      - pattern-not: |
+          $FLASK_APP = Flask(...)
+
+          ...
+
+          $FLASK_APP.run(..., ssl_context=$SSL_CONTEXT, ...)
+    message: The Flask server is run without setting up HTTPS.
+    languages:
+      - python
+    severity: WARNING
+    metadata:
+      category: security
+      subcategory:
+        - vuln
+      cwe:
+        - "CWE 319: Cleartext Transmission of Sensitive Information"
+      confidence: HIGH
+      likelihood: MEDIUM
+      impact: HIGH
+      owasp:
+        - A5:2021 Security Misconfiguration

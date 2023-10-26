@@ -1,0 +1,23 @@
+rules:
+  - id: exec-arg-from-http-get
+    languages:
+      - python
+    message: A GET HTTP parameter was used in an execute_string_command() call.
+    mode: taint
+    pattern-sources:
+      - pattern: request.args.get(...)
+    pattern-sinks:
+      - pattern: execute_string_command(...)
+    severity: WARNING
+    metadata:
+      category: security
+      subcategory:
+        - vuln
+      cwe:
+        - "CWE 78: Improper Neutralization of Special Elements used in an OS
+          Command ('OS Command Injection')"
+      confidence: HIGH
+      likelihood: HIGH
+      impact: HIGH
+      owasp:
+        - A3:2021 Injection
