@@ -1,5 +1,43 @@
 version: "2.4"
 services:
+  portrait:
+    image: ghcr.io/iosifache/oss_fortress_portrait:main
+    build:
+      context: portrait
+      network: host
+      tags:
+        - "oss_fortress_portrait:latest"
+    container_name: portrait
+    ports:
+      - "8000:8080"
+    environment:
+      - PORTRAIT_RECOVERY_PASSPHRASE=secret
+    profiles:
+      - portrait
+      - all
+
+  owasp_threat_dragon:
+    image: owasp/threat-dragon:latest
+    container_name: dragon
+    ports:
+      - "8001:8080"
+    environment:
+      # The envvars are set with this syntax because of docker/compose#3878.
+      GITHUB_CLIENT_ID: 01234567890123456789
+      GITHUB_CLIENT_SECRET: 0123456789abcdef0123456789abcdef0123456
+      GITHUB_SCOPE: public_repo
+      GITHUB_ENTERPRISE_HOSTNAME: optional_if_using_enterprise
+      GITHUB_ENTERPRISE_PORT: optional_if_enterprise_and_non_standard
+      GITHUB_ENTERPRISE_PROTOCOL: optional_if_enterprise_and_non_standard
+      NODE_ENV: production
+      SERVER_API_PROTOCOL: http
+      ENCRYPTION_KEYS: '[{"isPrimary": true, "id": 0, "value": "11223344556677889900aabbccddeeff"}]'
+      ENCRYPTION_JWT_SIGNING_KEY: asdfasdfasdf
+      ENCRYPTION_JWT_REFRESH_SIGNING_KEY: fljasdlfkjadf
+    profiles:
+      - threat-modelling
+      - all
+
   coder:
     build:
       context: tooling/images/coder
@@ -12,7 +50,10 @@ services:
     networks:
       default:
     ports:
-      - "8081:8080"
+      - "8082:8080"
+    profiles:
+      - static-analysis
+      - all
 
   static-analysers:
     build:
@@ -26,6 +67,9 @@ services:
       - "./tooling:/root/tooling"
     networks:
       default:
+    profiles:
+      - static-analysis
+      - all
 
   aflplusplus:
     image: aflplusplus/aflplusplus
@@ -35,6 +79,9 @@ services:
       - "./tooling:/root/tooling"
     networks:
       default:
+    profiles:
+      - dynamic-analysis
+      - all
 
   klee:
     image: klee/klee
@@ -46,33 +93,6 @@ services:
       - "./tooling:/root/tooling"
     networks:
       default:
-
-  # portrait:
-  #   image: ghcr.io/iosifache/oss_fortress_portrait:main
-  #   container_name: portrait
-  #   ports:
-  #     - "8000:8080"
-  #   environment:
-  #     - PORTRAIT_RECOVERY_PASSPHRASE=secret
-
-  # owasp_threat_dragon:
-  #   image: owasp/threat-dragon:latest
-  #   container_name: dragon
-  #   volumes:
-  #     - "$PWD/analysis:/analysis"
-  #   ports:
-  #     - "8002:8080"
-  #   environment:
-  #     - GITHUB_CLIENT_ID=01234567890123456789
-  #     - GITHUB_CLIENT_SECRET=0123456789abcdef0123456789abcdef0123456
-  #     - GITHUB_SCOPE=public_repo
-  #     - GITHUB_ENTERPRISE_HOSTNAME=optional_if_using_enterprise
-  #     - GITHUB_ENTERPRISE_PORT=optional_if_enterprise_and_non_standard
-  #     - GITHUB_ENTERPRISE_PROTOCOL=optional_if_enterprise_and_non_standard
-  #     - NODE_ENV=production
-  #     - SERVER_API_PROTOCOL=http
-  #     - ENCRYPTION_KEYS="[{\"isPrimary\": true, \"id\": 0, \"value\": \"11223344556677889900aabbccddeeff\"}]"
-  #     - ENCRYPTION_JWT_SIGNING_KEY=asdfasdfasdf
-  #     - ENCRYPTION_JWT_REFRESH_SIGNING_KEY=fljasdlfkjadf
-  #   depends_on:
-  #     - portrait
+    profiles:
+      - dynamic-analysis
+      - all
