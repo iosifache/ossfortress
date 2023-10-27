@@ -9,8 +9,23 @@ services:
     volumes:
       - "./portrait:/home/coder/codebase"
       - "./tooling:/home/coder/tooling"
+    networks:
+      default:
     ports:
       - "8081:8080"
+
+  static-analysers:
+    build:
+      context: tooling/images/static-analysers
+      network: host
+      tags:
+        - "static_analysers:latest"
+    container_name: static-analysers
+    volumes:
+      - "./portrait:/root/codebase"
+      - "./tooling:/root/tooling"
+    networks:
+      default:
 
   # portrait:
   #   image: ghcr.io/iosifache/oss_fortress_portrait:main
