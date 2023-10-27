@@ -51,5 +51,5 @@ The list of threats is not exhaustive. Please see [the contribution guide](https
 
 ## Exported threat model
 
-The OWASP Threat Dragon model is available under the repository, in [the `others/threat-model.json` JSON file](https://github.com/iosifache/oss_fortress/tree/main/others/threat-model.json).
+The OWASP Threat Dragon model is available under the repository, in [the `solutions/threat-model.json` JSON file](https://github.com/iosifache/oss_fortress/tree/main/solutions/threat-model.json).
 

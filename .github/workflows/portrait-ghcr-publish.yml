@@ -9,8 +9,6 @@ on:
       - main
     paths:
       - portrait
-      - Dockerfile.portrait
-      - pyproject.toml
       - .github/workflows/portrait-ghcr-publish.yml
 
 env:
