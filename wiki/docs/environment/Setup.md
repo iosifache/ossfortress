@@ -1,18 +1,16 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 slug: setup
 ---
 
-## Prerequirements
+## Setup approaches
 
-1. Install Docker Engine and Docker Compose.
+The infrastructure mentioned in [the tooling page](/environment/analysis-infrastructure) can be setup:
+- Manually: Follow the installation guide provided in the documentation of each each tool. The documentations are linked in the pages for each tool.
+- By using the provided Docker Compose infrastructure.
 
-## All-in-one deployment with Docker Compose
+## Docker Compose 
 
-Just run `docker-compose up`. It will spin up multiple containers:
-- `portrait` for Ubuntu Portrait.
+Please ensure you have installed [Docker Engine](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/).
 
-## Building the Ubuntu Portrait container from source
-
-1. Build the Docker image: `docker build --tag portrait --file Dockerfile.portrait .`
-2. Create a new container based on the image: `docker run --name portrait --env "PORTRAIT_RECOVERY_PASSPHRASE=<secret_key>" --publish 8080:8080 portrait`
+For building the images from `Dockerfile`, use `docker compose build`. `docker compose up` will splin up the services, but can use the upstream images if the build command was not ran before.

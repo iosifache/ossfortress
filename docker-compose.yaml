@@ -39,6 +39,7 @@ services:
       - all
 
   coder:
+    image: ghcr.io/iosifache/oss_fortress_coder:main
     build:
       context: tooling/images/coder
       tags:
@@ -56,6 +57,7 @@ services:
       - all
 
   static-analysers:
+    image: ghcr.io/iosifache/oss_fortress_static_analysers:main
     build:
       context: tooling/images/static-analysers
       network: host
@@ -72,7 +74,7 @@ services:
       - all
 
   aflplusplus:
-    image: aflplusplus/aflplusplus
+    image: aflplusplus/aflplusplus:latest
     container_name: aflplusplus
     volumes:
       - "./portrait:/root/codebase"
@@ -84,7 +86,7 @@ services:
       - all
 
   klee:
-    image: klee/klee
+    image: klee/klee:latest
     container_name: klee
     ulimits:
       stack: -1
