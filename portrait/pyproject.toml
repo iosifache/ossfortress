@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "The small brother of Ubuntu Landscape"
 authors = ["George-Andrei Iosif <andrei.iosif@canonical.com>"]
 license = "GPL-3.0-only"
-readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
