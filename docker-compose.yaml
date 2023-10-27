@@ -27,6 +27,26 @@ services:
     networks:
       default:
 
+  aflplusplus:
+    image: aflplusplus/aflplusplus
+    container_name: aflplusplus
+    volumes:
+      - "./portrait:/root/codebase"
+      - "./tooling:/root/tooling"
+    networks:
+      default:
+
+  klee:
+    image: klee/klee
+    container_name: klee
+    ulimits:
+      stack: -1
+    volumes:
+      - "./portrait:/root/codebase"
+      - "./tooling:/root/tooling"
+    networks:
+      default:
+
   # portrait:
   #   image: ghcr.io/iosifache/oss_fortress_portrait:main
   #   container_name: portrait
