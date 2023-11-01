@@ -27,6 +27,7 @@ The workshop, named The Open Source Fortress, provides both theoretical and prac
 The examples imply the discovery of vulnerabilities in a custom, purposefully vulnerable codebase named **Ubuntu Portrait**. It is written in C and Python.
 
 The **included techniques** are:
+- Threat modelling;
 - Secret scanning;
 - Dependency scanning;
 - Linting;

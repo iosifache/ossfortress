@@ -24,4 +24,5 @@
         "wiki/.docusaurus": true,
         "wiki/node_modules": true
     },
+    "markdown.marp.enableHtml": true,
 }

@@ -121,71 +121,63 @@ The below infrastructure presents the recommended workflow for analysis, using t
 
 flowchart LR
 
+%% Class definition
+
+classDef service fill:#3498db
+classDef tool-service fill:#3498db,stroke:#333,stroke-width:3px,stroke-dasharray: 5 5
+classDef tool stroke:#333,stroke-width:3px,stroke-dasharray: 5 5
+classDef legend fill:#ecf0f1
+
+%% Objects
+
 subgraph portrait[Ubuntu Portrait]
-
-    portrait-codebase([Codebase]):::service
-
-    portrait-demo([Live demo]):::service
-
+    portrait-codebase[(Codebase)]:::service
+    portrait-demo[Live demo]:::service
 end
 
 subgraph threat-modelling[Threat modelling]
-
-    dragon[OWASP Threat Dragon]:::tool-service-->|produces| threat-model[Threat model]:::deliverable
-
+    dragon[OWASP Threat Dragon]:::tool-service
 end
+
+threat-model[(Threat model)]
+
+threat-modelling -->|produces| threat-model
 
 portrait -->|is analysed in| threat-modelling
 
-threat-model -->|informs| analysis
-
-subgraph analysis[Vulnerability discovery]
-
+subgraph tool_run[Tools run and aggregation]
     subgraph static-analysers[Static analysers]
-
         osv-scanner[OSV-Scanner]:::tool-service
-
         gitleaks[Gitleaks]:::tool-service
-
         flawfinder[flawfinder]:::tool-service
-
         bandit[Bandit]:::tool-service
-
         Semgrep[Semgrep]:::tool-service
-
     end
 
     class static-analysers service
 
-    static-analysers[Static analysers] -->|produces| sast-warnings[Warnings]:::deliverable
+    sast-warnings[(SARIF warnings)]
+    crashes[(Crashes)]
+    flaws[(Flaws)]
+    aflplusplus[AFL++]:::tool-service
+    klee[KLEE]:::tool-service
 
-    aflplusplus[AFL++]:::tool-service -->|produces| crashes[Crashes]:::deliverable
-
-    klee[KLEE]:::tool-service -->|produces| flaws[Flaws]:::deliverable
-
+    static-analysers -->|produces| sast-warnings
+    aflplusplus -->|produces| crashes
+    klee[KLEE]:::tool-service -->|produces| flaws
 end
 
-analysis --> vulnerabilities[Vulnerabilities]:::deliverable
+triaging[Triaging]
+validation[Validation]
+vulnerabilities[(Vulnerabilities)]
+
+threat-model -->|informs| tool_run
+tool_run --> triaging --> validation --> vulnerabilities
 
 subgraph legend[Legend]
-
     service[Docker Compose service]:::service
-
     tool[Analysis tool]:::tool
-
-    deliverable[Deliverable of the analysis]:::deliverable
-
 end
 
 class legend legend
-
-classDef service fill:#3498db
-
-classDef tool-service fill:#3498db,stroke:#333,stroke-width:3px,stroke-dasharray: 5 5
-
-classDef tool stroke:#333,stroke-width:3px,stroke-dasharray: 5 5
-
-classDef deliverable fill:#2ecc71
-
-classDef legend fill:#ecf0f1
 ```

@@ -1,0 +1,83 @@
+%%{init: {"theme": "neutral", "flowchart": {"htmlLabels": true}}}%%
+
+flowchart LR
+
+%% Class definitions
+
+classDef logical_group stroke:#000,stroke-width:3px,stroke-dasharray: 5 5
+classDef legend fill:#ecf0f1
+
+%% Objects
+
+subgraph vuln_detection[Vulnerability detection]
+    threat_modelling[Threat modelling]
+    threat_model[(Threat model)]
+
+    subgraph auto_vuln_detection[Automated vulnerability detection]
+        tools_run[Tools run and aggregation]
+        triaging[Triaging]
+        warnings[(All SARIF warnings)]
+        validation[Validation]
+        tools_run --> warnings --> triaging --> validation
+    end
+
+    manual_vuln_detection[Manual vulnerability detection]
+    vulns[(Vulnerabilities)]
+
+    threat_modelling -->|produces| threat_model
+    threat_model -->|informs| auto_vuln_detection
+    threat_model -->|informs| manual_vuln_detection
+    manual_vuln_detection --> vulns
+    validation --> vulns
+end
+
+subgraph defensive_activities_after_vuln[Defensive activities]
+    subgraph vuln_research[Vulnerability research]
+        cvss[CVSS approximation]
+        cwe[CWE approximation]
+        cve_request[CVE request]
+    end
+
+    patching[Patching]
+    communication[Communication with the stakeholders]
+end
+
+subgraph offensive_activities[Offensive activities]
+    subgraph exploit_writing[Exploit writing]
+        input_stream[Attack vector]
+        mitigations_bypassing[Mitigations bypass]
+    end
+
+    subgraph goal[Weaponisation]
+        dread[CIA]
+        stride[STRIDE]
+        dread[DREAD]
+    end
+end
+
+
+subgraph analysis_types[Analysis types]
+    subgraph shdast[Depending on running the codebase]
+        static([Static])
+        dynamic([Dynamic])
+        hybrid([Hybrid])
+    end
+
+    subgraph anybox[Depending on the information about the codebase]
+        transparent([Transparent])
+        partially_transparent([Partially-transparent])
+        opaque([Opaque])
+    end
+
+    class shdast logical_group
+    class anybox logical_group
+end
+
+class analysis_types logical_group
+
+%% Relationships between top-level objects
+
+analysis_types -. describes .-> manual_vuln_detection
+analysis_types -. describes .-> tools_run
+vulns --> defensive_activities_after_vuln
+vulns --> offensive_activities

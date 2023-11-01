@@ -1,0 +1,86 @@
+%%{init: {"theme": "neutral", "flowchart": {"htmlLabels": true}}}%%
+
+flowchart LR
+
+%% Class definitions
+
+classDef logical_group stroke:#000,stroke-width:3px,stroke-dasharray: 5 5
+classDef process fill:#34495e,color:#fff
+classDef legend fill:#ecf0f1
+
+%% Objects
+
+subgraph dev_env[Development environment, managed by the producer]
+    dev_process[Development process]
+    documentation[(Documentation)]
+    tests[(Tests)]
+    codebase[(Codebase)]
+    repository[(Repository)]
+    config[(Configuration)]
+    build([Build process])
+
+    subgraph dev_code_deps[Code dependencies]
+        proprietary_deps[(In-house dependencies)]
+        external_deps[(Third-party dependencies)]
+    end
+
+    class dev_code_deps logical_group
+
+    dev_process -->|produces| codebase
+    dev_process -->|produces| documentation
+    dev_process --> |produces| tests
+    documentation -->|informs| dev_process
+    codebase -->|stored in| repository
+    dev_code_deps -->|vendored in| codebase
+    config  -->|used in| codebase
+    codebase -->|used in| build
+    tests -->|verifies| dev_process
+end
+
+class dev_env logical_group
+
+package_manager[(Package manager)]
+package[(Software package)]
+
+subgraph prod_env[Production environment, managed by the consumer]
+    subgraph system_deps[Related systems]
+        subgraph os_deps[Host operating system]
+            filesystem[(File system)]
+            syscall[(Syscalls)]
+            socket[(Sockets)]
+            gui[(GUI)]
+        end
+
+        class os_deps logical_group
+
+        subgraph services_deps[Services]
+            api[(APIs)]
+            databases[(Databases)]
+        end
+
+        class services_deps logical_group
+    end
+
+    class system_deps logical_group
+
+    deployment[Deployment process]
+    prod_infra[(Production solution)]
+    man_external_deps[(Third-party dependencies)]
+    user_config[(User configuration)]
+
+    system_deps -->|takes inputs from| prod_infra
+    prod_infra -->|sends data to| system_deps
+    user_config -->|attached to| prod_infra
+    man_external_deps -->|dynamically linked in| prod_infra
+    deployment -->|creates| prod_infra
+end
+
+class prod_env logical_group
+
+%% Relationships between top-level objects
+
+build -->|creates| package
+package -->|used in| deployment
+package_manager -->|provides| external_deps
+package_manager -->|stores| package
+package_manager -->|stores| man_external_deps
