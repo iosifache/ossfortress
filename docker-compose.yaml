@@ -17,7 +17,7 @@ services:
       - all
 
   owasp_threat_dragon:
-    image: owasp/threat-dragon:latest
+    image: owasp/threat-dragon:v2.1.1
     container_name: dragon
     ports:
       - "8001:8080"
