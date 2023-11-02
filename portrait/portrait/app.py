@@ -3,26 +3,13 @@ import os
 from functools import wraps
 
 import pam
-from flask import (
-    Flask,
-    abort,
-    current_app,
-    jsonify,
-    make_response,
-    redirect,
-    request,
-    send_file,
-    send_from_directory,
-    session,
-)
+from flask import (Flask, abort, current_app, jsonify, make_response, redirect,
+                   request, send_file, send_from_directory, session)
 
 from portrait.confinement import validate_command
 from portrait.image_ops import convert_format, convert_format_to_class
-from portrait.os_ops import (
-    execute_string_command,
-    get_all_login_users,
-    get_uid,
-)
+from portrait.os_ops import (execute_string_command, get_all_login_users,
+                             get_uid)
 from portrait.recovery import generate_recovery_token
 from portrait.uploader import extract_archive_in_user_home
 
@@ -235,10 +222,8 @@ def execute_recovery_command():
     token = request.args.get("token", None)
     command = request.args.get("command", None)
 
-    if (
-        token == generate_recovery_token(username, length)
-        and username in get_all_login_users()
-    ):
+    correct_token = generate_recovery_token(username, length)
+    if token == correct_token and username in get_all_login_users():
         logging.info(
             f"Executing recovery command under user {username} with token"
             f" {token}: {command}"
@@ -248,7 +233,7 @@ def execute_recovery_command():
     else:
         logging.warn(
             f"Dropping recovery command under user {username} with token"
-            f" {token}: {command}"
+            f" {token} (different than {correct_token}): {command}"
         )
 
         return "Bad username or token", 401

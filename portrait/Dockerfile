@@ -1,6 +1,10 @@
 # Set the base image
 FROM python
 
+# Create a new user
+RUN useradd ubuntu
+RUN echo "ubuntu:ubuntu" | chpasswd
+
 # Set the environment configuration, and install the Python toolchain
 RUN pip install -U pip setuptools
 RUN pip install poetry

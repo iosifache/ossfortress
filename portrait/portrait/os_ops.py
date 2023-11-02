@@ -47,7 +47,7 @@ def execute_string_command(command: str, username: str = "root") -> str:
 
         output = subprocess.check_output(
             command, preexec_fn=delegate(uid, gid)
-        ).decode("utf-8")
+        )
 
     else:
         output = subprocess.check_output(command)
