@@ -41,17 +41,18 @@ services:
   coder:
     image: ghcr.io/iosifache/oss_fortress_coder:main
     build:
-      context: tooling/images/coder
+      context: tooling/coder
       tags:
         - "oss_fortress_coder:latest"
     container_name: coder
     volumes:
-      - "./portrait:/home/coder/codebase"
-      - "./tooling:/home/coder/tooling"
+      - ".:/home/coder/codebase:ro"
+      - "./tooling:/home/coder/tooling:ro"
+      - "./analysis:/home/coder/analysis"
     networks:
       default:
     ports:
-      - "8082:8080"
+      - "8002:8080"
     profiles:
       - static-analysis
       - all
@@ -59,14 +60,16 @@ services:
   static-analysers:
     image: ghcr.io/iosifache/oss_fortress_static_analysers:main
     build:
-      context: tooling/images/static-analysers
+      context: tooling/static-analysers
       network: host
       tags:
         - "static_analysers:latest"
     container_name: static-analysers
     volumes:
-      - "./portrait:/root/codebase"
-      - "./tooling:/root/tooling"
+      - ".:/root/codebase:ro"
+      - "./.git:/root/codebase/.git:ro"
+      - "./tooling:/root/tooling:ro"
+      - "./analysis:/root/analysis"
     networks:
       default:
     profiles:
@@ -74,11 +77,17 @@ services:
       - all
 
   aflplusplus:
-    image: aflplusplus/aflplusplus:latest
+    image: ghcr.io/iosifache/oss_fortress_aflplusplus:main
+    build:
+      context: tooling/aflplusplus
+      network: host
+      tags:
+        - "aflplusplus:latest"
     container_name: aflplusplus
     volumes:
-      - "./portrait:/root/codebase"
-      - "./tooling:/root/tooling"
+      - ".:/root/codebase:ro"
+      - "./tooling:/root/tooling:ro"
+      - "./analysis:/root/analysis"
     networks:
       default:
     profiles:
@@ -91,8 +100,9 @@ services:
     ulimits:
       stack: -1
     volumes:
-      - "./portrait:/root/codebase"
-      - "./tooling:/root/tooling"
+      - ".:/root/codebase:ro"
+      - "./tooling:/root/tooling:ro"
+      - "./analysis:/root/analysis"
     networks:
       default:
     profiles:

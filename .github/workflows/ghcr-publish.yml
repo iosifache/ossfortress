@@ -27,6 +27,8 @@ jobs:
             context: tooling/coder
           - id: static_analysis
             context: tooling/static-analysers
+          - id: afplusplus
+            context: tooling/aflplusplus
     permissions:
       contents: read
       packages: write
