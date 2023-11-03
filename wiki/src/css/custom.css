@@ -28,3 +28,11 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.solution-pass {
+  width: 100%;
+  height: 32px;
+  border-radius: var(--ifm-alert-border-radius);
+  background: var(--ifm-navbar-search-input-background-color) no-repeat 0.75rem center / 1rem 1rem !important;
+  padding-left: 0.5rem;
+}
