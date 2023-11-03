@@ -2,6 +2,10 @@
 generate_recovery_token/generate_recovery_token.so
 generate_recovery_token/test.elf
 
+# Analysis
+analysis/**
+!analysis/.gitkeep
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

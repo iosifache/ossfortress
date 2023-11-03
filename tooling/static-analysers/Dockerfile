@@ -24,7 +24,7 @@ RUN pip3 install semgrep
 RUN pip install flawfinder
 
 # Install Bandit
-RUN pip install bandit
+RUN pip install bandit bandit_sarif_formatter
 
 # Install Gitleaks
 WORKDIR /tmp
@@ -33,6 +33,9 @@ RUN git clone https://github.com/gitleaks/gitleaks.git
 WORKDIR /tmp/gitleaks
 RUN make build
 RUN cp /tmp/gitleaks/gitleaks /bin
+
+# Configure Git
+RUN git config --global --add safe.directory /root/codebase
 
 WORKDIR /root/
 

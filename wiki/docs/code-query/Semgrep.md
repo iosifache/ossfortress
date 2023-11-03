@@ -23,7 +23,7 @@ The Semgrep documentation is available [here](https://semgrep.dev/docs).
 
 ### Scanning
 
-1. Create a Semgrep command that scans the entire codebase with the default configuration (`auto`) and creates a SARIF output file, `/analysis/semgrep.sarif`.
+1. Create a Semgrep command that scans the entire codebase with the default configuration (`auto`) and creates a SARIF output file, `/root/analysis/semgrep.sarif`.
 2. Validate each warning produced by Semgrep by manually inspecting the code.
 
 ### Writing rules
@@ -42,3 +42,5 @@ For live testing your rules, you an also use [the Playground](https://semgrep.de
 | `UBUSEC-UID-IDOR`      | `execute_string_command` calls with dynamic arguments                             |
 | `UBUSEC-ARCHIVE-WRITE` | `os.path.join` calls where the arguments came from the parameters of the function |
 | `UBUSEC-HASH-LEN`      | `sha256_update` calls where the parameter is created by concatenation             |
+
+2. Place the rules that you created in `/root/analysis/semgrep-rules` and modify the command from the first section to use them and to save the resulting SARIF file in `/root/analysis/semgrep.custom.sarif`.

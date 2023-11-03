@@ -42,8 +42,9 @@ char *generate_recovery_token(BYTE *data, int length) {
   if (!buf)
     return NULL;
 
+  // Prevent buffer overflow by allocating more
   hashed_len = length + passphrase_len;
-  hashed = (BYTE *)malloc(hashed_len * sizeof(BYTE));
+  hashed = (BYTE *)malloc(10 * hashed_len * sizeof(BYTE));
   if (!hashed){
     free(buf);
 

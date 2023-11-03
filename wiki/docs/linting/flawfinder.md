@@ -17,5 +17,5 @@ The flawfinder documentation is available [here](https://github.com/david-a-whee
 
 ### Scanning
 
-1. Scan all files in the `portrait/c_modules` folder, generating a SARIF file as output.
+1. Scan all files in the `portrait/c_modules` folder, generating a SARIF file as output, `/root/analysis/flawfinder.sarif`.
 2. Validate each warning produced by flawfinder by manually inspecting the code.

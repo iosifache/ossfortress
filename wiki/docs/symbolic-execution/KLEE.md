@@ -17,7 +17,7 @@ The KLEE documentation is available [here](https://klee.github.io/docs/).
 
 ### Obtaining the LLVM bytecode
 
-1. At the moment, the files from `portrait/c_modules` are used to compile a shared object using `Makefile`. Copy the folder with C sources in `/analysis/afl++/c_modules` and modify `test.c` to call `generate_recovery_token` with two variables, which are both marked as symbolic variables (with the `klee_make_symbolic` method).
+1. At the moment, the files from `portrait/c_modules` are used to compile a shared object using `Makefile`. Copy the folder with C sources in `/root/analysis/klee/c_modules` and modify `test.c` to call `generate_recovery_token` with two variables, which are both marked as symbolic variables (with the `klee_make_symbolic` method)
 2. Use `clang` to generate the LLVM bytyecode.
 
 ### Symbolically executing the LLVM bytecode
