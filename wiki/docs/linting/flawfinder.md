@@ -5,6 +5,7 @@ slug: flawfinder
 
 import Documentation from '@site/src/components/Documentation';
 import VulnsTBD from '@site/src/components/VulnsTBD';
+import {DefaultSolution} from '@site/src/components/Solution';
 import {CLISetup, WebSetup} from '@site/src/components/Setup';
 
 <VulnsTBD>
@@ -25,3 +26,10 @@ import {CLISetup, WebSetup} from '@site/src/components/Setup';
 
 1. Scan all files in the `portrait/c_modules` folder, generating a SARIF file as output, `/root/analysis/flawfinder.sarif`.
 2. Validate each warning produced by flawfinder by manually inspecting the code. Use the Coder instance in the Docker infrastructure to review the results.
+
+<DefaultSolution>
+
+1. `flawfinder --sarif /root/codebase/portrait/portrait/c_modules/ > /root/analysis/flawfinder.sarif`
+2. Manual verification
+
+</DefaultSolution>
