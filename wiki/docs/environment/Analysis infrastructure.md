@@ -13,7 +13,7 @@ The tools that will be used during the workshop are:
 - [Bandit](/linting/bandit) for lintinfor statically analysing Python code to find security concerns;
 - [Semgrep](/code-query/semgrep) for code querying;
 - [AFL++](/fuzzing/aflplusplus) for fuzzing C code; and
-- [KLEE](/symbolic-execution) for symbolically executing C code.
+- [KLEE](/symbolic-execution/klee) for symbolically executing C code.
 
 ## Docker infrastructure
 

@@ -4,10 +4,9 @@ slug: semgrep
 ---
 
 import Documentation from '@site/src/components/Documentation';
+import VulnsTBD from '@site/src/components/VulnsTBD';
 
-<Documentation software="Semgrep" link="https://semgrep.dev/docs"/>
-
-## Vulnerabilities to be discovered
+<VulnsTBD>
 
 - `UBUSEC-FLASK-DEBUG`
 - `UBUSEC-TAR-SLIP`
@@ -16,6 +15,10 @@ import Documentation from '@site/src/components/Documentation';
 - `UBUSEC-UID-IDOR`
 - `UBUSEC-ARCHIVE-WRITE`
 - `UBUSEC-HASH-LEN`
+
+</VulnsTBD>
+
+<Documentation software="Semgrep" link="https://semgrep.dev/docs"/>
 
 ## Steps
 

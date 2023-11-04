@@ -4,12 +4,15 @@ slug: flawfinder
 ---
 
 import Documentation from '@site/src/components/Documentation';
+import VulnsTBD from '@site/src/components/VulnsTBD';
 
-<Documentation software="flawfinder" link="https://github.com/david-a-wheeler/flawfinder#readme"/>
-
-## Vulnerabilities to be discovered
+<VulnsTBD>
 
 - `UBUSEC-RECOVERY-OOB`
+
+</VulnsTBD>
+
+<Documentation software="flawfinder" link="https://github.com/david-a-wheeler/flawfinder#readme"/>
 
 ## Steps
 

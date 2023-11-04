@@ -4,15 +4,18 @@ slug: bandit
 ---
 
 import Documentation from '@site/src/components/Documentation';
+import VulnsTBD from '@site/src/components/VulnsTBD';
 
-<Documentation software="Bandit" link="https://bandit.readthedocs.io/en/latest/index.html"/>
-
-## Vulnerabilities to be discovered
+<VulnsTBD>
 
 - `UBUSEC-FIND-CMD`
 - `UBUSEC-FLASK-DEBUG`
 - `UBUSEC-LOGGING-PERMS`
 - `UBUSEC-TAR-SLIP`
+
+</VulnsTBD>
+
+<Documentation software="Bandit" link="https://bandit.readthedocs.io/en/latest/index.html"/>
 
 ## Steps
 

@@ -4,12 +4,15 @@ slug: osv-scanner
 ---
 
 import Documentation from '@site/src/components/Documentation';
+import VulnsTBD from '@site/src/components/VulnsTBD';
 
-<Documentation software="OSV-Scanner" link="https://google.github.io/osv-scanner/"/>
-
-## Vulnerabilities to be discovered
+<VulnsTBD>
 
 - `UBUSEC-PILLOW-OOB`
+
+</VulnsTBD>
+
+<Documentation software="OSV-Scanner" link="https://google.github.io/osv-scanner/"/>
 
 ## Steps
 

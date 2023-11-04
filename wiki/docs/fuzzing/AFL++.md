@@ -4,12 +4,15 @@ slug: aflplusplus
 ---
 
 import Documentation from '@site/src/components/Documentation';
+import VulnsTBD from '@site/src/components/VulnsTBD';
 
-<Documentation software="AFL++" link="https://aflplus.plus/docs/"/>
-
-## Vulnerabilities to be discovered
+<VulnsTBD>
 
 - `UBUSEC-RECOVERY-OOB`
+
+</VulnsTBD>
+
+<Documentation software="AFL++" link="https://aflplus.plus/docs/"/>
 
 ## Steps
 

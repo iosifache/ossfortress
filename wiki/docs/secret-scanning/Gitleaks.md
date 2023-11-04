@@ -4,12 +4,15 @@ slug: gitleaks
 ---
 
 import Documentation from '@site/src/components/Documentation';
+import VulnsTBD from '@site/src/components/VulnsTBD';
 
-<Documentation software="Gitleaks" link="https://github.com/gitleaks/gitleaks#readme"/>
-
-## Vulnerabilities to be discovered
+<VulnsTBD>
 
 - `UBUSEC-FLASK-SECRETS`
+
+</VulnsTBD>
+
+<Documentation software="Gitleaks" link="https://github.com/gitleaks/gitleaks#readme"/>
 
 ## Steps
 

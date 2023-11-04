@@ -4,12 +4,15 @@ slug: klee
 ---
 
 import Documentation from '@site/src/components/Documentation';
+import VulnsTBD from '@site/src/components/VulnsTBD';
 
-<Documentation software="KLEE" link="https://klee.github.io/docs/"/>
-
-## Vulnerabilities to be discovered
+<VulnsTBD>
 
 - `UBUSEC-RECOVERY-OOB`
+
+</VulnsTBD>
+
+<Documentation software="KLEE" link="https://klee.github.io/docs/"/>
 
 ## Steps
 
