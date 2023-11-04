@@ -10,7 +10,7 @@ The tools that will be used during the workshop are:
 - [Gitleaks](/secret-scanning/gitleaks) for scanning a Git repository for leaked secrets;
 - [OSV-Scanner](/dependency-scanning/osv-scanner) for scanning dependencies for vulnerabilities;
 - [flawfinder](/linting/flawfinder) for statically analysing C code to find security concerns;
-- [Bandit](/linting/bandit) for lintinfor statically analysing Python code to find security concerns;
+- [Bandit](/linting/bandit) for statically analysing Python code to find security concerns;
 - [Semgrep](/code-query/semgrep) for code querying;
 - [AFL++](/fuzzing/aflplusplus) for fuzzing C code; and
 - [KLEE](/symbolic-execution/klee) for symbolically executing C code.

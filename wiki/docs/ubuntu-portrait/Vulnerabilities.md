@@ -5,9 +5,9 @@ slug: vulnerabilities
 
 ## Vulnerabilities in Ubuntu Portrait
 
-Each vulnerability described in [the next section](#all-vulnerabilities) has an easy-to-remember identifier. All are short and preffixed with `UBUSEC-`. These IDs will be used to refer to a vulnerability in the workshop.
+Each vulnerability described in [the next section](#all-vulnerabilities) has an easy-to-remember identifier. All are short and prefixed with `UBUSEC-`. These IDs will be used to refer to a vulnerability in the workshop.
 
-At this point, you may read the ID (which is the title of the subsections) and description of each vulnerability quickly. This will assist you in getting familiar with them, and don't worry, you'll learn more specifics (for example, the attack vector) when you discover each of vulnerability using open source tools!
+At this point, you may read the ID (which is the title of the subsections) and description of each vulnerability quickly. This will assist you in getting familiar with them, and don't worry, you'll learn more specifics (for example, the attack vector) when you discover each of the vulnerability using open source tools!
 
 ## All vulnerabilities
 
@@ -35,7 +35,7 @@ The list of vulnerabilities is not exhaustive. Please see the [contribution guid
 - **Affected component**: Web API
 - **Vulnerable code**: `is_an_allowed_command()` from `portrait/confinement.py`
 - **Attack vector**: Authenticated HTTP call to `/command`
-- **Impact**: Arbistrary command exectution as `$USER`
+- **Impact**: Arbitrary command execution as `$USER`
 
 ### `UBUSEC-FLASK-DEBUG`
 
