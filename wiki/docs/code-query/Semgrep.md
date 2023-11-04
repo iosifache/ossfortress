@@ -36,7 +36,7 @@ import {CLISetup, WebSetup} from '@site/src/components/Setup';
 <DefaultSolution>
 
 1. `semgrep scan --sarif --config auto --output /root/analysis/semgrep.sarif /root/codebase/portrait`
-2. Manual verification
+2. Manual validation
 
 </DefaultSolution>
 

@@ -79,6 +79,6 @@ import {DefaultSolution} from '@site/src/components/Solution';
 
 1. `gitleaks --no-banner detect --report-format json --source /root/codebase --report-path /root/analysis/gitleaks.baseline.json --redact --config /root/analysis/gitleaks.toml`
 2. `gitleaks --no-banner detect --report-format sarif --source /root/codebase --report-path /root/analysis/gitleaks.sarif --redact --config /root/analysis/gitleaks.toml --baseline-path /root/analysis/gitleaks.baseline.json`
-3. Manual verification
+3. Manual validation
 
 </DefaultSolution>

@@ -57,6 +57,6 @@ exclude_dirs:
 
 1. `bandit --recursive /root/codebase/portrait/portrait/ --format json --o /root/analysis/bandit.baseline.json --config /root/analysis/bandit.conf`
 2. `bandit-config-generator --out /root/analysis/bandit.conf`
-3. Manual verification
+3. Manual validation
 
 </DefaultSolution>

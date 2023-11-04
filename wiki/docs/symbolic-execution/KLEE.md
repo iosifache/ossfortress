@@ -72,6 +72,6 @@ import {DefaultSolution} from '@site/src/components/Solution';
 
 1. `clang -emit-llvm -c -g -O0 -Xclang -disable-O0-optnone -lkleeRuntest -I . source.c -o source.bc`
 2. Compile the program with `gcc` with `gcc -L /home/klee/klee_build source.c -lkleeRuntest` and run it with `KTEST_FILE=k/root/analysis/lee-last/<ktest_file>./a.out`.
-3. Manual verification
+3. Manual validation
 
 </DefaultSolution>

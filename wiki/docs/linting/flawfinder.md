@@ -30,6 +30,6 @@ import {CLISetup, WebSetup} from '@site/src/components/Setup';
 <DefaultSolution>
 
 1. `flawfinder --sarif /root/codebase/portrait/portrait/c_modules/ > /root/analysis/flawfinder.sarif`
-2. Manual verification
+2. Manual validation
 
 </DefaultSolution>
