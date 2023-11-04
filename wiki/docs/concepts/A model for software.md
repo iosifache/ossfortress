@@ -3,4 +3,4 @@ sidebar_position: 1
 slug: software-model
 ---
 
-![Analysis infrastructure](/img/diagrams/sdlc.png)
+![SDLC](/img/diagrams/sdlc.png)
