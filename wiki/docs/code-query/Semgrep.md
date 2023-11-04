@@ -3,11 +3,9 @@ sidebar_position: 1
 slug: semgrep
 ---
 
-:::info
+import Documentation from '@site/src/components/Documentation';
 
-The Semgrep documentation is available [here](https://semgrep.dev/docs).
-
-:::
+<Documentation software="Semgrep" link="https://semgrep.dev/docs"/>
 
 ## Vulnerabilities to be discovered
 

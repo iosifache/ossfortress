@@ -3,11 +3,9 @@ sidebar_position: 1
 slug: bandit
 ---
 
-:::info
+import Documentation from '@site/src/components/Documentation';
 
-The Bandit documentation is available [here](https://bandit.readthedocs.io/en/latest/index.html).
-
-:::
+<Documentation software="Bandit" link="https://bandit.readthedocs.io/en/latest/index.html"/>
 
 ## Vulnerabilities to be discovered
 

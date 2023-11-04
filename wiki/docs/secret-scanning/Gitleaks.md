@@ -3,11 +3,9 @@ sidebar_position: 1
 slug: gitleaks
 ---
 
-:::info
+import Documentation from '@site/src/components/Documentation';
 
-The Gitleaks documentation is available [here](https://github.com/gitleaks/gitleaks#readme).
-
-:::
+<Documentation software="Gitleaks" link="https://github.com/gitleaks/gitleaks#readme"/>
 
 ## Vulnerabilities to be discovered
 

@@ -3,6 +3,10 @@ sidebar_position: 1
 slug: owasp-threat-dragon
 ---
 
+import Documentation from '@site/src/components/Documentation';
+
+<Documentation software="OWASP Threat Dragon" link="https://owasp.org/www-project-threat-dragon/docs-2/"/>
+
 ## Creating a threat model
 
 1. Access [your local OWASP Threat Dragon user interface](http://localhost:3000) from the browser. If you have issues with the deployment of this container, please use [the publicly available demo instance](https://www.threatdragon.com).

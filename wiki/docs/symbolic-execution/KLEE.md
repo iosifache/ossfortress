@@ -3,11 +3,9 @@ sidebar_position: 1
 slug: klee
 ---
 
-:::info
+import Documentation from '@site/src/components/Documentation';
 
-The KLEE documentation is available [here](https://klee.github.io/docs/).
-
-:::
+<Documentation software="KLEE" link="https://klee.github.io/docs/"/>
 
 ## Vulnerabilities to be discovered
 

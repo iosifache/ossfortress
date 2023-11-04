@@ -3,11 +3,9 @@ sidebar_position: 1
 slug: aflplusplus
 ---
 
-:::info
+import Documentation from '@site/src/components/Documentation';
 
-The AFL++ documentation is available [here](https://aflplus.plus/docs/).
-
-:::
+<Documentation software="AFL++" link="https://aflplus.plus/docs/"/>
 
 ## Vulnerabilities to be discovered
 

@@ -3,12 +3,9 @@ sidebar_position: 1
 slug: osv-scanner
 ---
 
-:::info
+import Documentation from '@site/src/components/Documentation';
 
-The OSV-Scanner documentation is available [here](https://google.github.io/osv-scanner/).
-
-:::
-
+<Documentation software="OSV-Scanner" link="https://google.github.io/osv-scanner/"/>
 
 ## Vulnerabilities to be discovered
 

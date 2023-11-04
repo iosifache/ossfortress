@@ -3,11 +3,9 @@ sidebar_position: 2
 slug: flawfinder
 ---
 
-:::info
+import Documentation from '@site/src/components/Documentation';
 
-The flawfinder documentation is available [here](https://github.com/david-a-wheeler/flawfinder#readme).
-
-:::
+<Documentation software="flawfinder" link="https://github.com/david-a-wheeler/flawfinder#readme"/>
 
 ## Vulnerabilities to be discovered
 
