@@ -7,7 +7,7 @@
       <img src="https://img.shields.io/badge/Docker_images-GHCR-blue?logo=docker" height="17" alt="Docker image: GHCR"/>
     </a>
     &nbsp; &nbsp;
-    <a href="https://oss-fortress.io">
+    <a href="https://iosifache.github.io/oss_fortress/">
       <img src="https://img.shields.io/badge/Documentation-available-green?logo=docusaurus" height="17" alt="Documentation: available"/>
     </a>
 </p>
@@ -39,7 +39,7 @@ The workshop debuted at [Ubuntu Summit 2023](https://events.canonical.com/event/
 
 ## Wiki
 
-Please visit the [wiki](https://oss-fortress.io) if you want to complete the workshop on your own and learn more about the provided vulnerable application.
+Please visit the [wiki](https://iosifache.github.io/oss_fortress/) if you want to complete the workshop on your own and learn more about the provided vulnerable application.
 
 ## Acknowledgements
 
