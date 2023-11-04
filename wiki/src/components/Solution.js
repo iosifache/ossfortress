@@ -14,16 +14,20 @@ export function Solution({ children, pass }) {
         }
     };
 
+    let content
     if (showContent) {
-        return children;
+        content = children;
+    }
+    else {
+        content = <div><p>To display the solution of this task, enter the text <code>{pass}</code> in the field below.</p>
+            <input type='text' className='navbar__search-input solution-pass' onChange={onChangeHandler}
+                value={inputValue} /></div>
     }
 
     return (
         <div>
             <Admonition type="warning" icon="🚧" title="Solution">
-                <p>To display the solution of this task, enter the text <code>{pass}</code> in the field below.</p>
-                <input type='text' className='navbar__search-input solution-pass' onChange={onChangeHandler}
-                    value={inputValue} />
+                {content}
             </Admonition>
         </div>
     );
