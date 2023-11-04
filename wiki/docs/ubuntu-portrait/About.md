@@ -3,6 +3,10 @@ sidebar_position: 1
 slug: portrait
 ---
 
+import {WebSetup} from '@site/src/components/Setup';
+
+<WebSetup software="Ubuntu Portrait" profile="portrait" link="http://127.0.0.1:8000"/>
+
 ## Description
 
 Ubuntu Portrait is a lightweight piece of software that runs on an Ubuntu server and allows users to control it through their browsers. Furthermore, it allows anonymous Internet users to profit from a range of free actions, such as changing the format of an image.

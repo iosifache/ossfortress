@@ -2,7 +2,7 @@ import React from 'react';
 
 import Admonition from '@theme/Admonition';
 
-export default function documentation({ software, link }) {
+export default function Documentation({ software, link }) {
     return (
         <div>
             <Admonition type="info" icon="📚" title={software + " documentation"}>

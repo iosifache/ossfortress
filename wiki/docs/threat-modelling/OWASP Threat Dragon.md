@@ -4,6 +4,9 @@ slug: owasp-threat-dragon
 ---
 
 import Documentation from '@site/src/components/Documentation';
+import {WebSetup} from '@site/src/components/Setup';
+
+<WebSetup software="OWASP Threat Dragon" profile="threat-modelling" link="http://127.0.0.1:8001"/>
 
 <Documentation software="OWASP Threat Dragon" link="https://owasp.org/www-project-threat-dragon/docs-2/"/>
 

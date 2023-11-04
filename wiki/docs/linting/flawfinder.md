@@ -5,12 +5,17 @@ slug: flawfinder
 
 import Documentation from '@site/src/components/Documentation';
 import VulnsTBD from '@site/src/components/VulnsTBD';
+import {CLISetup, WebSetup} from '@site/src/components/Setup';
 
 <VulnsTBD>
 
 - `UBUSEC-RECOVERY-OOB`
 
 </VulnsTBD>
+
+<CLISetup software="flawfinder" profile="static-analysis" container="static-analysers"/>
+
+<WebSetup software="Coder" profile="static-analysis" link="http://127.0.0.1:8002"/>
 
 <Documentation software="flawfinder" link="https://github.com/david-a-wheeler/flawfinder#readme"/>
 
@@ -19,4 +24,4 @@ import VulnsTBD from '@site/src/components/VulnsTBD';
 ### Scanning
 
 1. Scan all files in the `portrait/c_modules` folder, generating a SARIF file as output, `/root/analysis/flawfinder.sarif`.
-2. Validate each warning produced by flawfinder by manually inspecting the code.
+2. Validate each warning produced by flawfinder by manually inspecting the code. Use the Coder instance in the Docker infrastructure to review the results.

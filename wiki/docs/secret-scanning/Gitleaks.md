@@ -5,12 +5,17 @@ slug: gitleaks
 
 import Documentation from '@site/src/components/Documentation';
 import VulnsTBD from '@site/src/components/VulnsTBD';
+import {CLISetup, WebSetup} from '@site/src/components/Setup';
 
 <VulnsTBD>
 
 - `UBUSEC-FLASK-SECRETS`
 
 </VulnsTBD>
+
+<CLISetup software="Gitleaks" profile="static-analysis" container="static-analysers"/>
+
+<WebSetup software="Coder" profile="static-analysis" link="http://127.0.0.1:8002"/>
 
 <Documentation software="Gitleaks" link="https://github.com/gitleaks/gitleaks#readme"/>
 
@@ -20,7 +25,7 @@ import VulnsTBD from '@site/src/components/VulnsTBD';
 
 1. Create a Gitleaks command to check the repository for leaked secrets and dump the warnings in a SARIF file, `/root/analysis/gitleaks.sarif`.
 2. Find a way to redact the secrets in the Gitleaks output.
-3. For each warning produced by Gitleaks, check if it is valid by using `git`.
+3. For each warning produced by Gitleaks, check if it is valid by using `git`. Use the Coder instance in the Docker infrastructure to review the results.
 
 ### Defining custom formats for secrets
 

@@ -5,12 +5,15 @@ slug: klee
 
 import Documentation from '@site/src/components/Documentation';
 import VulnsTBD from '@site/src/components/VulnsTBD';
+import {CLISetup} from '@site/src/components/Setup';
 
 <VulnsTBD>
 
 - `UBUSEC-RECOVERY-OOB`
 
 </VulnsTBD>
+
+<CLISetup software="AFL++" profile="dynamic-analysis" container="klee"/>
 
 <Documentation software="KLEE" link="https://klee.github.io/docs/"/>
 

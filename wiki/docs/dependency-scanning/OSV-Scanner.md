@@ -5,12 +5,18 @@ slug: osv-scanner
 
 import Documentation from '@site/src/components/Documentation';
 import VulnsTBD from '@site/src/components/VulnsTBD';
+import {CLISetup, WebSetup} from '@site/src/components/Setup';
+
 
 <VulnsTBD>
 
 - `UBUSEC-PILLOW-OOB`
 
 </VulnsTBD>
+
+<CLISetup software="OSV-Scanner" profile="static-analysis" container="static-analysers"/>
+
+<WebSetup software="Coder" profile="static-analysis" link="http://127.0.0.1:8002"/>
 
 <Documentation software="OSV-Scanner" link="https://google.github.io/osv-scanner/"/>
 
@@ -23,7 +29,7 @@ import VulnsTBD from '@site/src/components/VulnsTBD';
 
 ### Validating the reported warnings
 
-1. Validate in the code that functions related to the reported vulnerabilities are called.
+1. Validate in the code that functions related to the reported vulnerabilities are called. Use the Coder instance in the Docker infrastructure to review the results.
 
 ### Ignoring the false positives with a configuration file
 

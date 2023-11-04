@@ -5,6 +5,7 @@ slug: semgrep
 
 import Documentation from '@site/src/components/Documentation';
 import VulnsTBD from '@site/src/components/VulnsTBD';
+import {CLISetup, WebSetup} from '@site/src/components/Setup';
 
 <VulnsTBD>
 
@@ -18,6 +19,10 @@ import VulnsTBD from '@site/src/components/VulnsTBD';
 
 </VulnsTBD>
 
+<CLISetup software="Semgrep" profile="static-analysis" container="static-analysers"/>
+
+<WebSetup software="Coder" profile="static-analysis" link="http://127.0.0.1:8002"/>
+
 <Documentation software="Semgrep" link="https://semgrep.dev/docs"/>
 
 ## Steps
@@ -25,7 +30,7 @@ import VulnsTBD from '@site/src/components/VulnsTBD';
 ### Scanning
 
 1. Create a Semgrep command that scans the entire codebase with the default configuration (`auto`) and creates a SARIF output file, `/root/analysis/semgrep.sarif`.
-2. Validate each warning produced by Semgrep by manually inspecting the code.
+2. Validate each warning produced by Semgrep by manually inspecting the code. Use the Coder instance in the Docker infrastructure to review the results.
 
 ### Writing rules
 

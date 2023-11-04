@@ -5,12 +5,15 @@ slug: aflplusplus
 
 import Documentation from '@site/src/components/Documentation';
 import VulnsTBD from '@site/src/components/VulnsTBD';
+import {CLISetup} from '@site/src/components/Setup';
 
 <VulnsTBD>
 
 - `UBUSEC-RECOVERY-OOB`
 
 </VulnsTBD>
+
+<CLISetup software="AFL++" profile="dynamic-analysis" container="aflplusplus"/>
 
 <Documentation software="AFL++" link="https://aflplus.plus/docs/"/>
 
