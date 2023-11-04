@@ -5,7 +5,7 @@ slug: portrait
 
 import {WebSetup} from '@site/src/components/Setup';
 
-<WebSetup software="Ubuntu Portrait" profile="portrait" link="http://127.0.0.1:8000"/>
+<WebSetup software="Ubuntu Portrait" profile="portrait" link="http://127.0.0.1:8000" credentials="ubuntu:ubuntu"/>
 
 ## Description
 

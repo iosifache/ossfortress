@@ -16,7 +16,7 @@ import {CLISetup, WebSetup} from '@site/src/components/Setup';
 
 <CLISetup software="OSV-Scanner" profile="static-analysis" container="static-analysers"/>
 
-<WebSetup software="Coder" profile="static-analysis" link="http://127.0.0.1:8002"/>
+<WebSetup software="Coder" profile="static-analysis" link="http://127.0.0.1:8002" credentials="ossfortress"/>
 
 <Documentation software="OSV-Scanner" link="https://google.github.io/osv-scanner/"/>
 
