@@ -21,7 +21,7 @@ export function CLISetup({ software, profile, container }) {
 }
 
 export function WebSetup({ software, profile, link, credentials }) {
-    const cred_label = credentials.includes(":") ? "credentials" : "password";
+    const cred_label = credentials && credentials.includes(":") ? "credentials" : "password";
 
     return <Setup software={software} profile={profile}>
         Access <a href={link}>this link</a> to interact with the application's web user interface.
