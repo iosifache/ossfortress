@@ -482,6 +482,8 @@ int f(int a, int b){
 
 ## Other techniques
 
+<!-- Keep this content syced with "wiki/docs/Other techniques.md" -->
+
 - Stress/load testing
   - [JMeter](https://github.com/apache/jmeter) for many protocols and services
   - [`k6`](https://github.com/grafana/k6) for Kubernetes
@@ -496,6 +498,9 @@ int f(int a, int b){
 
 ## Security tooling automation
 
+<!-- Keep this content syced with "wiki/docs/Security tooling automation.md" -->
+
+- [SARIF Multitool](https://github.com/microsoft/sarif-sdk/blob/main/docs/multitool-usage.md) for performing operations with SARIF files (merging, paging, querying, supressing, etc.)
 - [Make](https://www.gnu.org/software/make/) and [Poe the Poet](https://github.com/nat-n/poethepoet) for running tasks
 - IDE workflows (e.g., [VSCode tasks](https://code.visualstudio.com/Docs/editor/tasks)) for running the tooling while coding
 - [`pre-commit`](https://github.com/pre-commit/pre-commit) for managing Git pre-commit hooks
@@ -509,6 +514,8 @@ int f(int a, int b){
 ---
 
 ## Security checklist I: Proactive vulnerability discovery
+
+<!-- Keep this content syced with "wiki/docs/Security checklist for OSS projects.md" -->
 
 ☑️ Create a threat model.
 ☑️ Choose a suite of security tools to scan your codebase.
@@ -524,6 +531,8 @@ int f(int a, int b){
 
 ## Security checklist II: Secure users
 
+<!-- Keep this content syced with "wiki/docs/Security checklist for OSS projects.md" -->
+
 ☑️ Design your software to be secure by default.
 ☑️ Have security recommendations for users.
 ☑️ Create SBOMs.
@@ -533,6 +542,8 @@ int f(int a, int b){
 ---
 
 ## Security checklist III: Established security reporting process
+
+<!-- Keep this content syced with "wiki/docs/Security checklist for OSS projects.md" -->
 
 ☑️ Have a standardised, documented process for responding to vulnerabilities.
 ☑️ Create a security policy with preferred way to contact and report format.
