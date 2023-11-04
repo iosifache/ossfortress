@@ -14,7 +14,7 @@ Ubuntu Portrait is a lightweight piece of software that runs on an Ubuntu server
 ## Features
 
 - Logging in with the credentials of the operating system
-- Listing details of the user, such as UID
+- Listing details of the user, such as the UID
 - Accessing open utilities, which are distributed for free to Internet users
   - Converting the format of an image
 - Exploring the file system by running commands from an allow list
@@ -27,4 +27,18 @@ It should be deployed on-premise, on each host that wanted to be accessible and 
 
 ## Demo
 
-TBD
+<div className="yt-wrapper">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/WHi-5XMa2rQ?si=-ypcXb6U1-KECfI9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+<br/>
+
+<div className="yt-wrapper">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/W3CcbnLHf14?si=eTzqxEo9Ub0-vmw3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+<br/>
+
+<div className="yt-wrapper">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/KtqX24IGuRU?si=1lPJEZCUtHc4EZhn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
