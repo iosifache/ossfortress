@@ -54,7 +54,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **Docker Compose profiles**
     - `threat-modelling`
     - `all`
-- **`Dockerfile` in the `oss-fortress` repository**: `tooling/images/coder/Dockerfile`
+- **`Dockerfile` in the `oss-fortress` repository**: `tooling/coder/Dockerfile`
 - **Hosted image**: `iosifache/oss_fortress_coder:main` in GitHub Container Registry
 - **Exposed ports**: `8002` for the web UI
 - **User**: `coder`
@@ -70,7 +70,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **Docker Compose profiles**
     - `static-analysis`
     - `all`
-- **`Dockerfile` in the `oss-fortress` repository**: `tooling/images/static-analysers/Dockerfile`
+- **`Dockerfile` in the `oss-fortress` repository**: `tooling/static-analysers/Dockerfile`
 - **Hosted image**: `iosifache/oss_fortress_static_analysers:main` in GitHub Container Registry
 - **Exposed ports**: N/A
 - **User**: `root`
@@ -86,8 +86,8 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **Docker Compose profiles**
     - `dynamic-analysis`
     - `all`
-- **`Dockerfile` in the `oss-fortress` repository**: N/A
-- **Hosted image**: `aflplusplus/aflplusplus:latest` in GitHub Container Registry
+- **`Dockerfile` in the `oss-fortress` repository**: `tooling/aflplusplus/Dockerfile`
+- **Hosted image**: `iosifache/oss_fortress_aflplusplus:main` in GitHub Container Registry
 - **Exposed ports**: N/A
 - **User**: `root`
 - **Credentials**: N/A
