@@ -42,7 +42,7 @@ import {DefaultSolution} from '@site/src/components/Solution';
 
 1. Manual validation
 
-</DefaultSolution>-
+</DefaultSolution>
 
 ### Ignoring the false positives with a configuration file
 
