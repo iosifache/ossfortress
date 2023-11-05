@@ -56,6 +56,8 @@ services:
     profiles:
       - static-analysis
       - all
+    environment:
+      PASSWORD: "ossfortress"
 
   static-analysers:
     image: ghcr.io/iosifache/oss_fortress_static_analysers:main
