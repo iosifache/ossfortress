@@ -22,7 +22,7 @@ import {CLISetup, WebSetup} from '@site/src/components/Setup';
 
 <CLISetup software="Semgrep" profile="static-analysis" container="static-analysers"/>
 
-<WebSetup software="Coder" profile="static-analysis" link="http://127.0.0.1:8002" credentials="ossfortress"/>
+<WebSetup software="Coder" profile="static-analysis" link="http://127.0.0.1:8002" credentials="oss-fortress"/>
 
 <Documentation software="Semgrep" link="https://semgrep.dev/docs"/>
 
