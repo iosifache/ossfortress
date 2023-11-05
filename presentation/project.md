@@ -115,6 +115,9 @@ private static function getCommand($opt_name)
     - General software and software security topics
     - Brief presentation of each analysis technique
   - Practical examples for analysing a vulnerable codebase
+    - Infrastructure and access
+    - Documentations
+    - Proposed solutions
 
 ---
 
