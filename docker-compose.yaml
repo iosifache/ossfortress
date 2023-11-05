@@ -20,7 +20,7 @@ services:
     image: owasp/threat-dragon:v2.1.1
     container_name: dragon
     ports:
-      - "8001:8080"
+      - "8001:3000"
     environment:
       # The envvars are set with this syntax because of docker/compose#3878.
       GITHUB_CLIENT_ID: 01234567890123456789

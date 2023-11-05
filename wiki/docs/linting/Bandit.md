@@ -19,7 +19,7 @@ import {CLISetup, WebSetup} from '@site/src/components/Setup';
 
 <CLISetup software="Bandit" profile="static-analysis" container="static-analysers"/>
 
-<WebSetup software="Coder" profile="static-analysis" link="http://127.0.0.1:8002" credentials="ossfortress"/>
+<WebSetup software="Coder" profile="static-analysis" link="http://127.0.0.1:8002" credentials="oss-fortress"/>
 
 <Documentation software="Bandit" link="https://bandit.readthedocs.io/en/latest/index.html"/>
 
