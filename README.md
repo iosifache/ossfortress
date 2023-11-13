@@ -51,6 +51,15 @@ Please click the image below to view the most recent presentation used when host
 
 Please visit the [wiki](https://ossfortress.io/) if you want to complete the workshop on your own and learn more about the provided vulnerable application.
 
+## Showcases
+
+The workshop debuted at [Ubuntu Summit 2023](https://events.canonical.com/event/31/contributions/219), which included both theoretical and practical components.
+
+The Open Source Fortress was also presented as a talk, which lacked the practical component:
+
+- November 2023 at Canonical in [a lightning talk](https://raw.githubusercontent.com/iosifache/oss_fortress/main/presentation/lightning-talk-23/export.pdf); and
+- November 2023 at [DefCamp 2023](https://def.camp/speaker/george-andrei-iosif-2).
+
 ## Acknowledgements
 
 Previous works, such as [Juice Shop](https://owasp.org/www-project-juice-shop), [WebGoat](https://github.com/WebGoat/WebGoat) and [WrongSecrets](https://owasp.org/www-project-juice-shop), inspired this workshop.

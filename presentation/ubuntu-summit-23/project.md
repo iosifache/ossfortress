@@ -19,7 +19,7 @@ blockquote {
 
 <!-- _class: lead -->
 
-# Open Source Fortress
+# The Open Source Fortress
 
 ---
 
