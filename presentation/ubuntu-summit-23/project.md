@@ -50,7 +50,7 @@ blockquote {
 
 ## Q: What are we missing here?
 
-1. `/installer/index.php` route stores the user-controlled configuration in `rcube->config`.
+1. `/installer/index.php` route stores the user-controlled configuration in <br/> `rcube->config`.
 2. When an email with a non-standard format is received, `rcube::exec` executes the output of `getCommand`.
 
 ---
@@ -107,7 +107,7 @@ private static function getCommand($opt_name)
 
 ---
 
-## Open Source Fortress
+## The Open Source Fortress
 
 - Lots of OSS tools that can be used to proactively detect vulnerabilities
 - Structure
@@ -121,11 +121,11 @@ private static function getCommand($opt_name)
 
 ---
 
-![center](../diagrams/exports/sdlc.png)
+![center](../../diagrams/exports/sdlc.png)
 
 ---
 
-![center](../diagrams/exports/software-security-model.png)
+![center](../../diagrams/exports/software-security-model.png)
 
 ---
 
@@ -183,15 +183,15 @@ private static function getCommand($opt_name)
 - "*lightweight piece of software that runs on an Ubuntu server and allows users to control it through their browsers*"
 - On-premise deployment
 - Written in Python and C
-- 12 embedded vulnerabilities
+- 12+ embedded vulnerabilities
 
 ---
 
-![height: 200px center](../diagrams/exports/ubuntu-portrait.png)
+![height: 200px center](../../diagrams/exports/ubuntu-portrait.png)
 
 ---
 
-![center](../diagrams/exports/analysis-infra.png)
+![center](../../diagrams/exports/analysis-infra.png)
 
 ---
 
