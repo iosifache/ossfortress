@@ -35,8 +35,6 @@ The **included techniques** are:
 - Symbolic execution; and
 - Fuzzing.
 
-The workshop debuted at [Ubuntu Summit 2023](https://events.canonical.com/event/31/contributions/219). Before that, it was tested in an internal CTF competition organised by the [Ubuntu Security Team](https://wiki.ubuntu.com/SecurityTeam).
-
 ## Presentation
 
 Please click the image below to view the most recent presentation used when hosting this workshop.
@@ -53,12 +51,12 @@ Please visit the [wiki](https://ossfortress.io/) if you want to complete the wor
 
 ## Showcases
 
-The workshop debuted at [Ubuntu Summit 2023](https://events.canonical.com/event/31/contributions/219), which included both theoretical and practical components.
-
-The Open Source Fortress was also presented as a talk, which lacked the practical component:
-
-- November 2023 at Canonical in [a lightning talk](https://raw.githubusercontent.com/iosifache/oss_fortress/main/presentation/lightning-talk-23/export.pdf); and
-- November 2023 at [DefCamp 2023](https://def.camp/speaker/george-andrei-iosif-2).
+| Event                                                                                                                               | Event description                                                                 | Event date    | Showcase form                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------- |
+| [Ubuntu Summit](https://events.canonical.com/event/31/contributions/219)                                                            | Community conference                                                              | November 2023 | Entire workshop, with both theoretical and practical components                                       |
+| [DefCamp](https://def.camp/speaker/george-andrei-iosif-2)                                                                           | Cybersecurity conference                                                          | November 2023 | Talk summarizing the concepts presented in the workshop and containing demos of the recommended tools |
+| [Canonical lightning talk](https://raw.githubusercontent.com/iosifache/oss_fortress/main/presentation/lightning-talk-23/export.pdf) |                                                                                   | November 2023 | 5-minute pitch of the workshop                                                                        |
+| UbuCTF                                                                                                                              | CTF organised by the [Ubuntu Security Team](https://wiki.ubuntu.com/SecurityTeam) | November 2023 | CTF challenge in which the players had to patch the vulnerabilities                                   |
 
 ## Acknowledgements
 
