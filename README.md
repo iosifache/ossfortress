@@ -58,6 +58,10 @@ Please visit the [wiki](https://ossfortress.io/) if you want to complete the wor
 | [Canonical lightning talk](https://raw.githubusercontent.com/iosifache/oss_fortress/main/presentation/lightning-talk-23/export.pdf) |                                                                                   | November 2023 | 5-minute pitch of the workshop                                                                        |
 | UbuCTF                                                                                                                              | CTF organised by the [Ubuntu Security Team](https://wiki.ubuntu.com/SecurityTeam) | November 2023 | CTF challenge in which the players had to patch the vulnerabilities                                   |
 
+## Contributing
+
+Please check [`CONTRIBUTING.md`](/CONTRIBUTING.md) for further information on how you can help!
+
 ## Acknowledgements
 
 Previous works, such as [Juice Shop](https://owasp.org/www-project-juice-shop), [WebGoat](https://github.com/WebGoat/WebGoat) and [WrongSecrets](https://owasp.org/www-project-juice-shop), inspired this workshop.
