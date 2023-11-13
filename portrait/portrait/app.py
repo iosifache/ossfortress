@@ -145,6 +145,9 @@ def execute_command():
 
 @app.route("/username")
 def translate_username_to_uid():
+    if "user" not in session:
+        return "Authenticated route", 401
+
     uid = request.args.get("uid", None)
     if uid is None:
         return "Invalid UID", 400
