@@ -37,6 +37,16 @@ The **included techniques** are:
 
 The workshop debuted at [Ubuntu Summit 2023](https://events.canonical.com/event/31/contributions/219). Before that, it was tested in an internal CTF competition organised by the [Ubuntu Security Team](https://wiki.ubuntu.com/SecurityTeam).
 
+## Presentation
+
+Please click the image below to view the most recent presentation used when hosting this workshop.
+
+<a href="/presentation/ubuntu-summit-23/export.pdf">
+  <kbd>
+    <img src="presentation/ubuntu-summit-23/preview.png" width="400">
+  </kbd>
+</a>
+
 ## Wiki
 
 Please visit the [wiki](https://ossfortress.io/) if you want to complete the workshop on your own and learn more about the provided vulnerable application.
