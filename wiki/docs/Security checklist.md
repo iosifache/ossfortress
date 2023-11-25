@@ -11,9 +11,15 @@ One-time activities are marked with ☑️, and the recurrent ones with 🔁.
 
 :::
 
+:::info
+
+When utilizing the suggested security tools, please consider using [the cheat sheet](/cheatsheet).
+
+:::
+
 ## I. Proactive vulnerability discovery
 
-☑️ Create a threat model. <br/>
+☑️ Create a threat model.<br/>
 ☑️ Choose a suite of security tools to scan your codebase. <br/>
 ☑️ Automate the suite of security tools in local/development environments and CI/CD pipelines, with quality gates. <br/>
 ☑️ Request the integration of your project with OSS-Fuzz. <br/>
