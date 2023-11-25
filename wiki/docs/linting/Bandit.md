@@ -34,9 +34,9 @@ import {CLISetup, WebSetup} from '@site/src/components/Setup';
 
 <DefaultSolution>
 
-1. `bandit --recursive /root/codebase/portrait/portrait --format sarif --o /root/analysis/bandit.sarif`
+1. `bandit --recursive /root/codebase/portrait/portrait --format sarif --output /root/analysis/bandit.sarif`
 2. `bandit-config-generator --out /root/analysis/bandit.conf`
-3. Add the below configuration to the `/root/analysis/bandit.conf` file and run `bandit --recursive /root/codebase/portrait/portrait --format sarif --o /root/analysis/bandit.sarif --config /root/analysis/bandit.conf`.
+3. Add the below configuration to the `/root/analysis/bandit.conf` file and run `bandit --recursive /root/codebase/portrait/portrait --format sarif --output /root/analysis/bandit.sarif --config /root/analysis/bandit.conf`.
 
 ```yaml
 exclude_dirs:
@@ -55,8 +55,8 @@ exclude_dirs:
 
 <DefaultSolution>
 
-1. `bandit --recursive /root/codebase/portrait/portrait/ --format json --o /root/analysis/bandit.baseline.json --config /root/analysis/bandit.conf`
-2. `bandit-config-generator --out /root/analysis/bandit.conf`
+1. `bandit --recursive /root/codebase/portrait/portrait --format json --output /root/analysis/bandit.baseline.json --config /root/analysis/bandit.conf`
+2. `bandit --recursive /root/codebase/portrait/portrait --format sarif --output /root/analysis/bandit.diff.sarif --config /root/analysis/bandit.conf --baseline /root/analysis/bandit.baseline.json`
 3. Manual validation
 
 </DefaultSolution>
