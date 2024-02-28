@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 4
 slug: portrait
 ---
 
@@ -20,6 +20,12 @@ Ubuntu Portrait is a lightweight piece of software that runs on an Ubuntu server
 - Exploring the file system by running commands from an allow list
 - Uploading tar archives to the user's home
 - Entering the recovery mode if the credentials were lost
+
+## Architecture
+
+The following C4 diagram shows the application's general architecture:
+
+![Ubuntu Portrait architecture](/img/diagrams/ubuntu-portrait.png)
 
 ## Deployment
 
