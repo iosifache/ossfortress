@@ -116,7 +116,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 
 The below infrastructure presents the recommended workflow for analysis, using the recommended tooling and [Docker Compose services](#docker-infrastructure).
 
-![Analysis infrastructure](/img/diagrams/analysis-infra.png)
+_![Analysis infrastructure](/img/diagrams/analysis-infra.png)_
 
 ## Setup
 

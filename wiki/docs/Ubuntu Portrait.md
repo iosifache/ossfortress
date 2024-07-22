@@ -25,7 +25,7 @@ Ubuntu Portrait is a lightweight piece of software that runs on an Ubuntu server
 
 The following C4 diagram shows the application's general architecture:
 
-![Ubuntu Portrait architecture](/img/diagrams/ubuntu-portrait.png)
+_![Ubuntu Portrait architecture](/img/diagrams/ubuntu-portrait.png)_
 
 ## Deployment
 

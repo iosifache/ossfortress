@@ -86,9 +86,17 @@ const config = {
       mermaid: {
         theme: { light: 'neutral', dark: 'forest' },
       },
+      imageZoom: {
+        selector: '.markdown em > img',
+        options: {
+            margin: 24
+        }
+      }
     }),
 
-
+    plugins: [
+        'plugin-image-zoom'
+    ],
 };
 
 module.exports = config;
