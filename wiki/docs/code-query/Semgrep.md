@@ -48,7 +48,7 @@ For live testing of your rules, you can also use [the Playground](https://semgre
 
 :::
 
-1. The vulnerabilities listed below were not detected by any technique that we've seen so far. Inspect [the Semgrep documentation](/ubuntu-portrait/vulnerabilities) and write rules to catch them in the `/root/analysis/semgrep-rules` folder. The rules should have as many metadata fields filled as possible.
+1. The vulnerabilities listed below were not detected by any technique that we've seen so far. Inspect the Semgrep documentation and write rules to catch them in the `/root/analysis/semgrep-rules` folder. The rules should have as many metadata fields filled as possible.
 
 | Vulnerability ID       | Hints on how to catch it with Semgrep                                             |
 | ---------------------- | --------------------------------------------------------------------------------- |

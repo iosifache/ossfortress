@@ -120,7 +120,7 @@ _![Analysis infrastructure](/img/diagrams/analysis-infra.png)_
 
 ## Setup
 
-The infrastructure mentioned in [the tooling page](/environment/analysis-infrastructure) can be setup:
+The infrastructure can be setup:
 - Manually: Follow the installation guide provided in the documentation of each each tool. The documentations are linked in the pages for each tool.
 - By using the provided Docker Compose infrastructure.
 
