@@ -9,4 +9,4 @@ slug: other-techniques
   - [JMeter](https://github.com/apache/jmeter) for many protocols and services
   - [`k6`](https://github.com/grafana/k6) for Kubernetes
 - Web dynamic analysis
-  - [OWASP's Zed Proxy Attack](https://github.com/zaproxy/zaproxy)
+  - [Zed Proxy Attack](https://github.com/zaproxy/zaproxy)
