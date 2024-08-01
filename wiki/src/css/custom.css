@@ -61,3 +61,11 @@
 .hidden {
   display: none !important;
 }
+
+.theme-doc-markdown p {
+  text-align: justify;
+}
+
+.badges-container {
+  display: inline-flex;
+}
