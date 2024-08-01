@@ -64,6 +64,10 @@ const config = {
         title: 'The Open Source Fortress',
         items: [
           {
+            type: 'custom-mode-switcher',
+            position: 'right',
+          },
+          {
             href: 'https://github.com/iosifache/oss_fortress',
             label: 'GitHub',
             position: 'right',
@@ -81,14 +85,14 @@ const config = {
       imageZoom: {
         selector: '.markdown em > img',
         options: {
-            margin: 100
+          margin: 100
         }
       }
     }),
 
-    plugins: [
-        'plugin-image-zoom'
-    ],
+  plugins: [
+    'plugin-image-zoom'
+  ],
 };
 
 module.exports = config;

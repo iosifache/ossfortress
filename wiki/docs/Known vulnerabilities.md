@@ -3,6 +3,10 @@ sidebar_position: 5
 slug: vulnerabilities
 ---
 
+import {BeginnerPage} from '@site/src/components/BeginnerContent';
+
+<BeginnerPage>
+
 ## Vulnerabilities in Sand Castle
 
 Each vulnerability described in [the next section](#all-vulnerabilities) has an easy-to-remember identifier. All are short and prefixed with `UBUSEC-`. These IDs will be used to refer to a vulnerability in the workshop.
@@ -137,3 +141,5 @@ The list of vulnerabilities is not exhaustive. Please see the [contribution guid
 - **Vulnerable code**: `app` from `sandcastle/app.py`
 - **Attack vector**: adversary-in-the-middle attack 
 - **Impact**: Exposed credentials, commands, and other sensitive information transferred between the web UI and web API
+
+</BeginnerPage>

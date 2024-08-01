@@ -7,6 +7,7 @@ import Documentation from '@site/src/components/Documentation';
 import VulnsTBD from '@site/src/components/VulnsTBD';
 import {CLISetup, WebSetup} from '@site/src/components/Setup';
 import {DefaultSolution} from '@site/src/components/Solution';
+import {SolutionsNote} from '@site/src/components/BeginnerContent';
 
 <VulnsTBD>
 
@@ -19,6 +20,8 @@ import {DefaultSolution} from '@site/src/components/Solution';
 <WebSetup software="Coder" profile="static-analysis" link="http://127.0.0.1:8002" credentials="oss-fortress"/>
 
 <Documentation software="OSV-Scanner" link="https://google.github.io/osv-scanner/"/>
+
+<SolutionsNote/>
 
 ## Steps
 

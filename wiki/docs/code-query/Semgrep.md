@@ -7,6 +7,7 @@ import Documentation from '@site/src/components/Documentation';
 import VulnsTBD from '@site/src/components/VulnsTBD';
 import {DefaultSolution} from '@site/src/components/Solution';
 import {CLISetup, WebSetup} from '@site/src/components/Setup';
+import {SolutionsNote} from '@site/src/components/BeginnerContent';
 
 <VulnsTBD>
 
@@ -25,6 +26,8 @@ import {CLISetup, WebSetup} from '@site/src/components/Setup';
 <WebSetup software="Coder" profile="static-analysis" link="http://127.0.0.1:8002" credentials="oss-fortress"/>
 
 <Documentation software="Semgrep" link="https://semgrep.dev/docs"/>
+
+<SolutionsNote/>
 
 ## Steps
 

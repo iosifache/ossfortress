@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { BeginnerContent } from '@site/src/components/BeginnerContent';
 import Admonition from '@theme/Admonition';
 
 export function Solution({ children, pass }) {
@@ -25,11 +26,13 @@ export function Solution({ children, pass }) {
     }
 
     return (
-        <div>
-            <Admonition type="warning" icon="🚧" title="Solution">
-                {content}
-            </Admonition>
-        </div>
+        <BeginnerContent showNothingOn="advanced">
+            <div>
+                <Admonition type="warning" icon="🚧" title="Solution">
+                    {content}
+                </Admonition>
+            </div>
+        </BeginnerContent>
     );
 }
 

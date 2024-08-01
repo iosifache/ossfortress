@@ -5,6 +5,10 @@ slug: cheatsheet
 
 # Cheat sheet for getting started
 
+import {BeginnerPage} from '@site/src/components/BeginnerContent';
+
+<BeginnerPage>
+
 ## OWASP Threat Dragon for threat modelling
 
 1. Install and run the Docker image
@@ -53,3 +57,5 @@ slug: cheatsheet
 1. Download any release of OSV-Scanner from [its GitHub releases](https://github.com/gitleaks/gitleaks/releases).
 2. Scan: `gitleaks --no-banner detect --report-format sarif --source <codebase_path> --report-path <report_path> --redact`
 3. Validate the resulting warnings using a SARIF explorer (for example, [the SARIF Viewer extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=MS-SarifVSCode.sarif-viewer)).
+
+</BeginnerPage>

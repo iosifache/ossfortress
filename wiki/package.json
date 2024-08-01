@@ -18,6 +18,7 @@
     "@docusaurus/preset-classic": "3.4.0",
     "@mdx-js/react": "3.0.1",
     "clsx": "^1.2.1",
+    "js-cookie": "^3.0.5",
     "plugin-image-zoom": "github:flexanalytics/plugin-image-zoom",
     "prism-react-renderer": "2.3.1",
     "react": "18.3.1",

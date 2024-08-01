@@ -7,6 +7,7 @@ import Documentation from '@site/src/components/Documentation';
 import VulnsTBD from '@site/src/components/VulnsTBD';
 import {CLISetup} from '@site/src/components/Setup';
 import {DefaultSolution} from '@site/src/components/Solution';
+import {SolutionsNote} from '@site/src/components/BeginnerContent';
 
 <VulnsTBD>
 
@@ -17,6 +18,8 @@ import {DefaultSolution} from '@site/src/components/Solution';
 <CLISetup software="AFL++" profile="dynamic-analysis" container="aflplusplus"/>
 
 <Documentation software="AFL++" link="https://aflplus.plus/docs/"/>
+
+<SolutionsNote/>
 
 ## Steps
 

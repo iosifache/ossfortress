@@ -69,3 +69,7 @@
 .badges-container {
   display: inline-flex;
 }
+
+.mode-button {
+  cursor: pointer;
+}
