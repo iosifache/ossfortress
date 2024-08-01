@@ -46,7 +46,7 @@ import {DefaultSolution} from '@site/src/components/Solution';
 1. Run the command `gitleaks --no-banner detect --report-format sarif --source /root/codebase --report-path /root/analysis/gitleaks.sarif --redact --config /root/analysis/gitleaks.toml` after creating the following configuration file in `/root/analysis/gitleaks.toml`:
 
     ```toml
-        title = "Gitleaks configuration for Ubuntu Portrait"
+        title = "Gitleaks configuration for Sand Castle"
 
         [[rules]]
         description = "hardcoded Flask key"

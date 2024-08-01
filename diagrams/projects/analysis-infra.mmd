@@ -11,9 +11,9 @@ classDef legend fill:#ecf0f1
 
 %% Objects
 
-subgraph portrait[Ubuntu Portrait]
-    portrait-codebase[(Codebase)]:::service
-    portrait-demo[Live demo]:::service
+subgraph sandcastle[Sand Castle]
+    sandcastle-codebase[(Codebase)]:::service
+    sandcastle-demo[Live demo]:::service
 end
 
 subgraph threat-modelling[Threat modelling]
@@ -24,7 +24,7 @@ threat-model[(Threat model)]
 
 threat-modelling -->|produces| threat-model
 
-portrait -->|is analysed in| threat-modelling
+sandcastle -->|is analysed in| threat-modelling
 
 subgraph tool_run[Tools run and aggregation]
     subgraph static-analysers[Static analysers]

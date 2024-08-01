@@ -1,9 +1,9 @@
 {
   "version": "2.0.10",
   "summary": {
-    "title": "Ubuntu Portrait",
+    "title": "Sand Castle",
     "owner": "George-Andrei Iosif",
-    "description": "A lightweight piece of software that enables the control of an Ubuntu server from browser",
+    "description": "A lightweight piece of software that enables the control of a Debian-based server from browser",
     "id": 0
   },
   "detail": {
@@ -43,7 +43,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "Web UI",
-              "description": "Enables the user to interact from the browser with the Ubuntu Portrait services.",
+              "description": "Enables the user to interact from the browser with the Sand Castle services.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "providesAuthentication": false,

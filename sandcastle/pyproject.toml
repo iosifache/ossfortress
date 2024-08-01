@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "portrait"
+name = "sandcastle"
 version = "0.1.0"
-description = "The small brother of Ubuntu Landscape"
+description = "Remote server management"
 authors = ["George-Andrei Iosif <andrei.iosif@canonical.com>"]
 license = "GPL-3.0-only"
 
@@ -18,7 +18,7 @@ black = "^23.7.0"
 isort = "^5.12.0"
 
 [tool.poetry.scripts]
-portrait = 'portrait.app:main'
+sandcastle = 'sandcastle.app:main'
 
 [tool.black]
 line-length = 79

@@ -22,7 +22,7 @@ import {DefaultSolution} from '@site/src/components/Solution';
 
 ### Changing the input stream of the C library
 
-1. At the moment, the files from `portrait/c_modules` are used to compile a shared object using `Makefile`. To increase the speed of the future fuzzing process, copy the folder with C sources in `/root/analysis/afl++/c_modules` and modify `test.c` to read the parameters for the `generate_recovery_token` call from `stdin` or a file. You should establish a convention for how the parameters are sent. For example, a 4-byte integer can be the first, followed by the bytes representing the string.
+1. At the moment, the files from `sandcastle/c_modules` are used to compile a shared object using `Makefile`. To increase the speed of the future fuzzing process, copy the folder with C sources in `/root/analysis/afl++/c_modules` and modify `test.c` to read the parameters for the `generate_recovery_token` call from `stdin` or a file. You should establish a convention for how the parameters are sent. For example, a 4-byte integer can be the first, followed by the bytes representing the string.
 2. Use `afl-cc` to compile the source code you adapted. You can also leverage the already existing `Makefile`. The resulting executable file should be stored in `/root/analysis/afl++/c_modules/test`. Also make the required modifications to use Address Sanitizer and debugger symbols.
 3. Create the directories `/root/analysis/afl++/c_modules/inputs` and `/root/analysis/afl++/c_modules/output`.
 4. Using the convention that you established, create the file `/root/analysis/afl++/c_modules/inputs/example` that contains a valid input for the program you compiled.
@@ -61,7 +61,7 @@ import {DefaultSolution} from '@site/src/components/Solution';
 2. `AFL_USE_ASAN=1 /AFLplusplus/afl-cc -g -o /root/analysis/afl++/c_modules/test /root/analysis/afl++/c_module/*.c`
 3. `mkdir /root/analysis/afl++/c_modules/inputs /root/analysis/afl++/c_modules/outputs`
 4. `echo -ne "\x01\x00\x00\x00a" > /root/analysis/afl++/c_modules/inputs/example`
-5. `export PORTRAIT_RECOVERY_PASSPHRASE="secret"`
+5. `export SANDCASTLE_RECOVERY_PASSPHRASE="secret"`
 
 </DefaultSolution>
 

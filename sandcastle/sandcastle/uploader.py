@@ -2,7 +2,7 @@ import os
 import tarfile
 import tempfile
 
-from portrait.os_ops import get_home_dir
+from sandcastle.os_ops import get_home_dir
 
 
 def get_upload_dir(username: str, destination_folder: str) -> str:

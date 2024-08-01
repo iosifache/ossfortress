@@ -24,7 +24,7 @@ With this in mind, developers are advised to take a defensive posture, namely to
 
 The workshop, named The Open Source Fortress, provides both theoretical and practical information about **detecting vulnerabilities in codebases**. It explains how each technique works, what open source tools are available, and then provides real examples.
 
-The examples imply the discovery of vulnerabilities in a custom, purposefully vulnerable codebase named **Ubuntu Portrait**. It is written in C and Python.
+The examples imply the discovery of vulnerabilities in a custom, purposefully vulnerable codebase named **Sand Castle**. It is written in C and Python.
 
 The **included techniques** are:
 - Threat modelling;
@@ -34,16 +34,6 @@ The **included techniques** are:
 - Code querying;
 - Symbolic execution; and
 - Fuzzing.
-
-## Presentation
-
-Please click the image below to view the most recent presentation used when hosting this workshop.
-
-<a href="/presentation/ubuntu-summit-23/export.pdf">
-  <kbd>
-    <img src="presentation/ubuntu-summit-23/preview.png" width="400">
-  </kbd>
-</a>
 
 ## Wiki
 

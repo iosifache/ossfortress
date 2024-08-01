@@ -1,9 +1,8 @@
 <html>
 
 <head>
-    <title>Ubuntu Portrait Preview | Dashboard</title>
-    <link rel="stylesheet"
-        href="https://assets.ubuntu.com/v1/vanilla-framework-version-3.14.0.min.css" />
+    <title>Sand Castle | Dashboard</title>
+    <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-3.14.0.min.css" />
 
     <style>
         #command_output {
@@ -23,20 +22,11 @@
             <div class="p-navigation__banner">
                 <div class="p-navigation__tagged-logo">
                     <a class="p-navigation__link" href="#">
-                        <div class="p-navigation__logo-tag">
-                            <img class="p-navigation__logo-icon"
-                                src="https://assets.ubuntu.com/v1/82818827-CoF_white.svg"
-                                alt="">
-                        </div>
-                        <span class="p-navigation__logo-title">Ubuntu Portrait
-                            Preview</span>
+                        <span class="p-navigation__logo-title">Sand Castle</span>
                     </a>
                 </div>
-                <a href="#navigation" class="p-navigation__toggle--open"
-                    title="menu">Menu</a>
-                <a href="#navigation-closed"
-                    class="p-navigation__toggle--close"
-                    title="close menu">Close menu</a>
+                <a href="#navigation" class="p-navigation__toggle--open" title="menu">Menu</a>
+                <a href="#navigation-closed" class="p-navigation__toggle--close" title="close menu">Close menu</a>
             </div>
             <nav class="p-navigation__nav u-image-position">
                 <ul class="p-navigation__items"></ul>
@@ -74,13 +64,11 @@
             </ul>
             <form id="execute_command_form">
                 <label for="command">Command</label>
-                <input type="text" id="command" name="command"
-                    placeholder="ls">
+                <input type="text" id="command" name="command" placeholder="ls">
                 <button type="submit">Execute</button>
                 <br />
                 <label for="command_output">Output</label>
-                <textarea id="command_output" name="command_output" rows="5"
-                    readonly></textarea>
+                <textarea id="command_output" name="command_output" rows="5" readonly></textarea>
             </form>
         </div>
     </div>
@@ -106,8 +94,7 @@
                     </div>
                 </div>
                 <label for="folder">Name of the destination folder</label>
-                <input type="text" id="folder" name="folder"
-                    placeholder="configs">
+                <input type="text" id="folder" name="folder" placeholder="configs">
                 <label for="archive">TAR archive</label>
                 <input type="file" id="archive" name="archive">
                 <button type="submit" name="submit">Upload</button>

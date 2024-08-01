@@ -32,7 +32,7 @@ char *generate_recovery_token(BYTE *data, int length) {
   char *server_recovery_passphrase;
   int hashed_len, passphrase_len;
 
-  server_recovery_passphrase = getenv("PORTRAIT_RECOVERY_PASSPHRASE");
+  server_recovery_passphrase = getenv("SANDCASTLE_RECOVERY_PASSPHRASE");
   if (server_recovery_passphrase == NULL)
     return NULL;
 

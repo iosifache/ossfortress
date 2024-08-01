@@ -22,7 +22,7 @@ import {DefaultSolution} from '@site/src/components/Solution';
 
 ### Obtaining the LLVM bytecode
 
-1. At the moment, the files from `portrait/c_modules` are used to compile a shared object using `Makefile`. Copy the folder with C sources in `/root/analysis/klee/c_modules` and modify `test.c` to call `generate_recovery_token` with two variables, which are both marked as symbolic variables (with the `klee_make_symbolic` method)
+1. At the moment, the files from `sandcastle/c_modules` are used to compile a shared object using `Makefile`. Copy the folder with C sources in `/root/analysis/klee/c_modules` and modify `test.c` to call `generate_recovery_token` with two variables, which are both marked as symbolic variables (with the `klee_make_symbolic` method)
 2. Use `clang` to generate the LLVM bytecode.
 
 <DefaultSolution>

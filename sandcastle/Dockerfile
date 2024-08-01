@@ -16,11 +16,11 @@ COPY . /app
 # Compile the C shared object
 RUN apt update
 RUN apt install -y gcc make
-WORKDIR /app/portrait/c_modules
+WORKDIR /app/sandcastle/c_modules
 RUN make
 
 # Set the application configuration
-ENV PORTRAIT_RECOVERY_PASSPHRASE="passphrase"
+ENV SANDCASTLE_RECOVERY_PASSPHRASE="passphrase"
 
 # Expose a port
 EXPOSE 8080
@@ -28,4 +28,4 @@ EXPOSE 8080
 # Run the application
 WORKDIR /app
 RUN poetry install
-CMD [ "poetry", "run", "portrait" ]
+CMD [ "poetry", "run", "sandcastle" ]

@@ -24,13 +24,13 @@ import {DefaultSolution} from '@site/src/components/Solution';
 
 ### Scanning for vulnerabilities
 
-1. Based on your knowledge about Ubuntu Portrait, find out all files listing the dependencies of the application.
+1. Based on your knowledge about Sand Castle, find out all files listing the dependencies of the application.
 2. For each of them, create an OSV-Scanner command to scan it and to output the results in a SARIF file, `/root/analysis/<listing_id>.sarif`.
 
 <DefaultSolution>
 
-1. `/root/codebase/portrait/poetry.lock`
-2. `osv-scanner --lockfile /root/codebase/portrait/poetry.lock --format sarif --output /root/analysis/pip.sarif`
+1. `/root/codebase/sandcastle/poetry.lock`
+2. `osv-scanner --lockfile /root/codebase/sandcastle/poetry.lock --format sarif --output /root/analysis/pip.sarif`
 
 </DefaultSolution>
 
@@ -48,12 +48,12 @@ import {DefaultSolution} from '@site/src/components/Solution';
 
 1. Create an OSV-Scanner configuration file in `/root/analysis/osv-scanner.conf`
 2. Specify the configuration file to the previously constructed OSV-Scanner command.
-3. Using the configuration file, ignore all vulnerabilities that don't apply for the codebase of Ubuntu Portrait. For each of them, specify the reason.
+3. Using the configuration file, ignore all vulnerabilities that don't apply for the codebase of Sand Castle. For each of them, specify the reason.
 
 <DefaultSolution>
 
 1. `touch /root/analysis/osv-scanner.conf`
-2. `osv-scanner --lockfile /root/codebase/portrait/poetry.lock --format sarif --output /root/analysis/pip.sarif`
+2. `osv-scanner --lockfile /root/codebase/sandcastle/poetry.lock --format sarif --output /root/analysis/pip.sarif`
 3. Use the next configuration:
 
     ```ini

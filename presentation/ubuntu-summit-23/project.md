@@ -187,7 +187,7 @@ private static function getCommand($opt_name)
 
 ---
 
-![height: 200px center](../../diagrams/exports/ubuntu-portrait.png)
+![height: 200px center](../../diagrams/exports/sandcastle.png)
 
 ---
 

@@ -19,15 +19,15 @@ The tools that will be used during the workshop are:
 
 For the analysed application and the above tooling, the workshop provides a Docker Compose infrastructure with the following services/containers:
 
-### Ubuntu Portrait
+### Sand Castle
 
-- **Service name**: `portrait`
-- **Description**: Demo Ubuntu Portrait instance
+- **Service name**: `sandcastle`
+- **Description**: Demo Sand Castle instance
 - **Docker Compose profiles**
-    - `portrait`
+    - `sandcastle`
     - `all`
-- **`Dockerfile` in the `oss-fortress` repository**: `portrait/Dockerfile`
-- **Hosted image**: `iosifache/oss_fortress_portrait:main` in GitHub Container Registry
+- **`Dockerfile` in the `oss-fortress` repository**: `sandcastle/Dockerfile`
+- **Hosted image**: `iosifache/oss_fortress_sandcastle:main` in GitHub Container Registry
 - **Exposed ports**: `8000` for the web UI
 - **User**: `root`
 - **Credentials**: N/A
@@ -60,7 +60,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **User**: `coder`
 - **Credentials**: `oss-fortress` as the password for authenticating in the user interface
 - **Relevant folders**
-    - `/home/coder/codebase` for the Ubuntu Portrait codebase
+    - `/home/coder/codebase` for Sand Castle's codebase
     - `/home/coder/tooling` for the tooling-related information
 
 ### Static analysers
@@ -76,7 +76,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **User**: `root`
 - **Credentials**: N/A
 - **Relevant folders**
-    - `/home/coder/codebase` for the Ubuntu Portrait codebase
+    - `/home/coder/codebase` for the Sand Castle codebase
     - `/home/coder/tooling` for the tooling-related information
 
 ### AFL++
@@ -92,7 +92,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **User**: `root`
 - **Credentials**: N/A
 - **Relevant folders**
-    - `/home/coder/codebase` for the Ubuntu Portrait codebase
+    - `/home/coder/codebase` for the Sand Castle codebase
     - `/home/coder/tooling` for the tooling-related information
 
 ### KLEE
@@ -108,7 +108,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **User**: `root`
 - **Credentials**: N/A
 - **Relevant folders**
-    - `/home/coder/codebase` for the Ubuntu Portrait codebase
+    - `/home/coder/codebase` for the Sand Castle codebase
     - `/home/coder/tooling` for the tooling-related information
 
 
@@ -116,7 +116,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 
 The below infrastructure presents the recommended workflow for analysis, using the recommended tooling and [Docker Compose services](#docker-infrastructure).
 
-_![Analysis infrastructure](/img/diagrams/analysis-infra.png)_
+_![Analysis infrastructure](/img/diagrams/analysis-infra.svg)_
 
 ## Setup
 

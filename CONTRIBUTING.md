@@ -3,7 +3,7 @@
 Any contribution that adds value to this project will undoubtedly be merged. Contribution ideas include:
 
 - Adding new tools (and, eventually, sections) to the wiki and Docker infrastructure;
-- Expanding Ubuntu Portrait's functionality and vulnerabilities; and
+- Expanding Sand Castle's functionality and vulnerabilities; and
 - Documenting existing vulnerabilities that have not yet been documented due to their limited impact:
   - Denial of service attacks; and
   - Lacking rate limitation on sensitive operations (such as login or recovery token verification).

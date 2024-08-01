@@ -35,7 +35,7 @@ import {CLISetup, WebSetup} from '@site/src/components/Setup';
 
 <DefaultSolution>
 
-1. `semgrep scan --sarif --config auto --output /root/analysis/semgrep.sarif /root/codebase/portrait`
+1. `semgrep scan --sarif --config auto --output /root/analysis/semgrep.sarif /root/codebase/sandcastle`
 2. Manual validation
 
 </DefaultSolution>
@@ -193,6 +193,6 @@ For live testing of your rules, you can also use [the Playground](https://semgre
                 - A3:2017 Sensitive Data Exposure
         ```
 
-2. `semgrep scan --sarif --config /root/analysis/semgrep-rules/ --output /root/analysis/semgrep.custom.sarif /root/codebase/portrait/portrait/`
+2. `semgrep scan --sarif --config /root/analysis/semgrep-rules/ --output /root/analysis/semgrep.custom.sarif /root/codebase/sandcastle/sandcastle/`
 
 </DefaultSolution>

@@ -19,14 +19,14 @@ import {DefaultSolution} from '@site/src/components/Solution';
 3. Fill in the details of the threat model.
 4. Create a new STRIDE diagram.
 5. Save the details of the threat model and start editing the STRIDE diagram.
-6. Use processes, stores, actors, and data flows from the left panel to model the behavior of Ubuntu Portrait. You can use [the architectural diagram](/portrait#architecture) as a starting point.
+6. Use processes, stores, actors, and data flows from the left panel to model the behavior of Sand Castle. You can use [the architectural diagram](/sandcastle#architecture) as a starting point.
 7. Use the specific elements from the left panel to draw the trust boundaries.
-8. For each component of the threat model, identify what actions an attacker can take to damage the security of Ubuntu Portrait.
+8. For each component of the threat model, identify what actions an attacker can take to damage the security of Sand Castle.
 9. For each identified threat, create a new entry by selecting the affected component and using the bottom-left panel to enter its details.
 
 <DefaultSolution>
 
-Starting from the components illustrated in [the Architecture page](/portrait#architecture), OWASP Threat Dragon and the STRIDE model were used to identify threats. They are grouped below by the functionality that enables them.
+Starting from the components illustrated in [the Architecture page](/sandcastle#architecture), OWASP Threat Dragon and the STRIDE model were used to identify threats. They are grouped below by the functionality that enables them.
 
 ![Export from OWASP Threat Dragon](/img/threat-model.png)
 

@@ -197,7 +197,7 @@ private static function getCommand($opt_name)
 
 ---
 
-![height: 300px center](images/ubuntu-portrait.png)
+![height: 300px center](images/sandcastle.png)
 
 ---
 
@@ -306,7 +306,7 @@ $ semgrep scan                              \
   --sarif                                   \
   --config ~/analysis/semgrep-rules         \
   --output ~/analysis/semgrep.custom.sarif  \
-  ~/codebase/portrait/portrait
+  ~/codebase/sandcastle/sandcastle
 ```
 
 ---
@@ -553,7 +553,7 @@ app.secret_key = (
     b"192b9bdd22ab9ed4d12e236c78afcb9a393ec15f71bbf5dc987d54727823bcbf"
 )
 
-LOG_LOCATION = "/var/log/portrait.log"
+LOG_LOCATION = "/var/log/sandcastle.log"
 
 [...]
 ```
@@ -723,22 +723,22 @@ Download a binary from [the GitHub releases](https://github.com/google/osv-scann
 
 ```bash
 $ osv-scanner                                     \
-  --lockfile ~/codebase/portrait/poetry.lock 
+  --lockfile ~/codebase/sandcastle/poetry.lock 
 ```
 
 ---
 
 ```bash
-Scanned ~/codebase/portrait/poetry.lock file and found 23 packages
-╭─────────────────────────────────────┬──────┬───────────┬──────────┬─────────┬───────────────────────────────╮
-│ OSV URL                             │ CVSS │ ECOSYSTEM │ PACKAGE  │ VERSION │ SOURCE                        │
-├─────────────────────────────────────┼──────┼───────────┼──────────┼─────────┼───────────────────────────────┤
-│ https://osv.dev/GHSA-56pw-mpj4-fxww │      │ PyPI      │ pillow   │ 9.5.0   │ codebase/portrait/poetry.lock │
-│ https://osv.dev/GHSA-j7hp-h8jx-5ppr │ 8.8  │ PyPI      │ pillow   │ 9.5.0   │ codebase/portrait/poetry.lock │
-│ https://osv.dev/PYSEC-2023-175      │      │ PyPI      │ pillow   │ 9.5.0   │ codebase/portrait/poetry.lock │
-│ https://osv.dev/GHSA-hrfv-mqp8-q5rw │ 8    │ PyPI      │ werkzeug │ 3.0.0   │ codebase/portrait/poetry.lock │
-│ https://osv.dev/PYSEC-2023-221      │      │           │          │         │                               │
-╰─────────────────────────────────────┴──────┴───────────┴──────────┴─────────┴───────────────────────────────╯
+Scanned ~/codebase/sandcastle/poetry.lock file and found 23 packages
+╭─────────────────────────────────────┬──────┬───────────┬──────────┬─────────┬─────────────────────────────────╮
+│ OSV URL                             │ CVSS │ ECOSYSTEM │ PACKAGE  │ VERSION │ SOURCE                          │
+├─────────────────────────────────────┼──────┼───────────┼──────────┼─────────┼─────────────────────────────────┤
+│ https://osv.dev/GHSA-56pw-mpj4-fxww │      │ PyPI      │ pillow   │ 9.5.0   │ codebase/sandcastle/poetry.lock │
+│ https://osv.dev/GHSA-j7hp-h8jx-5ppr │ 8.8  │ PyPI      │ pillow   │ 9.5.0   │ codebase/sandcastle/poetry.lock │
+│ https://osv.dev/PYSEC-2023-175      │      │ PyPI      │ pillow   │ 9.5.0   │ codebase/sandcastle/poetry.lock │
+│ https://osv.dev/GHSA-hrfv-mqp8-q5rw │ 8    │ PyPI      │ werkzeug │ 3.0.0   │ codebase/sandcastle/poetry.lock │
+│ https://osv.dev/PYSEC-2023-221      │      │           │          │         │                                 │
+╰─────────────────────────────────────┴──────┴───────────┴──────────┴─────────┴─────────────────────────────────╯
 ```
 
 ---
@@ -805,9 +805,9 @@ $ pip install bandit
 ---
 
 ```bash
-$ bandit                                      \
-  --recursive ~/codebase/portrait/portrait/   \
-  --format sarif                              \
+$ bandit                                          \
+  --recursive ~/codebase/sandcastle/sandcastle/   \
+  --format sarif                                  \
   --o ~/analysis/bandit.sarif
 ```
 
