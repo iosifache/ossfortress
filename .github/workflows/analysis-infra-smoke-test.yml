@@ -21,7 +21,7 @@ jobs:
         uses: hoverkraft-tech/compose-action@v2.0.1
         with:
           compose-file: "./docker-compose.yaml"
-          up-flags: "--profile all"
+          compose-flags: "--profile all"
       - name: Execute tests inside the sandcastle container
         run: docker-compose exec sandcastle "echo 'Hi'"
       - name: Execute tests inside the dragon container
