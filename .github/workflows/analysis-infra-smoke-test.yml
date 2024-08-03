@@ -1,4 +1,4 @@
-name: Tests the Docker Compose 
+name: Tests the Docker Compose infrastructure
 on:
   push:
     branches:
@@ -12,8 +12,20 @@ on:
   schedule:
     - cron: "0 0 * * *"
 jobs:
-  smoke-tes:
+  smoke-test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - name: sandcastle
+          - name: dragon
+          - name: coder
+          - name: static-analysers
+          - name: aflplusplus
+          - name: klee
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
@@ -21,16 +33,7 @@ jobs:
         uses: hoverkraft-tech/compose-action@v2.0.1
         with:
           compose-file: "./docker-compose.yaml"
-          compose-flags: "--profile all"
-      - name: Execute tests inside the sandcastle container
-        run: docker-compose exec sandcastle "echo 'Hi'"
-      - name: Execute tests inside the dragon container
-        run: docker-compose exec dragon "echo 'Hi'"
-      - name: Execute tests inside the coder container
-        run: docker-compose exec coder "echo 'Hi'"
-      - name: Execute tests inside the static-analysers container
-        run: docker-compose exec static-analysers "echo 'Hi'"
-      - name: Execute tests inside the aflplusplus container
-        run: docker-compose exec aflplusplus "echo 'Hi'"
-      - name: Execute tests inside the klee container
-        run: docker-compose exec klee "echo 'Hi'"
+          services: |
+            ${{ matrix.name }}
+      - name: Execute tests inside the container
+        run: docker-compose exec ${{ matrix.name }} "echo 'Hi'"
