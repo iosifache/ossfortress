@@ -121,11 +121,11 @@ private static function getCommand($opt_name)
 
 ---
 
-![center](../../diagrams/exports/sdlc.png)
+![center](../../others/diagrams/exports/sdlc.png)
 
 ---
 
-![center](../../diagrams/exports/software-security-model.png)
+![center](../../others/diagrams/exports/software-security-model.png)
 
 ---
 
@@ -187,11 +187,11 @@ private static function getCommand($opt_name)
 
 ---
 
-![height: 200px center](../../diagrams/exports/sandcastle.png)
+![height: 200px center](../../others/diagrams/exports/sandcastle.png)
 
 ---
 
-![center](../../diagrams/exports/analysis-infra.png)
+![center](../../others/diagrams/exports/analysis-infra.png)
 
 ---
 
