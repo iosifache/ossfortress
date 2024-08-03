@@ -26,7 +26,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **Docker Compose profiles**
     - `sandcastle`
     - `all`
-- **`Dockerfile` in the `oss-fortress` repository**: `sandcastle/Dockerfile`
+- **`Dockerfile` in the `ossfortress` repository**: `sandcastle/Dockerfile`
 - **Hosted image**: `iosifache/sandcastle:main` in GitHub Container Registry
 - **Exposed ports**: `8000` for the web UI
 - **User**: `root`
@@ -40,7 +40,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **Docker Compose profiles**
     - `threat-modelling`
     - `all`
-- **`Dockerfile` in the `oss-fortress` repository**: N/A
+- **`Dockerfile` in the `ossfortress` repository**: N/A
 - **Hosted image**: `owasp/threat-dragon:latest` in Docker Hub
 - **Exposed ports**: `8001` for the web UI
 - **User**: `root`
@@ -54,11 +54,11 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **Docker Compose profiles**
     - `threat-modelling`
     - `all`
-- **`Dockerfile` in the `oss-fortress` repository**: `tooling/coder/Dockerfile`
+- **`Dockerfile` in the `ossfortress` repository**: `tooling/coder/Dockerfile`
 - **Hosted image**: `iosifache/coder:main` in GitHub Container Registry
 - **Exposed ports**: `8002` for the web UI
 - **User**: `coder`
-- **Credentials**: `oss-fortress` as the password for authenticating in the user interface
+- **Credentials**: `ossfortress` as the password for authenticating in the user interface
 - **Relevant folders**
     - `/home/coder/codebase` for Sand Castle's codebase
     - `/home/coder/tooling` for the tooling-related information
@@ -70,7 +70,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **Docker Compose profiles**
     - `static-analysis`
     - `all`
-- **`Dockerfile` in the `oss-fortress` repository**: `tooling/static-analysers/Dockerfile`
+- **`Dockerfile` in the `ossfortress` repository**: `tooling/static-analysers/Dockerfile`
 - **Hosted image**: `iosifache/static-analysers:main` in GitHub Container Registry
 - **Exposed ports**: N/A
 - **User**: `root`
@@ -86,7 +86,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **Docker Compose profiles**
     - `dynamic-analysis`
     - `all`
-- **`Dockerfile` in the `oss-fortress` repository**: `tooling/aflplusplus/Dockerfile`
+- **`Dockerfile` in the `ossfortress` repository**: `tooling/aflplusplus/Dockerfile`
 - **Hosted image**: `iosifache/aflplusplus:main` in GitHub Container Registry
 - **Exposed ports**: N/A
 - **User**: `root`
@@ -102,7 +102,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **Docker Compose profiles**
     - `dynamic-analysis`
     - `all`
-- **`Dockerfile` in the `oss-fortress` repository**: N/A
+- **`Dockerfile` in the `ossfortress` repository**: N/A
 - **Hosted image**: `klee/klee:latest` in GitHub Container Registry
 - **Exposed ports**: N/A
 - **User**: `root`

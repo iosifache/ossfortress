@@ -17,7 +17,7 @@ At this point, you may read the ID (which is the title of the subsections) and d
 
 :::note
 
-The list of vulnerabilities is not exhaustive. Please see the [contribution guide](https://github.com/iosifache/oss_fortress/blob/main/CONTRIBUTING.md) to propose including new vulnerabilities of Sand Castle.
+The list of vulnerabilities is not exhaustive. Please see the [contribution guide](https://github.com/iosifache/ossfortress/blob/main/CONTRIBUTING.md) to propose including new vulnerabilities of Sand Castle.
 
 :::
 

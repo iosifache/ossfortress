@@ -17,7 +17,7 @@ import {SolutionsNote} from '@site/src/components/BeginnerContent';
 
 <CLISetup software="flawfinder" profile="static-analysis" container="static-analysers"/>
 
-<WebSetup software="Coder" profile="static-analysis" link="http://127.0.0.1:8002" credentials="oss-fortress"/>
+<WebSetup software="Coder" profile="static-analysis" link="http://127.0.0.1:8002" credentials="ossfortress"/>
 
 <Documentation software="flawfinder" link="https://github.com/david-a-wheeler/flawfinder#readme"/>
 

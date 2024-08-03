@@ -1,7 +1,7 @@
 FROM codercom/code-server:latest
 
 ENV DOCKER_USER=coder
-ENV PASSWORD="oss-fortress"
+ENV PASSWORD="ossfortress"
 
 WORKDIR /home/coder
 

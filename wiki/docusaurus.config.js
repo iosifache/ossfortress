@@ -20,7 +20,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'iosifache', // Usually your GitHub org/user name.
-  projectName: 'oss_fortress', // Usually your repo name.
+  projectName: 'ossfortress', // Usually your repo name.
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
@@ -68,7 +68,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/iosifache/oss_fortress',
+            href: 'https://github.com/iosifache/ossfortress',
             label: 'GitHub',
             position: 'right',
           },

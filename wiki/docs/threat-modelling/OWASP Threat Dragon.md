@@ -37,7 +37,7 @@ Starting from the components illustrated in [the Architecture page](/sandcastle#
 
 :::note
 
-The list of threats is not exhaustive. Please see [the contribution guide](https://github.com/iosifache/oss_fortress/blob/main/CONTRIBUTING.md) to propose new threats.
+The list of threats is not exhaustive. Please see [the contribution guide](https://github.com/iosifache/ossfortress/blob/main/CONTRIBUTING.md) to propose new threats.
 
 :::
 
@@ -77,7 +77,7 @@ The list of threats is not exhaustive. Please see [the contribution guide](https
 
 ### Exported threat model
 
-The OWASP Threat Dragon model is available under the repository, in [the `others/threat-model.json` JSON file](https://github.com/iosifache/oss_fortress/tree/main/others/threat-model.json).
+The OWASP Threat Dragon model is available under the repository, in [the `others/threat-model.json` JSON file](https://github.com/iosifache/ossfortress/tree/main/others/threat-model.json).
 
 <div className="yt-wrapper">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/R99il2vnZMQ?si=CuoAp7zl_GzdPAMj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

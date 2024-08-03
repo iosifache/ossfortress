@@ -20,7 +20,7 @@ import {SolutionsNote} from '@site/src/components/BeginnerContent';
 
 <CLISetup software="Bandit" profile="static-analysis" container="static-analysers"/>
 
-<WebSetup software="Coder" profile="static-analysis" link="http://127.0.0.1:8002" credentials="oss-fortress"/>
+<WebSetup software="Coder" profile="static-analysis" link="http://127.0.0.1:8002" credentials="ossfortress"/>
 
 <Documentation software="Bandit" link="https://bandit.readthedocs.io/en/latest/index.html"/>
 
