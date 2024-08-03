@@ -3,7 +3,7 @@ sidebar_position: 17
 slug: checklist
 ---
 
-<!-- Keep this content syced with presentation/project.md. -->
+<!-- Keep this content syced with presentations/project.md. -->
 
 :::note
 
