@@ -56,7 +56,7 @@ For live testing of your rules, you can also use [the Playground](https://semgre
 
 1. The vulnerabilities listed below were not detected by any technique that we've seen so far. Inspect the Semgrep documentation and write rules to catch them in the `/root/analysis/semgrep-rules` folder. The rules should have as many metadata fields filled as possible.
 
-| Vulnerability ID     | Hints on how to catch it with Semgrep                                             |
+| Vulnerability ID     | Vulnerable code to be found with the Semgrep rules                                |
 | -------------------- | --------------------------------------------------------------------------------- |
 | `VULN-SECRET-LOG`    | Calls to functions from `logging` where the parameters have sensitive names       |
 | `VULN-UID-IDOR`      | `execute_string_command` calls with dynamic arguments                             |
