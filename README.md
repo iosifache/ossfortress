@@ -83,7 +83,7 @@ You can use the resources (e.g., slides and recordings) from each as a supplemen
 
 ## Contributing
 
-Please check [`CONTRIBUTING.md`](/CONTRIBUTING.md) for further information on how you can help!
+Please check repo's [`CONTRIBUTING.md`](https://github.com/iosifache/ossfortress/blob/main/CONTRIBUTING.md) for further information on how you can help!
 
 ## Acknowledgements
 
