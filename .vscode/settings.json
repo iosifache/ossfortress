@@ -18,11 +18,13 @@
     "isort.check": true,
     "files.exclude": {
         ".git": true,
-        ".venv": true,
-        "poetry.lock": true,
-        "__pycache__": true,
+        "**/.venv": true,
+        "**/__pycache__": true,
+        "**/poetry.lock": true,
         "wiki/.docusaurus": true,
-        "wiki/node_modules": true
+        "wiki/node_modules": true,
+        "wiki/build": true,
+        "analysis/[a-zA-Z0-9]*": true
     },
     "markdown.marp.enableHtml": true,
 }
