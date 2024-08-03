@@ -1,12 +1,12 @@
 version: "2.4"
 services:
   sandcastle:
-    image: ghcr.io/iosifache/oss-fortress-sandcastle:main
+    image: ghcr.io/iosifache/sandcastle:main
     build:
-      context: oss-fortress-sandcastle
+      context: sandcastle
       network: host
       tags:
-        - "oss-fortress-sandcastle:latest"
+        - "sandcastle:latest"
     container_name: sandcastle
     ports:
       - "8000:8080"
@@ -39,12 +39,12 @@ services:
       - all
 
   coder:
-    image: ghcr.io/iosifache/oss-fortress-coder:main
+    image: ghcr.io/iosifache/coder:main
     build:
       context: tooling/coder
       tags:
-        - "oss-fortress-coder:latest"
-    container_name: oss-fortress-coder
+        - "coder:latest"
+    container_name: coder
     volumes:
       - ".:/home/coder/codebase:ro"
       - "./tooling:/home/coder/tooling:ro"
@@ -58,13 +58,13 @@ services:
       - all
 
   static-analysers:
-    image: ghcr.io/iosifache/oss-fortress-static-analysers:main
+    image: ghcr.io/iosifache/static-analysers:main
     build:
       context: tooling/static-analysers
       network: host
       tags:
-        - "oss-fortress-static-analysers:latest"
-    container_name: oss-fortress-static-analysers
+        - "static-analysers:latest"
+    container_name: static-analysers
     volumes:
       - ".:/root/codebase:ro"
       - "./.git:/root/codebase/.git:ro"
@@ -77,13 +77,13 @@ services:
       - all
 
   aflplusplus:
-    image: ghcr.io/iosifache/oss-fortress-aflplusplus:main
+    image: ghcr.io/iosifache/aflplusplus:main
     build:
       context: tooling/aflplusplus
       network: host
       tags:
-        - "oss-fortress-aflplusplus:latest"
-    container_name: oss-fortress-aflplusplus
+        - "aflplusplus:latest"
+    container_name: aflplusplus
     volumes:
       - ".:/root/codebase:ro"
       - "./tooling:/root/tooling:ro"
