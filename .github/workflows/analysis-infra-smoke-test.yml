@@ -14,23 +14,23 @@ on:
 jobs:
   smoke-tes:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        include:
-          - name: sandcastle
-          - name: dragon
-          - name: coder
-          - name: static-analysers
-          - name: aflplusplus
-          - name: klee
-    permissions:
-      contents: read
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
-      - name: Test the container
-        uses: adambirds/docker-compose-action@v1.3.0
+      - name: Test Docker Compose
+        uses: hoverkraft-tech/compose-action@v2.0.1
         with:
           compose-file: "./docker-compose.yaml"
-          test-container: ${{ matrix.name }}
-          test-command: echo 'Hi!'
+      - name: Execute tests inside the sandcastle container
+        run: docker-compose exec sandcastle "echo 'Hi'"
+      - name: Execute tests inside the dragon container
+        run: docker-compose exec dragon "echo 'Hi'"
+      - name: Execute tests inside the coder container
+        run: docker-compose exec coder "echo 'Hi'"
+      - name: Execute tests inside the static-analysers container
+        run: docker-compose exec static-analysers "echo 'Hi'"
+      - name: Execute tests inside the aflplusplus container
+        run: docker-compose exec aflplusplus "echo 'Hi'"
+      - name: Execute tests inside the klee container
+        run: docker-compose exec klee "echo 'Hi'"
+
