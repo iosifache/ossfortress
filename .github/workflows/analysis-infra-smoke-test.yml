@@ -33,4 +33,3 @@ jobs:
         run: docker-compose exec aflplusplus "echo 'Hi'"
       - name: Execute tests inside the klee container
         run: docker-compose exec klee "echo 'Hi'"
-
