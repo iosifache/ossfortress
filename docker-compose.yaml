@@ -15,7 +15,7 @@ services:
       - sandcastle
       - all
 
-  owasp_threat_dragon:
+  dragon:
     image: owasp/threat-dragon:v2.1.1
     container_name: dragon
     ports:
