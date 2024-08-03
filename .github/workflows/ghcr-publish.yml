@@ -1,8 +1,6 @@
-# See also the link below:
-# https://docs.github.com/en/actions/publishing-packages/publishing-docker-images
+# Relevant docs: https://docs.github.com/en/actions/publishing-packages/publishing-docker-images
 
-name: Create and publish a Docker images to GHCR
-
+name: Create and publish Docker images to GHCR
 on:
   push:
     branches:
@@ -11,10 +9,8 @@ on:
       - sandcastle
       - tooling
       - .github/workflows/ghcr-publish.yml
-
 env:
   REGISTRY: ghcr.io
-
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
@@ -23,9 +19,9 @@ jobs:
         include:
           - id: sandcastle
             context: sandcastle
-          - id: coder_sarif
+          - id: coder
             context: tooling/coder
-          - id: static_analysis
+          - id: static-analysis
             context: tooling/static-analysers
           - id: afplusplus
             context: tooling/aflplusplus
@@ -33,7 +29,7 @@ jobs:
       contents: read
       packages: write
     steps:
-      - name: Checkout repository
+      - name: Checkout the repository
         uses: actions/checkout@v4
       - name: Log in to the Container registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
@@ -41,12 +37,12 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Extract metadata (tags, labels) for Docker
+      - name: Extract the tag and labels for the Docker image
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: ${{ env.REGISTRY }}/${{ github.repository }}_${{ matrix.id }}
-      - name: Build and push Docker image
+          images: ${{ env.REGISTRY }}/${{ matrix.id }}
+      - name: Build and push the Docker image
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
           context: ${{ matrix.context }}

@@ -27,7 +27,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
     - `sandcastle`
     - `all`
 - **`Dockerfile` in the `oss-fortress` repository**: `sandcastle/Dockerfile`
-- **Hosted image**: `iosifache/oss_fortress_sandcastle:main` in GitHub Container Registry
+- **Hosted image**: `iosifache/sandcastle:main` in GitHub Container Registry
 - **Exposed ports**: `8000` for the web UI
 - **User**: `root`
 - **Credentials**: N/A
@@ -55,7 +55,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
     - `threat-modelling`
     - `all`
 - **`Dockerfile` in the `oss-fortress` repository**: `tooling/coder/Dockerfile`
-- **Hosted image**: `iosifache/oss_fortress_coder:main` in GitHub Container Registry
+- **Hosted image**: `iosifache/coder:main` in GitHub Container Registry
 - **Exposed ports**: `8002` for the web UI
 - **User**: `coder`
 - **Credentials**: `oss-fortress` as the password for authenticating in the user interface
@@ -71,7 +71,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
     - `static-analysis`
     - `all`
 - **`Dockerfile` in the `oss-fortress` repository**: `tooling/static-analysers/Dockerfile`
-- **Hosted image**: `iosifache/oss_fortress_static_analysers:main` in GitHub Container Registry
+- **Hosted image**: `iosifache/static-analysers:main` in GitHub Container Registry
 - **Exposed ports**: N/A
 - **User**: `root`
 - **Credentials**: N/A
@@ -87,7 +87,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
     - `dynamic-analysis`
     - `all`
 - **`Dockerfile` in the `oss-fortress` repository**: `tooling/aflplusplus/Dockerfile`
-- **Hosted image**: `iosifache/oss_fortress_aflplusplus:main` in GitHub Container Registry
+- **Hosted image**: `iosifache/aflplusplus:main` in GitHub Container Registry
 - **Exposed ports**: N/A
 - **User**: `root`
 - **Credentials**: N/A
