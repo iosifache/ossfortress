@@ -37,7 +37,7 @@ export function BeginnerPage({ children }) {
 
 export function SolutionsNote({ children }) {
     return (
-        <BeginnerContent showNothingOn="beginner" title="Hidden solutions" note="This page also proposes solutions, but you have the advanced mode enabled. Switch to the beginner mode if you want to see the solutions.">
+        <BeginnerContent showNothingOn="beginner" title="Hidden vulnerabilities' list and solutions" note="This page also details what vulnerabilities should be found and proposes solutions, but you have the advanced mode enabled. Switch to the beginner mode if you want to see them.">
             {children}
         </BeginnerContent>
     )
