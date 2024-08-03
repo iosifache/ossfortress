@@ -1,0 +1,36 @@
+name: Tests the Docker Compose 
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - sandcastle
+      - tooling
+      - .github/workflows/ghcr-publish.yml
+      - .github/workflows/analysis-infra-smoke-test.yml
+      - docker-compose.yaml
+  schedule:
+    - cron: "0 0 * * *"
+jobs:
+  smoke-tes:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - name: sandcastle
+          - name: dragon
+          - name: coder
+          - name: static-analysers
+          - name: aflplusplus
+          - name: klee
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+      - name: Test the container
+        uses: adambirds/docker-compose-action@v1.3.0
+        with:
+          compose-file: "./docker-compose.yml"
+          test-container: ${{ matrix.name }}
+          test-command: echo 'Hi!'
