@@ -9,7 +9,7 @@ import {BeginnerPage} from '@site/src/components/BeginnerContent';
 
 ## Vulnerabilities in Sand Castle
 
-Each vulnerability described in [the next section](#all-vulnerabilities) has an easy-to-remember identifier. All are short and prefixed with `UBUSEC-`. These IDs will be used to refer to a vulnerability in the workshop.
+Each vulnerability described in [the next section](#all-vulnerabilities) has an easy-to-remember identifier. All are short and prefixed with `VULN-`. These IDs will be used to refer to a vulnerability in the workshop.
 
 At this point, you may read the ID (which is the title of the subsections) and description of each vulnerability quickly. This will assist you in getting familiar with them, and don't worry, you'll learn more specifics (for example, the attack vector) when you discover each of the vulnerability using open source tools!
 
@@ -21,7 +21,7 @@ The list of vulnerabilities is not exhaustive. Please see the [contribution guid
 
 :::
 
-### `UBUSEC-HASH-LEN`
+### `VULN-HASH-LEN`
 
 - **Description**: SHA256 hash length extension attack
 - **CWEs**
@@ -31,7 +31,7 @@ The list of vulnerabilities is not exhaustive. Please see the [contribution guid
 - **Attack vector**: Unauthenticated HTTP call to `/recovery_command`
 - **Impact**: `root` account compromise and privilege escalation
 
-### `UBUSEC-FIND-CMD`
+### `VULN-FIND-CMD`
 
 - **Description**: Command sandbox escape via `find`
 - **CWEs**
@@ -41,7 +41,7 @@ The list of vulnerabilities is not exhaustive. Please see the [contribution guid
 - **Attack vector**: Authenticated HTTP call to `/command`
 - **Impact**: Arbitrary command execution as `$USER`
 
-### `UBUSEC-FLASK-DEBUG`
+### `VULN-FLASK-DEBUG`
 
 - **Description**: Enabled Flask debugging
 - **CWEs**
@@ -51,7 +51,7 @@ The list of vulnerabilities is not exhaustive. Please see the [contribution guid
 - **Attack vector**: HTTP calls
 - **Impact**: Information disclosure, and, eventually, code execution
 
-### `UBUSEC-RECOVERY-OOB`
+### `VULN-RECOVERY-OOB`
 
 - **Description**: Heap out-of-bound write when generating recovery tokens
 - **CWEs**
@@ -61,7 +61,7 @@ The list of vulnerabilities is not exhaustive. Please see the [contribution guid
 - **Attack vector**: Unauthenticated HTTP call to `/recovery_command`
 - **Impact**: Memory write and, eventually, code execution
 
-### `UBUSEC-PILLOW-OOB`
+### `VULN-PILLOW-OOB`
 
 - **Description**: Heap out-of-bound write when converting image formats with Pillow
 - **CWEs**
@@ -71,7 +71,7 @@ The list of vulnerabilities is not exhaustive. Please see the [contribution guid
 - **Attack vector**: Unauthenticated HTTP call to `/convert_image`
 - **Impact**: Memory write and, eventually, code execution
 
-### `UBUSEC-TAR-SLIP`
+### `VULN-TAR-SLIP`
 
 - **Description**: Tar slipping when extracting user-submitted archives
 - **CWEs**
@@ -81,7 +81,7 @@ The list of vulnerabilities is not exhaustive. Please see the [contribution guid
 - **Attack vector**: Authenticated HTTP call to `/upload`
 - **Impact**: Arbitrary file write
 
-### `UBUSEC-ARCHIVE-WRITE`
+### `VULN-ARCHIVE-WRITE`
 
 - **Description**: Arbitrary file write when extracting user-submitted archives
 - **CWEs**
@@ -91,7 +91,7 @@ The list of vulnerabilities is not exhaustive. Please see the [contribution guid
 - **Attack vector**: Authenticated HTTP call to `/upload`
 - **Impact**: Arbitrary file write
 
-### `UBUSEC-UID-IDOR`
+### `VULN-UID-IDOR`
 
 - **Description**: IDOR when translating usernames to UIDs
 - **CWEs**
@@ -102,7 +102,7 @@ The list of vulnerabilities is not exhaustive. Please see the [contribution guid
 - **Attack vector**: Authenticated HTTP call to `/username`
 - **Impact**: User enumeration
 
-### `UBUSEC-SECRET-LOG`
+### `VULN-SECRET-LOG`
 
 - **Description**: Credentials and tokens logging
 - **CWEs**
@@ -112,7 +112,7 @@ The list of vulnerabilities is not exhaustive. Please see the [contribution guid
 - **Attack vector**: Access to the filesystem of the web server
 - **Impact**: Accounts' compromise and, eventually, privilege escalation
 
-### `UBUSEC-LOGGING-PERMS`
+### `VULN-LOGGING-PERMS`
 
 - **Description**: Insecure permissions for created logging file
 - **CWEs**
@@ -122,7 +122,7 @@ The list of vulnerabilities is not exhaustive. Please see the [contribution guid
 - **Attack vector**: Access to the filesystem of the web server
 - **Impact**: Accounts' compromise and, eventually, privilege escalation
 
-### `UBUSEC-FLASK-SECRETS`
+### `VULN-FLASK-SECRETS`
 
 - **Description**: Default (and exposed) Flask secrets
 - **CWEs**
@@ -132,7 +132,7 @@ The list of vulnerabilities is not exhaustive. Please see the [contribution guid
 - **Attack vector**: Codebase access
 - **Impact**: Exposure of the Flask secret used by all Sand Castle instances
 
-### `UBUSEC-HTTP`
+### `VULN-HTTP`
 
 - **Description**: Lack of HTTPS
 - **CWEs**

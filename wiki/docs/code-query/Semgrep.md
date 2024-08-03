@@ -11,13 +11,13 @@ import {SolutionsNote} from '@site/src/components/BeginnerContent';
 
 <VulnsTBD>
 
-- `UBUSEC-FLASK-DEBUG`
-- `UBUSEC-TAR-SLIP`
-- `UBUSEC-LOGGING-PERMS`
-- `UBUSEC-SECRET-LOG`
-- `UBUSEC-UID-IDOR`
-- `UBUSEC-ARCHIVE-WRITE`
-- `UBUSEC-HASH-LEN`
+- `VULN-FLASK-DEBUG`
+- `VULN-TAR-SLIP`
+- `VULN-LOGGING-PERMS`
+- `VULN-SECRET-LOG`
+- `VULN-UID-IDOR`
+- `VULN-ARCHIVE-WRITE`
+- `VULN-HASH-LEN`
 
 </VulnsTBD>
 
@@ -55,10 +55,10 @@ For live testing of your rules, you can also use [the Playground](https://semgre
 
 | Vulnerability ID       | Hints on how to catch it with Semgrep                                             |
 | ---------------------- | --------------------------------------------------------------------------------- |
-| `UBUSEC-SECRET-LOG`    | Calls to functions from `logging` where the parameters have sensitive names       |
-| `UBUSEC-UID-IDOR`      | `execute_string_command` calls with dynamic arguments                             |
-| `UBUSEC-ARCHIVE-WRITE` | `os.path.join` calls where the arguments came from the parameters of the function |
-| `UBUSEC-HASH-LEN`      | `sha256_update` calls where the parameter is created by concatenation             |
+| `VULN-SECRET-LOG`    | Calls to functions from `logging` where the parameters have sensitive names       |
+| `VULN-UID-IDOR`      | `execute_string_command` calls with dynamic arguments                             |
+| `VULN-ARCHIVE-WRITE` | `os.path.join` calls where the arguments came from the parameters of the function |
+| `VULN-HASH-LEN`      | `sha256_update` calls where the parameter is created by concatenation             |
 
 2. Modify the command from the first section to use them and to save the resulting SARIF file in `/root/analysis/semgrep.custom.sarif`.
 

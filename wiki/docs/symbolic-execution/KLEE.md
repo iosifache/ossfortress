@@ -11,7 +11,7 @@ import {SolutionsNote} from '@site/src/components/BeginnerContent';
 
 <VulnsTBD>
 
-- `UBUSEC-RECOVERY-OOB`
+- `VULN-RECOVERY-OOB`
 
 </VulnsTBD>
 

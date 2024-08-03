@@ -11,10 +11,10 @@ import {SolutionsNote} from '@site/src/components/BeginnerContent';
 
 <VulnsTBD>
 
-- `UBUSEC-FIND-CMD`
-- `UBUSEC-FLASK-DEBUG`
-- `UBUSEC-LOGGING-PERMS`
-- `UBUSEC-TAR-SLIP`
+- `VULN-FIND-CMD`
+- `VULN-FLASK-DEBUG`
+- `VULN-LOGGING-PERMS`
+- `VULN-TAR-SLIP`
 
 </VulnsTBD>
 
