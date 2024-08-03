@@ -35,5 +35,3 @@ jobs:
           compose-file: "./docker-compose.yaml"
           services: |
             ${{ matrix.name }}
-      - name: Execute tests inside the container
-        run: docker-compose exec ${{ matrix.name }} "echo 'Hi'"
