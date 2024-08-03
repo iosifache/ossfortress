@@ -102,6 +102,36 @@ The list of vulnerabilities is not exhaustive. Please see the [contribution guid
 - **Attack vector**: Authenticated HTTP call to `/username`
 - **Impact**: User enumeration
 
+### `VULN-XSS`
+
+- **Description**: Two XSSes when validating if a JSON document respects a schema
+- **CWEs**
+  - CWE-79: Improper Neutralization of Input During Web Page Generation
+- **Affected component**: Web UI
+- **Vulnerable code**: Error handling in `sandcastle/app.py`'s `validate_json()`
+- **Attack vector**: Tricking users into accessing a custom-built URL
+- **Impact**: Code execution in client's browser
+
+### `VULN-SSRF`
+
+- **Description**: Arbitrary GET requests to attacker-controlled domains or addresses
+- **CWEs**
+  - CWE-918: Server-Side Request Forgery
+- **Affected component**: Web API
+- **Vulnerable code**: `validate_json()` in `sandcastle/app.py`
+- **Attack vector**: Unauthenticated HTTP call to `/validate_json`
+- **Impact**: Unauthorized resource access and proxying of malicious requests
+
+### `VULN-CSRF`
+
+- **Description**: When coupled with `VULN-XSS`, arbitrary requests made in the name of an authenticated user
+- **CWEs**
+  - CWE-352: Cross-Site Request Forgery
+- **Affected component**: Web UI
+- **Vulnerable code**: All routes in `sandcastle/app.py` (which lacks anti-CSRF tokens)
+- **Attack vector**: Tricking users into accessing a custom-built URL
+- **Impact**: Executing privileged operations in the name of the user, including code execution on the managed server
+
 ### `VULN-SECRET-LOG`
 
 - **Description**: Credentials and tokens logging

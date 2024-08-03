@@ -11,6 +11,7 @@ Flask = "^2.3.3"
 python-pam = "^2.0.2"
 six = "^1.16.0"
 pillow = "^9.5.0"
+jsonschema = "^4.23.0"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.1.0"

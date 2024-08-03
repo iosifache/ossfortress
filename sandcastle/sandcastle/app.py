@@ -1,6 +1,9 @@
 import logging
 import os
 from functools import wraps
+import json
+import requests
+from jsonschema import validate
 
 import pam
 from flask import (
@@ -118,6 +121,46 @@ def convert_image():
 
     return send_file(output_file)
 
+
+@app.route("/validate_json", methods=["POST"])
+def validate_json():
+    text_schema = request.args.get("text-schema", None)
+    remote_schema = request.args.get("remote-schema", None)
+    json_to_validate = request.args.get("json-to-validate", None)
+
+    has_schema = False
+    if text_schema:
+        has_schema = True
+        try:
+            text_schema = json.loads(text_schema)
+        except:
+            return "The provided text schema is invalid.", 400
+    if remote_schema:
+        try:
+            response = requests.get(remote_schema).text
+            text_schema = json.loads(response)
+        except json.JSONDecodeError:
+            return "The remote JSON schema cannot be decoded: " + response, 400
+        except:
+            return "The remote schema cannot be fetched or is invalid.", 400
+    elif not has_schema:
+        return "No schema was provided.", 400
+
+    if json_to_validate:
+        try:
+            json_to_validate = json.loads(json_to_validate)
+        except:
+            return "The provided JSON document is invalid.", 400 
+    else:
+        return "No JSON document to validate.", 400
+
+    try:
+        validate(instance=json_to_validate, schema=text_schema)
+    except Exception as e:
+        return str(e), 400
+
+    return "The JSON document matches the schema.", 200
+    
 
 @app.route("/dashboard")
 def dashboard():

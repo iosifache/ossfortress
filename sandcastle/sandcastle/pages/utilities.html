@@ -29,6 +29,8 @@
     <div class="row">
         <div class="col-12">
             <p class="p-heading--1">Utilities</p>
+
+            <!-- Image converter-->
             <p class="p-heading--2">Image format converter</p>
             <p>Select an image and convert its format.</p>
             <form id="image_convert_form">
@@ -48,10 +50,67 @@
                 </select>
                 <button type="submit" name="submit">Convert</button>
             </form>
+
+            <!-- JSON schema validator -->
+            <p class="p-heading--2">JSON schema validator</p>
+            <form id="json_validation_form">
+                <div>
+                    <div class="row--50-50">
+                        <div class="col">
+                            <label for="text-schema">Enter your JSON schema.</label>
+                            <textarea id="text-schema" name="text-schema" rows="5"></textarea>
+                            <label for="remote-schema">Or retrive it from an URL.</label>
+                            <input type="text" id="remote-schema" name="remote-schema">
+                        </div>
+                        <div class="col">
+                            <label for="json-to-validate">Enter the JSON data to be validated.</label>
+                            <textarea id="json-to-validate" name="json" rows="7"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" name="submit">Validate</button>
+                <button type="button" name="copy"
+                    onclick="javascript:window.navigator.clipboard.writeText(window.location.href);">Copy
+                    validation URL</button>
+                <div class="p-notification--positive hidden" id="valid-json">
+                    <div class="p-notification__content">
+                        <h5 class="p-notification__title">Valid</h5>
+                        <p class="p-notification__message">The JSON file you provide respects the JSON schema.</p>
+                    </div>
+                </div>
+                <div class="p-notification--negative hidden" id="invalid-json-or-error">
+                    <div class="p-notification__content">
+                        <h5 class="p-notification__title">Error</h5>
+                        <p class="p-notification__message">The file doesn't respect the JSON schema or an error was
+                            encountered. Check the message below:<br /><br />
+                        <div id="json-error-message"></div>
+                        </p>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 
     <script>
+        window.addEventListener('load', function () {
+            const queryString = window.location.search
+            const urlParams = new URLSearchParams(queryString)
+
+            var params = ["text-schema", "remote-schema", "json-to-validate"]
+            var has_param = false
+            params.forEach(e => {
+                value = urlParams.get(e)
+                if (value != null) {
+                    document.getElementById(e).value = value
+                    has_param = true
+                }
+            });
+
+            if (has_param) {
+                validate_json()
+            }
+        })
+
         const image_convert_form = document.getElementById('image_convert_form')
         image_convert_form.addEventListener('submit', event => {
             event.preventDefault();
@@ -70,6 +129,49 @@
                     var file = window.URL.createObjectURL(blob);
                     window.location.assign(file);
                 })
+        });
+
+        function validate_json() {
+            var text_schema = document.getElementById("text-schema").value;
+            var remote_schema = document.getElementById("remote-schema").value;
+            var json_to_validate = document.getElementById("json-to-validate").value;
+
+            url_params = new URLSearchParams({
+                "text-schema": text_schema,
+                "remote-schema": remote_schema,
+                "json-to-validate": json_to_validate
+            })
+
+            window.history.replaceState(null, null, "?" + url_params);
+
+            fetch('/validate_json?' + url_params, {
+                method: 'POST'
+            })
+                .then(response => {
+                    var element;
+                    if (response.status === 200) {
+                        will_show = document.getElementById("valid-json");
+                        will_hide = document.getElementById("invalid-json-or-error");
+                    }
+                    else {
+                        will_show = document.getElementById("invalid-json-or-error");
+                        will_hide = document.getElementById("valid-json");
+                    }
+
+                    will_show.classList.remove("hidden");
+                    will_hide.classList.add("hidden")
+
+                    return response.text()
+                })
+                .then((text) => {
+                    document.getElementById("json-error-message").innerHTML = text
+                });
+        }
+
+        const json_schema_validation = document.getElementById('json_validation_form')
+        json_schema_validation.addEventListener('submit', event => {
+            event.preventDefault();
+            validate_json();
         });
     </script>
 
