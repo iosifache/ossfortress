@@ -128,5 +128,4 @@ The infrastructure can be setup:
 
 Please ensure you have installed [Docker Engine](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/).
 
-For building the images from `Dockerfile`, use `docker-compose --profile all build`. Otherwise, you can use `docker-compose --profile all pull` to pull them. `docker-compose --profile all up` will splin up the services, but itcan use the upstream images if the build command was not ran before.
-
+For building the images from `Dockerfile`, use `docker-compose --profile all build`. Otherwise, you can use `docker-compose --profile all pull` to pull them. `docker-compose --profile all up` will splin up the services, but itcan use the upstream images if the build command was not ran before. If the build fails, try running again after setting the `DOCKER_BUILDKIT` environment variable as follows: `export DOCKER_BUILDKIT=1`.
