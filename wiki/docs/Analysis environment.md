@@ -77,8 +77,8 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **User**: `root`
 - **Credentials**: N/A
 - **Relevant folders**
-    - `/home/coder/codebase` for the Sand Castle codebase
-    - `/home/coder/tooling` for the tooling-related information
+    - `/root/codebase` for the Sand Castle codebase
+    - `/root/tooling` for the tooling-related information
     - `/root/analysis` for files resulted during the analysis of the vulnerable codebase
 
 ### AFL++
@@ -94,8 +94,8 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **User**: `root`
 - **Credentials**: N/A
 - **Relevant folders**
-    - `/home/coder/codebase` for the Sand Castle codebase
-    - `/home/coder/tooling` for the tooling-related information
+    - `/root/codebase` for the Sand Castle codebase
+    - `/root/tooling` for the tooling-related information
     - `/root/analysis` for files resulted during the analysis of the vulnerable codebase
 
 ### KLEE
@@ -111,8 +111,8 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **User**: `root`
 - **Credentials**: N/A
 - **Relevant folders**
-    - `/home/coder/codebase` for the Sand Castle codebase
-    - `/home/coder/tooling` for the tooling-related information
+    - `/root/codebase` for the Sand Castle codebase
+    - `/root/tooling` for the tooling-related information
     - `/root/analysis` for files resulted during the analysis of the vulnerable codebase
 
 ## Overview
