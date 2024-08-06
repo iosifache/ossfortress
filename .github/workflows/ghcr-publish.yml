@@ -21,9 +21,9 @@ jobs:
             context: sandcastle
           - id: coder
             context: tooling/coder
-          - id: static-analysis
+          - id: static-analysers
             context: tooling/static-analysers
-          - id: afplusplus
+          - id: aflplusplus
             context: tooling/aflplusplus
     permissions:
       contents: read
