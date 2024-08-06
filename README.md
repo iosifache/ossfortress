@@ -24,6 +24,9 @@ With this in mind, developers are advised to take a defensive posture, namely to
 
 The workshop, named "The Open Source Fortress", provides both theoretical and practical information about **detecting vulnerabilities in codebases**. It explains how each technique works, what open source tools are available, and then provides real examples.
 
+> [!CAUTION]
+> If you just want to start solving the workshop without further details, visit [this wiki page with instructions](https://ossfortress.io/guide).
+
 ### Sand Castle
 
 The examples imply the discovery of vulnerabilities in a custom, purposefully vulnerable codebase named Sand Castle. It is written in C and Python.
