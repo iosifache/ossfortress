@@ -128,4 +128,18 @@ The infrastructure can be setup:
 
 Please ensure you have installed [Docker Engine](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/).
 
-For building the images from `Dockerfile`, use `docker-compose --profile all build`. Otherwise, you can use `docker-compose --profile all pull` to pull them. `docker-compose --profile all up` will splin up the services, but itcan use the upstream images if the build command was not ran before. If the build fails, try running again after setting the `DOCKER_BUILDKIT` environment variable as follows: `export DOCKER_BUILDKIT=1`.
+:::tip
+
+On Debian-based operating systems, it's as easy as [running the convenience script](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script) and installing `docker-compose-plugin` via `apt`.
+
+:::
+
+Clone [the GitHub repository](https://github.com/iosifache/ossfortress) as follows:
+
+```bash
+git clone https://github.com/iosifache/ossfortress
+```
+
+You can use `docker-compose --profile all pull` to pull the GHCR images. Otherwise, use `docker-compose --profile all build` for building the images from scratch. If the build fails, try running again after setting the `DOCKER_BUILDKIT` environment variable as follows: `export DOCKER_BUILDKIT=1`.
+
+`docker-compose --profile all up` will spin up the services.
