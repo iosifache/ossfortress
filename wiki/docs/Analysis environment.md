@@ -62,6 +62,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **Relevant folders**
     - `/home/coder/codebase` for Sand Castle's codebase
     - `/home/coder/tooling` for the tooling-related information
+    - `/home/coder/analysis` for files resulted during the analysis of the vulnerable codebase
 
 ### Static analysers
 
@@ -78,6 +79,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **Relevant folders**
     - `/home/coder/codebase` for the Sand Castle codebase
     - `/home/coder/tooling` for the tooling-related information
+    - `/root/analysis` for files resulted during the analysis of the vulnerable codebase
 
 ### AFL++
 
@@ -94,6 +96,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **Relevant folders**
     - `/home/coder/codebase` for the Sand Castle codebase
     - `/home/coder/tooling` for the tooling-related information
+    - `/root/analysis` for files resulted during the analysis of the vulnerable codebase
 
 ### KLEE
 
@@ -110,7 +113,7 @@ For the analysed application and the above tooling, the workshop provides a Dock
 - **Relevant folders**
     - `/home/coder/codebase` for the Sand Castle codebase
     - `/home/coder/tooling` for the tooling-related information
-
+    - `/root/analysis` for files resulted during the analysis of the vulnerable codebase
 
 ## Overview
 
