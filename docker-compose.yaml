@@ -96,6 +96,7 @@ services:
   klee:
     image: klee/klee:latest
     container_name: klee
+    command: tail -f /dev/null
     ulimits:
       stack: -1
     volumes:
