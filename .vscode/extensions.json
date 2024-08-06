@@ -8,5 +8,6 @@
         "ms-python.python",
         "ms-python.vscode-pylance",
         "ms-sarifvscode.sarif-viewer",
+        "bierner.markdown-preview-github-styles",
     ]
 }
