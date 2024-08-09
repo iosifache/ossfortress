@@ -72,7 +72,7 @@ def home():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        if True: # pam.authenticate(username, password):
+        if pam.authenticate(username, password):
             uid = get_uid(username)
 
             session["user"] = username
