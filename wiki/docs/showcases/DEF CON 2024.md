@@ -10,6 +10,7 @@ toc_max_heading_level: 2
 
 - [Setup guide](/analysis-infrastructure#setup)
 - [Workshop guide](/guide)
+- [Trivia form](https://forms.gle/fzVLdf92joTBjujQ7)
 - [Patching form](https://forms.gle/bAWais2W8dNEq5iR7)
 - [Connect form](https://forms.gle/Br1WQKRYDV6gFiSh6)
 - [Feedback form](https://forms.gle/vJuR8mLDGE13Ez3m8)
