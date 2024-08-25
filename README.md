@@ -50,13 +50,13 @@ Please click the images below to view the most recent presentations used when ho
 
 #### As a talk
 
-<a href="ossfortress.io/oosc">
+<a href="https://ossfortress.io/oosc">
   <img src="https://raw.githubusercontent.com/iosifache/ossfortress/main/presentations/oosc-24/preview.png" width="400"/>
 </a>
 
 #### As a workshop
 
-<a href="ossfortress.io/defcon">
+<a href="https://ossfortress.io/defcon">
   <img src="https://raw.githubusercontent.com/iosifache/ossfortress/main/presentations/defcon-24/preview.png" width="400"/>
 </a>
 
