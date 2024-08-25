@@ -44,6 +44,22 @@ The included techniques are:
 
 [The wiki](https://ossfortress.io/) includes all the information required to complete the workshop (eventually on your own) and learn more about the provided vulnerable application and analysis infrastructure.
 
+### Presentations
+
+Please click the images below to view the most recent presentations used when hosting the content of this repository as a talk or workshop.
+
+#### As a talk
+
+<a href="ossfortress.io/oosc">
+  <img src="https://raw.githubusercontent.com/iosifache/ossfortress/main/presentations/oosc-24/preview.png" width="400"/>
+</a>
+
+#### As a workshop
+
+<a href="ossfortress.io/defcon">
+  <img src="https://raw.githubusercontent.com/iosifache/ossfortress/main/presentations/defcon-24/preview.png" width="400"/>
+</a>
+
 ### Repository
 
 [The repository](https://github.com/iosifache/ossfortress) hosts all sources related to The Open Source Fortress, starting from presentations used in talks to source code and Docker images. Its structure is as follows:
