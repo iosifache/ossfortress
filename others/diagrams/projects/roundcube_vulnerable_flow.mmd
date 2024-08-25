@@ -1,0 +1,13 @@
+%%{init: {"theme": "neutral"}}%%
+
+sequenceDiagram
+    opt Installation
+        User #1->>Roundcube: Configures the Roundcube instance.
+        Roundcube->>Internal Roundcube configuration: Stores the raw user-controlled configuration.
+    end
+
+    opt Email processing
+        User #2->>Roundcube: Send an email with a non-standard image.
+        Roundcube->>Internal Roundcube configuration: Gets the path to the conversion program.
+        Roundcube->>Roundcube: Executes rcube::exec for converting the image.
+    end
